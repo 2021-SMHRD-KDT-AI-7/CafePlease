@@ -8,7 +8,7 @@ public class hello {
 		System.out.println("강명재바보");
 		System.out.println("박현규바보");
 		System.out.println("이민솔바보");
-		System.out.println("이민수바보");
+		System.out.println("이민수는 바보 아님");
 
 		System.out.println("무야호`~~~~~");
 	}
