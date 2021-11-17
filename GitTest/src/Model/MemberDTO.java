@@ -8,14 +8,23 @@ public class MemberDTO {
 	private String m_pwd;
 	private String m_nickname;
 	private String m_gender;
-	private String m_addr;
-	private String m_phone;
 	private int m_grade;
 	private int m_point;
-	private String m_preference;
 	private Date m_joindate;
 	private String admin_yn;
 	
+	public MemberDTO(String m_id, String m_pwd, String m_nickname, String m_gender, int m_grade, int m_point,
+			Date m_joindate, String admin_yn) {
+		super();
+		this.m_id = m_id;
+		this.m_pwd = m_pwd;
+		this.m_nickname = m_nickname;
+		this.m_gender = m_gender;
+		this.m_grade = m_grade;
+		this.m_point = m_point;
+		this.m_joindate = m_joindate;
+		this.admin_yn = admin_yn;
+	}
 	public String getM_id() {
 		return m_id;
 	}
@@ -40,18 +49,6 @@ public class MemberDTO {
 	public void setM_gender(String m_gender) {
 		this.m_gender = m_gender;
 	}
-	public String getM_addr() {
-		return m_addr;
-	}
-	public void setM_addr(String m_addr) {
-		this.m_addr = m_addr;
-	}
-	public String getM_phone() {
-		return m_phone;
-	}
-	public void setM_phone(String m_phone) {
-		this.m_phone = m_phone;
-	}
 	public int getM_grade() {
 		return m_grade;
 	}
@@ -63,12 +60,6 @@ public class MemberDTO {
 	}
 	public void setM_point(int m_point) {
 		this.m_point = m_point;
-	}
-	public String getM_preference() {
-		return m_preference;
-	}
-	public void setM_preference(String m_preference) {
-		this.m_preference = m_preference;
 	}
 	public Date getM_joindate() {
 		return m_joindate;
@@ -83,8 +74,5 @@ public class MemberDTO {
 		this.admin_yn = admin_yn;
 	}
 	
-	
-	
-			
 
 }
