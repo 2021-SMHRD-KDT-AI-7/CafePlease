@@ -14,6 +14,18 @@ public class BoardDTO {
 	private String article_file2;
 	private String article_file3;
 	
+	public BoardDTO(int article_seq, String article_title, String article_content, Date article_date, int article_cnt,
+			String m_id, String article_file1, String article_file2, String article_file3) {
+		this.article_seq = article_seq;
+		this.article_title = article_title;
+		this.article_content = article_content;
+		this.article_date = article_date;
+		this.article_cnt = article_cnt;
+		this.m_id = m_id;
+		this.article_file1 = article_file1;
+		this.article_file2 = article_file2;
+		this.article_file3 = article_file3;
+	}
 	
 	public int getArticle_seq() {
 		return article_seq;

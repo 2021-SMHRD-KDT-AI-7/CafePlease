@@ -89,7 +89,7 @@ public class MemberDAO {
 				String m_nickname = rs.getString("m_nickname");
 				String m_gender = rs.getString("m_gender");
 
-				dto = new MemberDTO(m_id, m_pwd, m_nickname, m_gender);// 여기 민수형꺼 DTO따라 입력해야함
+				// 여기 민수형꺼 DTO따라 입력해야함
 			}
 
 		} catch (Exception e) {
