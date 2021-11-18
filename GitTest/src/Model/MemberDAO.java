@@ -12,7 +12,7 @@ public class MemberDAO {
 	Connection conn = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	MemberDTO dto =null;
+	MemberDTO dto = null;
 
 //==================================================필요한 전역변수들
 	public void Db_conn() { // 학원에서 준 서버연결 메소드
@@ -44,7 +44,7 @@ public class MemberDAO {
 
 	}
 
-	public int Join(String id, String pw, String nickname, String gender) {
+	public int Join(String id, String pw, String nickname, String gender) {// 회원가입 메소드
 		Db_conn();
 
 		String sql = "insert into t_member values(?,?,?,?,0,0,sysdate,N)";
@@ -90,12 +90,10 @@ public class MemberDAO {
 				int m_grade = rs.getInt("m_grade");
 				int m_point = rs.getInt("m_point");
 				Date m_joindate = rs.getDate("m_joindate");
-			    String admin_yn = rs.getString("admin_yn");
-				
-			
-			dto=new MemberDTO(m_id,m_pwd,m_nickname,m_gender, m_grade, m_point,
-					m_joindate, admin_yn);
-						// 여기 민수형꺼 DTO따라 입력해야함
+				String admin_yn = rs.getString("admin_yn");
+
+				dto = new MemberDTO(m_id, m_pwd, m_nickname, m_gender, m_grade, m_point, m_joindate, admin_yn);
+				// 여기 민수형꺼 DTO따라 입력해야함
 			}
 
 		} catch (Exception e) {
@@ -105,15 +103,14 @@ public class MemberDAO {
 		}
 		return dto;
 	}
-	
 
 	public int update(MemberDTO info) { // 회원정보수정
 		Db_conn();
 
-		String sql = "update t_member set m_pwd=?, m_nickname=?, m_gender=? where m_id = ?";
+		String sql = "update t_member set m_pwd=?, where m_id = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-	
+
 			psmt.setString(1, info.getM_pwd());
 			psmt.setString(2, info.getM_nickname());
 			psmt.setString(3, info.getM_gender());
