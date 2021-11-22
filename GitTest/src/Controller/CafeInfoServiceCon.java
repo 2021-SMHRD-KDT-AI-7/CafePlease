@@ -33,7 +33,7 @@ public class CafeInfoServiceCon extends HttpServlet {
 	
 		CafeDAO dao= new CafeDAO();
 		
-		CafeDTO inf= dao.CafeInfo(이미지);
+		CafeDTO inf= dao.cafeimg_info(이미지);
 		
 		if (inf != null) {
 			HttpSession session = request.getSession();

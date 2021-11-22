@@ -5,8 +5,8 @@ CREATE TABLE t_member
     m_id          VARCHAR2(20)     NOT NULL, 
     m_pwd         VARCHAR2(20)     NOT NULL, 
     m_nickname    VARCHAR2(20)     NOT NULL, 
-    m_gender      VARCHAR2(1)      NOT NULL, 
-    m_grade       NUMBER(12, 0)    NOT NULL, 
+    m_gender      VARCHAR2(20)      NOT NULL, 
+    m_grade       NUMBER(12, 0)    DEFAULT 0 NOT NULL,
     m_point       NUMBER(12, 0)    DEFAULT 0 NOT NULL, 
     m_joindate    DATE             DEFAULT SYSDATE NOT NULL, 
     admin_yn      VARCHAR2(1)      DEFAULT 'N' NOT NULL, 
@@ -274,7 +274,8 @@ ALTER TABLE t_cafe_img
 
 
 
-
+select * from t_member
+delete from t_member
 
 
 
@@ -290,3 +291,6 @@ where cafe_id=(select cafe_id from t_cafe_img where pic_id ='B2' ) "이미지를 넣�
 
 select pic_path from t_cafeimages
 where pic_id in (select pic_id from t_cafe_img where cafe_id ='A111') "이름을 누르면 이미지들 가져오기"
+
+insert into t_member values('gusrb','1234','현규','MALE',0,0,sysdate,'n')
+select * from T_MEMBER

@@ -13,7 +13,7 @@ public class CafeDAO {
 	CafeDTO dto = null;
 	MemberDAO dao = new MemberDAO();
 
-	public CafeDTO CafeInfo(String somehing) { // 이미지를 누르면 카페이미지를 DTO에 담아서 JSP에 표현 하기
+	public CafeDTO cafeimg_info(String somehing) { // 이미지를 누르면 카페이미지를 DTO에 담아서 JSP에 표현 하기
 
 		dao.Db_conn();
 		String sql = "select *from t_cafe where cafe_id=(select cafe_id from t_cafe_img where pic_id ='?' )"; //?에 경로가 들어 가야함! something
@@ -45,7 +45,7 @@ public class CafeDAO {
 		}
 		return dto;
 	}
-	public void CafeImg(String something) { // 카페이름을 입력하면 사진경로가 arrayList에  담겨서 줌
+	public void Cafename_img(String something) { // 카페이름을 입력하면 사진경로가 arrayList에  담겨서 줌
 		dao.Db_conn();
 		try {
 			String sql = "select pic_path from t_cafeimages where pic_id in (select pic_id from t_cafe_img where cafe_id ='?')"; // 여기 ?에는 카페 코드

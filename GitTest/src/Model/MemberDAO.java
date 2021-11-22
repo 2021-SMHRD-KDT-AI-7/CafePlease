@@ -15,10 +15,9 @@ public class MemberDAO {
 	MemberDTO dto = null;
 
 //==================================================필요한 전역변수들
-	public void Db_conn() { // 학원에서 준 서버연결 메소드
+	public void Db_conn() { // 학원에서 준 DB연결 메소드
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String DB_id = "campus_c_b_1111";
 			String DB_pw = "smhrd2";
@@ -30,7 +29,7 @@ public class MemberDAO {
 		}
 	}
 
-	public void Db_close() { // 학원 서버 연결메소드
+	public void Db_close() { // 학원 DB 연결끊는메소드
 		try {
 			if (rs != null)
 				rs.close();
@@ -44,21 +43,19 @@ public class MemberDAO {
 
 	}
 
-	public int Join(String id, String pw, String nickname, String gender) {// 회원가입 메소드
+	public int Join(String id, String pwd, String nick, String gender) {// 회원가입 메소드
 		Db_conn();
-
-		String sql = "insert into t_member values(?,?,?,?,0,0,sysdate,N)";
+		String sql = "insert into t_member values(?,?,?,?,0,0,SYSDATE,'N')";
 		try {
 			psmt = conn.prepareStatement(sql);
-
 			psmt.setString(1, id);
-			psmt.setString(2, pw);
-			psmt.setString(3, nickname);
+			psmt.setString(2, pwd);
+			psmt.setString(3, nick);
 			psmt.setString(4, gender);
 
 			cnt = psmt.executeUpdate();
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
