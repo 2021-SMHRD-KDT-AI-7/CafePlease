@@ -15,7 +15,7 @@ import Model.MemberDTO;
 
 @WebServlet("/LoginServiceCon")
 public class LoginServiceCon extends HttpServlet {
-	protected void service(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request , HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("로그인중");
 
