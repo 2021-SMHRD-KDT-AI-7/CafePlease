@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@page import="Model.BoardDTO"%>
+<%@page import="Model.BoardDAO"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
   <head>
@@ -30,6 +33,12 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-d37f"><div class="u-clearfix u-sheet u-sheet-1">
+        <!-- dao, dto, array만듬 -->
+        <%
+        	BoardDAO dao = new BoardDAO();
+        	ArrayList<BoardDTO> b_list = dao.viewBoard();
+        %>
+        
         <a href="Home.jsp" data-page-id="654928509" class="u-image u-logo u-image-1" data-image-width="1685" data-image-height="690" title="Home">
           <img src="images/_.png" class="u-logo-image u-logo-image-1">
         </a>
@@ -77,9 +86,6 @@
             <li class="u-tab-item" role="presentation">
               <a class="active u-active-custom-color-4 u-button-style u-tab-link u-tab-link-1" id="link-tab-0da5" href="#tab-0da5" role="tab" aria-controls="tab-0da5" aria-selected="true">자유게시판</a>
             </li>
-            <li class="u-tab-item" role="presentation">
-              <a class="u-active-custom-color-4 u-button-style u-tab-link u-tab-link-2" id="link-tab-2917" href="#tab-2917" role="tab" aria-controls="tab-2917" aria-selected="false">리뷰게시판</a>
-            </li>
           </ul>
           <div class="u-tab-content">
             <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
@@ -88,14 +94,10 @@
                 <h4 class="u-text u-text-default u-text-1">&lt;&lt; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; &gt;&gt;</h4>
               </div>
             </div>
-            <div class="u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-2917" role="tabpanel" aria-labelledby="link-tab-2917">
-              <div class="u-container-layout u-container-layout-2">
-                <a href="Post_input.jsp" data-page-id="7275902" class="u-border-none u-btn u-button-style u-none u-text-custom-color-2 u-btn-2">리뷰 작성하기</a>
-                <h4 class="u-text u-text-default u-text-2">&lt;&lt; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; &gt;&gt;</h4>
-              </div>
-            </div>
           </div>
         </div>
+        
+        <!-- 자유게시판 table 시작 -->
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           <table class="u-table-entity">
             <colgroup>
@@ -111,64 +113,22 @@
                 <th class="u-border-1 u-border-white u-table-cell">내용</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성일</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성자</th>
-                <th class="u-border-1 u-border-white u-table-cell">좋아요</th>
+                <th class="u-border-1 u-border-white u-table-cell">글 조회수</th>
               </tr>
             </thead>
+            <% for(int i = 0; i < b_list.size(); i++) { %>
             <tbody class="u-align-center u-table-alt-white u-table-body">
               <tr style="height: 75px;">
-                <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-6">1</td>
+                <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-6"><%= i+1 %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell">
-                  <a href="View_post.jsp" data-page-id="1476824093" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-6 u-text-black u-text-hover-custom-color-6 u-btn-3">Description</a>
+                  <a href="View_post.jsp?num=<%= b_list.get(i).getArticle_seq() %>"data-page-id="1476824093" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-6 u-text-black u-text-hover-custom-color-6 u-btn-3"><%= b_list.get(i).getArticle_title() %> ></a>
                 </td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">2021.05.10</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">15</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-11">2</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">
-                  <a href="View_post.jsp" data-page-id="1476824093" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-text-hover-custom-color-4 u-btn-4">Description</a>
-                </td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"> 2021.05.10</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">20</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-              </tr>
-              <tr style="height: 77px;">
-                <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-16">3</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"> 2021.05.10</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">3</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-21">4</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"> 2021.05.10</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">0</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-5 u-grey-5 u-table-cell u-table-cell-26">5</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">2021.11.18</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">2</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-5 u-grey-5 u-table-cell u-table-cell-31">6</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-5 u-grey-5 u-table-cell u-table-cell-36">7</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"></td>
+                <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_date() %></td>
+                <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getM_id() %></td>
+                <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_cnt() %></td>
               </tr>
             </tbody>
+            <% } %>
           </table>
         </div>
       </div>
