@@ -32,7 +32,8 @@
     <style type="text/css">
     	#cate{
     		margin-bottom: 50px;
-    		text-align: center;
+    		margin-left: 250px;
+    		
     	}
  		#bar{
  			margin-top: 50px;
@@ -180,11 +181,11 @@
                   
                     <!-- 사진 버튼 (외부,내부,음료...) -->
                   	<div id="cate">
-                  	<button class="u-border-1 u-border-custom-color-2 u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All Photo</button>
-                  	 <button class="u-border-1 u-border-custom-color-2 u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4"  > out side</button>
-                  	<button class="u-border-1 u-border-custom-color-2 u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7">inside</button>
-                 	 <button class="u-border-1 u-border-custom-color-2 u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5"> menu</button>
-                 	 <button class="u-border-1 u-border-custom-color-2 u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6">photo zone</button>
+                  	<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All Photo</button>
+                  	 <button class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4" > out side</button>
+                  	<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7">inside</button>
+                 	 <button class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5"> menu</button>
+                 	 <button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6">photo zone</button>
                   </div>
                   <!--  사진버튼 끝 -->
                   
