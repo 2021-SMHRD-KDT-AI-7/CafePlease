@@ -17,6 +17,8 @@ public class JoinServiceCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("[JoinserviceCon]");
+		
 		request.setCharacterEncoding("utf-8"); 
 		
 		String id = request.getParameter("id");
@@ -37,10 +39,12 @@ public class JoinServiceCon extends HttpServlet {
 			request.setAttribute("id",id); //id님 환영합니다 그런거 할때 필요없으면 삭제가능
 			path = "Home.jsp"; //성공시 가야하는 jsp이름	
 		}else {System.out.println("아 왜 실패임?");
-		    path = "Join.html"; //실패시 가야하는 jsp이름
+		    path = "Join.jsp"; //실패시 가야하는 jsp이름
 		}
-		RequestDispatcher rd = request.getRequestDispatcher(path);
-		rd.forward(request, response);
+			RequestDispatcher rd = request.getRequestDispatcher(path);
+			rd.forward(request, response);
+			//response.sendRedirect(path);
+			
 	}
 
 }

@@ -293,4 +293,7 @@ select pic_path from t_cafeimages
 where pic_id in (select pic_id from t_cafe_img where cafe_id ='A111') "이름을 누르면 이미지들 가져오기"
 
 insert into t_member values('gusrb','1234','현규','MALE',0,0,sysdate,'n')
-select * from T_MEMBER
+select * from t_member
+
+
+select * from user_tables

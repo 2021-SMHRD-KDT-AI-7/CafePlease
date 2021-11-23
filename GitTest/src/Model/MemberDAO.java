@@ -92,7 +92,6 @@ public class MemberDAO {
 				dto = new MemberDTO(m_id, m_pwd, m_nickname, m_gender, m_grade, m_point, m_joindate, admin_yn);
 				// 여기 민수형꺼 DTO따라 입력해야함
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
