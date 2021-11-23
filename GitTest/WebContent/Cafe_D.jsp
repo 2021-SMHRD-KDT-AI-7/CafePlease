@@ -93,6 +93,9 @@
         <h6 class="u-text u-text-custom-color-2 u-text-2">#기타</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-3">#충장로</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-4">#동명동</h6>
+        
+        
+        <!-- 사진 갤러리 시작 -->
         <div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-185d">
           <div class="u-gallery-inner u-gallery-inner-1" role="listbox">
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
