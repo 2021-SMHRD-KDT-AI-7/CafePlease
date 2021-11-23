@@ -81,49 +81,51 @@
 </g></svg></span>
         <h5 class="u-text u-text-custom-color-2 u-text-2">원하는 내용을 자유롭게 적어주세요 : )</h5>
         <div class="u-expanded-width u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+          
+          <!-- form 시작 -->
+          <form action="Post_inputServiceCon" method="POST" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" enctype="multipart/form-data">
+
+            <!-- 제목 -->
             <div class="u-form-group u-form-name">
               <label for="name-4c01" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="제목" id="name-4c01" name="b_title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              <input type="text" placeholder="제목" id="name-4c01" name="title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
             </div>
+            
+            <!-- 작성자 -->
             <div class="u-form-group">
               <label for="email-4c01" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="작성자" id="email-4c01" name="b_writer" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+              <input type="text" placeholder="작성자" id="email-4c01" name="writer" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
             </div>
+           
+           <!-- 내용 -->
             <div class="u-form-group u-form-message">
               <label for="message-4c01" class="u-form-control-hidden u-label"></label>
-              <textarea rows="4" cols="50" id="message-4c01" name="b_message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
+              <textarea rows="4" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
             </div>
+            
+            <!-- 초기화, 작성완료 -->
             <div class="u-align-right u-form-group u-form-submit">
-              <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">작성완료</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">초기화</a>
+              <input type="reset" value="초기화" class="u-form-control-hidden u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">
+              <a href="Post.jsp" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">작성완료</a>
+              <input type="submit" value="작성완료" class="u-form-control-hidden u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">
             </div>
-            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-            <input type="hidden" value="" name="recaptchaResponse">
-          </form>
+            
+            <!-- 파일 선택 -->
+            <div>
+            <a>최대 3개까지 업로드가 가능합니다.</a> <br>
+            <input multiple="multiple" name="fileName[]" type="file" id="email-4c01"  style="float: right;">
+            </div>
+        </form>
+        <!-- form끝 -->
+        
         </div>
-        <a href="https://nicepage.com/css-templates" class="u-border-none u-btn u-btn-round u-button-style u-grey-5 u-hover-custom-color-9 u-radius-10 u-text-custom-color-2 u-btn-2">첨부파일</a>
-        <a href="https://nicepage.com/k/portfolio-html-templates" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-4 u-hover-custom-color-4 u-radius-14 u-btn-3">초기화</a>
       </div>
     </section>
-    
-    
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-fd77"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Queen Bee Project cafe please&nbsp;<br>our team member is worker that KMJ, LMS, PHG, LMS<br>and last queen bee, KHJ<br>Thank you
         </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
-        <span>Website Design Template</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/website-builder" target="_blank">
-        <span>Website Builder</span>
-      </a>. 
-    </section>
   </body>
 </html>

@@ -297,3 +297,5 @@ select * from t_member
 
 
 select * from user_tables
+
+select * from t_board
