@@ -93,6 +93,9 @@
         <h6 class="u-text u-text-custom-color-2 u-text-2">#기타</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-3">#충장로</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-4">#동명동</h6>
+        
+        
+        <!-- 사진 갤러리 시작 -->
         <div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-185d">
           <div class="u-gallery-inner u-gallery-inner-1" role="listbox">
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
@@ -205,7 +208,8 @@
             </div>
           </div>
         </div>
-        <a href="Home.jsp#sec-a84a" data-page-id="654928509" class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-4 u-border-hover-palette-2-base u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-custom-color-4 u-text-hover-palette-2-base u-btn-2">더보기&nbsp; </a>
+        <a href="" data-page-id="more" class="more">더보기&nbsp; </a>
+        
       </div>
     </section>
     
