@@ -12,6 +12,7 @@ import Model.CafeDAO;
 import Model.CafeDTO;
 import Model.MemberDAO;
 import Model.MemberDTO;
+import Model.PicDTO;
 
 
 @WebServlet("/SearchServiceCon")
@@ -27,13 +28,16 @@ public class SearchServiceCon extends HttpServlet {
 		//=======	
 		CafeDAO dao = new CafeDAO();
 		CafeDTO inf = dao.Cafesearch(search_cafe);
+		PicDTO dtoa = dao.InfoPic(search_cafe);
 			
 		String path = null; // 경로
 
 		if(inf != null) {
 			System.out.println("좋아 찾았어");
 			HttpSession session = request.getSession();
+			HttpSession session_pic = request.getSession();			
 			session.setAttribute("inf", inf);
+			session_pic.setAttribute("pic", dtoa);			
 			path = "Cafe_Info.jsp"; // 성공시 이동경로
 		}else {
 			System.out.println("아 못찾음...");
