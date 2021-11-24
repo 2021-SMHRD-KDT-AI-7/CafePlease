@@ -20,7 +20,7 @@ public class LogoutServiceCon extends HttpServlet {
 		session.removeAttribute("info");
 		
 		System.out.println("로그아웃 성공~!!");
-		response.sendRedirect("Cafe_D.jsp");//어디로 갈지 경로 적어야함
+		response.sendRedirect("Home.jsp");//어디로 갈지 경로 적어야함
 		
 	}
 
