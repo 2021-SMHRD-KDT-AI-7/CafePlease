@@ -1,5 +1,6 @@
 package Model;
 
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ public class CafeDAO {
 	Connection conn = null;
 	ResultSet rs = null;
 	CafeDTO dto = null;
+	PicDTO dtoa = null;
 	MemberDAO dao = new MemberDAO();
 
 	public CafeDTO cafeimg_info(String img) { // 이미지를 누르면 카페이미지를 DTO에 담아서 JSP에 표현 하기
@@ -89,5 +91,40 @@ public class CafeDAO {
 			dao.Db_close();
 		}
 		return dto;
+	}
+
+	public PicDTO InfoPic(String search_cafe) { // 카페정보창에 사진 띄우는 메소드
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String DB_id = "campus_c_b_1111";
+			String DB_pw = "smhrd2";
+
+			conn = DriverManager.getConnection(url, DB_id, DB_pw);
+			
+			String sql = "select * from t_cafeimages where pic_id=(select pic_id from t_cafe_img where cafe_id=(select cafe_id from t_cafe where cafe_name=?))";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, search_cafe);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				String pic_id = rs.getString("pic_id");				
+				String pic_path = rs.getString("pic_path");
+				int pic_type = rs.getInt("pic_type");
+				java.sql.Date reg_date = rs.getDate("reg_date");
+				
+				dtoa = new PicDTO(pic_id, pic_path, pic_type, reg_date);
+				
+				System.out.println(dtoa.getPic_path());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dao.Db_close();
+		}
+		return dtoa;
 	}
 }
