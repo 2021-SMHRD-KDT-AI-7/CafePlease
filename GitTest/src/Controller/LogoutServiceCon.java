@@ -13,12 +13,14 @@ import javax.servlet.http.HttpSession;
 public class LogoutServiceCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		System.out.println("로그아웃중");
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("info");
 		
-		response.sendRedirect("");//어디로 갈지 경로 적어야함
+		System.out.println("로그아웃 성공~!!");
+		response.sendRedirect("Cafe_D.jsp");//어디로 갈지 경로 적어야함
 		
 	}
 

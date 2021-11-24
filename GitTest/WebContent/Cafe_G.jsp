@@ -75,24 +75,32 @@
         <h2 class="u-align-center u-text u-text-custom-color-2 u-text-1">청명한 가을날 가기 좋은<br>
           <span class="u-text-custom-color-5">광산구</span>에 있는 카페에요!
         </h2>
+        
+        
+        <!-- 카페이름으로 검색하는 기능 -->
         <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 10px" source="custom" name="form">
+          <form action="SearchServiceCon" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 10px" source="custom" name="form">
             <div class="u-form-group u-form-group-1">
               <label for="email-2555" class="u-form-control-hidden u-label u-label-1">Email</label>
               <input type="text" placeholder="검색하고 싶은 카페를 입력하세요" id="email-2555" name="search_cafe" class="u-border-2 u-border-grey-5 u-input u-input-rectangle u-radius-45 u-white" required="required">
             </div>
             <div class="u-align-left u-form-group u-form-submit">
-              <a href="#" class="u-active-grey-90 u-border-2 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-90 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-hover-grey-90 u-radius-50 u-btn-1">검색</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <input type="submit" value="검색" class="u-active-grey-90 u-border-2 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-90 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-hover-grey-90 u-radius-50 u-btn-1"></a>
+             <!--  <input type="submit" value="submit" class="u-form-control-hidden"> -->
             </div>
             <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
             <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
             <input type="hidden" value="" name="recaptchaResponse">
           </form>
         </div>
+        <!--  카페검색기능끝 -->
+        
         <h6 class="u-text u-text-custom-color-2 u-text-2">#첨단</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-3">#수완지구</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-4">#송정역</h6>
+       
+       
+       <!--카페갤러리기능 -->
         <div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-185d">
           <div class="u-gallery-inner u-gallery-inner-1" role="listbox">
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
@@ -205,6 +213,8 @@
             </div>
           </div>
         </div>
+        <!-- 검색 -->
+        
         <a href="Home.jsp#sec-a84a" data-page-id="654928509" class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-4 u-border-hover-palette-2-base u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-custom-color-4 u-text-hover-palette-2-base u-btn-2">더보기&nbsp;<span class="u-icon u-text-custom-color-4"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M441.156,322.876l-48.666-47.386c-3.319-3.243-8.619-3.234-11.93,0.017l-81.894,80.299V8.533 c0-4.71-3.823-8.533-8.533-8.533h-68.267c-4.71,0-8.533,3.823-8.533,8.533v347.273l-81.894-80.299    c-3.311-3.243-8.602-3.251-11.921-0.017l-48.666,47.386c-1.655,1.604-2.586,3.806-2.586,6.11c0,2.304,0.939,4.506,2.586,6.11 l179.2,174.481c1.655,1.613,3.806,2.423,5.948,2.423c2.15,0,4.292-0.811,5.956-2.423l179.2-174.481 c1.647-1.604,2.577-3.806,2.577-6.11C443.733,326.682,442.803,324.48,441.156,322.876z"></path></svg><img></span>
         </a>
       </div>
