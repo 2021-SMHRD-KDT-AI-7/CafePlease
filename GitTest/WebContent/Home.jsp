@@ -36,10 +36,13 @@
 		*{margin: 0px; padding: 0px;}
 		
 		#user_icon{
-			position: absolute;
-			bottom: 0;
-			
+		    position: relative;
+		    top: 10px;
+		    margin-right: 20px;
 		
+		}
+		#user_id{
+			margin-right:20px;
 		}
 		#logo{
 			margin-left: 70px;
@@ -67,7 +70,7 @@
 
   </head>
     
-  </head>
+
   <body class="u-body">
 
    <!-- 새로만든 헤더부분 시작 -->
@@ -79,12 +82,14 @@
                 <img src="./images/_.png" style="width: 200px;" id="logo">
             </a>
         </h4>
-          
+          <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
+            
               <div id="top_menu">
-              	<a href="My_Page.jsp" style="margin-right:50px; " ><img src="./images/user_icon.png" id="user_icon"></a>
+              <b id="user_id"> 닉네임님 환영합니다</b> 
+              	<a href="My_Page.jsp">
+              		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
               	<a href="Post.jsp" id="post">Post</a>
-              	<% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
               	<%if(info!=null){ %>
               		<a href="LogoutServiceCon" id="login">Logout</a>
               	
@@ -92,9 +97,7 @@
               	<a href="Login.jsp" id="login">Login</a>
               	<%} %>
               </div>
-              
-              
-              
+  
           </nav>
     </header>
 </div>
