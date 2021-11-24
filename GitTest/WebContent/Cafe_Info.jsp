@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@page import="Model.CafeDTO"%>    
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
   <head>
@@ -49,6 +50,7 @@
   
   
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-d37f"><div class="u-clearfix u-sheet u-sheet-1">
+        <%CafeDTO inf = (CafeDTO) session.getAttribute("inf");%>
         <a href="Home.jsp" data-page-id="654928509" class="u-image u-logo u-image-1" data-image-width="1685" data-image-height="690" title="Home">
           <img src="images/_.png" class="u-logo-image u-logo-image-1">
         </a>
@@ -104,7 +106,7 @@
                   </a>
                   
                   <a href="https://nicepage.com/k/shopping-cart-html-templates" class="u-active-none u-border-2 u-border-custom-color-4 u-btn u-btn-rectangle u-button-style u-custom-font u-heading-font u-hover-none u-none u-radius-0 u-btn-2">지도</a>
-                  <h2 class="u-text u-text-custom-color-2 u-text-1" id="cafe_name">데이오<span style="font-weight: 700;"></span>프나이트
+                  <h2 class="u-text u-text-custom-color-2 u-text-1" id="cafe_name"><%=inf.getCafe_name() %><span style="font-weight: 700;"></span>
                   </h2>
                  </div>
                  
@@ -123,7 +125,11 @@
                     </ul>
                     <div class="u-tab-content">
                       <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
-                        <div class="u-container-layout u-container-layout-2"></div>
+                        <div class="u-container-layout u-container-layout-2">
+                              <%=inf.getCafe_addr() %>
+                     		   <%=inf.getCafe_phone() %>
+                      		  <%=inf.getCafe_running_time() %>
+                        </div>
                       </div>
                       <div class="u-align-left u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-8453" role="tabpanel" aria-labelledby="link-tab-8453">
                         <div class="u-container-layout u-valign-top u-container-layout-3">

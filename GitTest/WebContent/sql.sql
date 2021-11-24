@@ -274,7 +274,7 @@ ALTER TABLE t_cafe_img
 
 
 
-select * from t_member
+select * from t_cafe
 delete from t_member
 
 
