@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@page import="Model.BoardDTO"%>
+<%@page import="Model.BoardDAO"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
   <head>
@@ -15,7 +17,7 @@
    <!-- <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script> --> 
     <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
     
     <script type="application/ld+json">{
@@ -28,8 +30,25 @@
     <meta property="og:title" content="View_post">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
+    
+    <style type="text/css">
+    	.row{
+    		margin-bottom: 10px;
+    	}
+    	
+    	.col-md-auto{
+    		margin-left: 10px;
+    	}
+    </style>
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-d37f"><div class="u-clearfix u-sheet u-sheet-1">
+        
+        <!-- dao, dto 만듬 -->
+        <%
+        	String num = request.getParameter("num");
+        	BoardDAO dao = new BoardDAO();
+        	BoardDTO dto = dao.viewOneBoard(num);
+        %>
         <a href="Home.jsp" data-page-id="654928509" class="u-image u-logo u-image-1" data-image-width="1685" data-image-height="690" title="Home">
           <img src="images/_.png" class="u-logo-image u-logo-image-1">
         </a>
@@ -87,12 +106,22 @@
             </div>
           </div>
         </div>
+        
+        <!-- 게시글 table시작 -->
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <form action="">
           <table class="u-table-entity">
             <colgroup>
               <col width="10.8%">
               <col width="89.2%">
             </colgroup>
+            <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
+  				<div class="row gx-5">
+             		<a class="btn btn-secondary btn-sm col-md-auto" href="Post.jsp" role="button">게시판</a>
+             		<input class="btn btn-secondary btn-sm col-md-auto" type="submit" value="수정">
+             	</div>
+        	</div>
+
             <thead class="u-align-center u-custom-color-2 u-table-header u-table-header-1">
               <tr style="height: 28px;">
                 <th class="u-border-1 u-border-white u-table-cell"></th>
@@ -102,53 +131,41 @@
             <tbody class="u-align-center u-table-alt-white u-table-body u-table-valign-middle">
               <tr style="height: 75px;">
                 <td class="u-border-6 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-3">글제목</td>
-                <td class="u-border-6 u-border-grey-5 u-table-cell">Description</td>
+                <td class="u-border-6 u-border-grey-5 u-table-cell"> <%= dto.getArticle_title() %> </td>
               </tr>
               <tr style="height: 76px;">
                 <td class="u-border-6 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-5">작성자</td>
-                <td class="u-border-6 u-border-grey-5 u-table-cell">Description</td>
+                <td class="u-border-6 u-border-grey-5 u-table-cell"> <%= dto.getM_id() %> </td>
               </tr>
               <tr style="height: 77px;">
-                <td class="u-border-6 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-7">작성일자</td>
-                <td class="u-border-6 u-border-grey-5 u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
                 <td class="u-border-6 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-9">내용</td>
+                <td class="u-border-6 u-border-grey-5 u-table-cell"> <%= dto.getArticle_content() %> </td>
+              </tr>
+              <tr style="height: 77px;">
+                <td class="u-border-6 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-7">다운로드</td>
                 <td class="u-border-6 u-border-grey-5 u-table-cell">
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>Description<br>
-                  <br>
+                	<a href="file/<%= dto.getArticle_file1() %>" download> 다운로드1 </a> <br>
+                	<a href="file/<%= dto.getArticle_file2() %>" download> 다운로드2 </a> <br>
+                	<a href="file/<%= dto.getArticle_file3() %>" download> 다운로드3 </a> <br>
+                	<img src="file/<%= dto.getArticle_file1() %>">
+                	<img src="file/<%= dto.getArticle_file2() %>">
+                	<img src="file/<%= dto.getArticle_file3() %>">
                 </td>
               </tr>
             </tbody>
           </table>
+         </form>
         </div>
+        <!-- 게시판 table 끝 -->
+        
       </div>
     </section>
     
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-fd77"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Queen Bee Project cafe please&nbsp;<br>our team member is worker that KMJ, LMS, PHG, LMS<br>and last queen bee, KHJ<br>Thank you
         </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/html5-template" target="_blank">
-        <span>HTML5 Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/html-website-builder" target="_blank">
-        <span>HTML Creator</span>
-      </a>. 
-    </section>
   </body>
 </html>

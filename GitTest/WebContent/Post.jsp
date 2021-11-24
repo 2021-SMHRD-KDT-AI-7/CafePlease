@@ -31,6 +31,13 @@
     <meta property="og:title" content="Post">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
+	
+	<style type="text/css">
+		#see{
+			width: 10px;
+		}
+	</style>
+	
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-d37f"><div class="u-clearfix u-sheet u-sheet-1">
         <!-- dao, dto, array만듬 -->
@@ -113,11 +120,14 @@
                 <th class="u-border-1 u-border-white u-table-cell">내용</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성일</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성자</th>
-                <th class="u-border-1 u-border-white u-table-cell">글 조회수</th>
+                <th id="see"class="u-border-1 u-border-white u-table-cell">글 조회수</th>
+                <th  class="u-border-1 u-border-white u-table-cell">삭제</th>
               </tr>
             </thead>
-            <% for(int i = 0; i < b_list.size(); i++) { %>
             <tbody class="u-align-center u-table-alt-white u-table-body">
+            
+            <!-- sql에서 게시판 작성 가져오기 시작 -->
+            <% for(int i = 0; i < b_list.size(); i++) { %>
               <tr style="height: 75px;">
                 <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-6"><%= i+1 %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell">
@@ -126,11 +136,16 @@
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_date() %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getM_id() %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_cnt() %></td>
+                <td class="u-border-1 u-border-grey-5 u-table-cell"><a href="DeleteOneServiceCon?seq_num=<%= b_list.get(i).getArticle_seq() %>">X</a></td>
               </tr>
-            </tbody>
             <% } %>
+            <!-- 끝 -->
+            
+            </tbody>
           </table>
         </div>
+        <!-- 자유게시판 끝 -->
+        
       </div>
     </section>
     
@@ -140,16 +155,5 @@
         <p class="u-small-text u-text u-text-variant u-text-1">Queen Bee Project cafe please&nbsp;<br>our team member is worker that KMJ, LMS, PHG, LMS<br>and last queen bee, KHJ<br>Thank you
         </p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/html5-template" target="_blank">
-        <span>HTML5 Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/html-website-builder" target="_blank">
-        <span>HTML Creator</span>
-      </a>. 
-    </section>
   </body>
 </html>

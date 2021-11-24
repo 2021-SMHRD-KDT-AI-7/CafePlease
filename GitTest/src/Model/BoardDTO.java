@@ -37,6 +37,15 @@ public class BoardDTO {
 		this.article_file3 = article_file3;
 	}
 
+	public BoardDTO(int article_seq, String article_title, Date article_date, int article_cnt, String m_id) {
+		super();
+		this.article_seq = article_seq;
+		this.article_title = article_title;
+		this.article_date = article_date;
+		this.article_cnt = article_cnt;
+		this.m_id = m_id;
+	}
+
 	public int getArticle_seq() {
 		return article_seq;
 	}

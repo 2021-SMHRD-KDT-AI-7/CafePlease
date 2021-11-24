@@ -100,21 +100,21 @@
            <!-- 내용 -->
             <div class="u-form-group u-form-message">
               <label for="message-4c01" class="u-form-control-hidden u-label"></label>
-              <textarea rows="4" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
+              <textarea rows="10" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
             </div>
             
             <!-- 초기화, 작성완료 -->
-            <div class="u-align-right u-form-group u-form-submit">
-              <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">초기화</a>
-              <input type="reset" value="초기화" class="u-form-control-hidden u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">
-              <a href="Post.jsp" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">작성완료</a>
-              <input type="submit" value="작성완료" class="u-form-control-hidden u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-radius-15 u-btn-1">
-            </div>
+              <input type="reset" value="초기화">
+              <input type="submit" value="작성완료"> <hr>
+
             
             <!-- 파일 선택 -->
             <div>
-            <a>최대 3개까지 업로드가 가능합니다.</a> <br>
-            <input multiple="multiple" name="fileName[]" type="file" id="email-4c01"  style="float: right;">
+            <!-- <a>최대 3개까지 업로드가 가능합니다.</a> <br> -->
+            <!-- <input multiple="multiple" name="fileName[]" type="file" id="email-4c01"  style="float: right;"> -->
+            <input name="fileName1" type="file" style="float: right;"> <br>
+            <input name="fileName2" type="file" style="float: right;"> <br>
+            <input name="fileName3" type="file" style="float: right;">
             </div>
         </form>
         <!-- form끝 -->

@@ -50,13 +50,13 @@ public class BoardDAO {
 	public int upload(BoardDTO dto) {
 		Db_conn();
 		try {
-			String sql = "insert into t_board values(t_board_seq.nextval, ?, ?, ?, ?, ?, ?, sysdate)";
+			String sql = "insert into t_board values(t_board_seq.NEXTVAL, ?, ?, sysdate, 0, ?, ?, ?, ?)";
 
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, dto.getArticle_title());
-			psmt.setString(2, dto.getM_id());
-			psmt.setString(3, dto.getArticle_content());
+			psmt.setString(2, dto.getArticle_content());
+			psmt.setString(3, dto.getM_id());
 			psmt.setString(4, dto.getArticle_file1());
 			psmt.setString(5, dto.getArticle_file2());
 			psmt.setString(6, dto.getArticle_file3());
@@ -83,15 +83,14 @@ public class BoardDAO {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				int num = rs.getInt("article_seq");
+				int article_seq = rs.getInt("article_seq");
 				String article_title = rs.getString("article_title");
-				String article_content = rs.getString("article_content");
-				String article_date = rs.getString("article_date");
+				Date article_date = rs.getDate("article_date");
 				int article_cnt = rs.getInt("article_cnt");
-//				m_id
-//				article_file1
-//				article_file2
-//				article_file3
+				String m_id = rs.getString("m_id");
+				
+				dto = new BoardDTO(article_seq, article_title, article_date, article_cnt, m_id);
+				board_list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,15 +109,15 @@ public class BoardDAO {
 			psmt.setNString(1, num);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-				int article_seq = rs.getInt("num");
+				int article_seq = rs.getInt("article_seq");
 				String article_title = rs.getString("article_title");
 				String article_content = rs.getString("article_content");
 				Date article_date = rs.getDate("article_date"); //여기 에러 뭐지
 				int article_cnt=rs.getInt("article_cnt");
 				String m_id = rs.getString("m_id");
 				String article_file1=rs.getString("article_file1");
-				String article_file2=rs.getString("article_file1");
-				String article_file3=rs.getString("article_file1");
+				String article_file2=rs.getString("article_file2");
+				String article_file3=rs.getString("article_file3");
 				dto = new BoardDTO(article_seq, article_title, article_content, article_date, article_cnt, m_id, article_file1, article_file2, article_file3);
 			}
 		} catch (Exception e) {
@@ -126,5 +125,22 @@ public class BoardDAO {
 		}finally {
 			Db_close();
 		}return dto;
+	}
+	
+	// 메시지 개별 삭제 메소드
+	public int deleteOne(String num) {
+		Db_conn();
+		try {
+			String sql = "delete from t_board where article_seq = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, num);   // num = a태그로 넘어온 메시지의 고유한 값
+			cnt = psmt.executeUpdate();
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		} return cnt;
 	}
 }

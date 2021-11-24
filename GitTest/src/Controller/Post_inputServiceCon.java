@@ -30,16 +30,19 @@ public class Post_inputServiceCon extends HttpServlet {
 		
 		MultipartRequest multi = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
 		
-		
-		
 		String article_title = multi.getParameter("title");
 		String m_id = multi.getParameter("writer");
 		String article_content = multi.getParameter("content");
-		String article_file1 = URLEncoder.encode(multi.getFilesystemName("fileName[]"), "EUC-KR");
-		String article_file2 = URLEncoder.encode(multi.getFilesystemName("fileName[]"), "EUC-KR");
-		String article_file3 = URLEncoder.encode(multi.getFilesystemName("fileName[]"), "EUC-KR");
+		String article_file1 = URLEncoder.encode(multi.getFilesystemName("fileName1"), "EUC-KR");
+		String article_file2 = URLEncoder.encode(multi.getFilesystemName("fileName2"), "EUC-KR");
+		String article_file3 = URLEncoder.encode(multi.getFilesystemName("fileName3"), "EUC-KR");
 
-		
+		System.out.println("title : " + article_title);
+		System.out.println("writer : " + m_id);
+		System.out.println("content : " + article_content);
+		System.out.println("fileName : " + article_file1);
+		System.out.println("fileName : " + article_file2);
+		System.out.println("fileName : " + article_file3);
 	
 		BoardDTO dto = new BoardDTO(article_title, article_content, m_id, article_file1, article_file2, article_file3);
 		BoardDAO dao = new BoardDAO();
