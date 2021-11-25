@@ -121,11 +121,11 @@
           </div>
           <div class="u-form-group u-form-radiobutton u-form-group-4">
             <div class="u-form-radio-button-wrapper"> 
-              <input type="radio" name="gender" value="MALE">
-              <label class="u-label" for="radiobutton">MALE</label>
+              <input type="radio" name="gender" value="Male">
+              <label class="u-label" for="radiobutton">Male</label>
               <br>
-              <input type="radio" name="gender" value="FEMALE">
-              <label class="u-label" for="radiobutton">FEMALE</label>
+              <input type="radio" name="gender" value="Female">
+              <label class="u-label" for="radiobutton">Female</label>
               <br>
             </div>
           </div>

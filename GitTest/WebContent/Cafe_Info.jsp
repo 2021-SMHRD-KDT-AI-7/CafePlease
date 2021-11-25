@@ -98,7 +98,7 @@
 <<<<<<< HEAD
 	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
 =======
-	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
+	
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 	<!-- 새로만든 헤더부분 시작 -->
 	<div style="height: 85px;">
@@ -197,7 +197,7 @@
 													<tr>
 														<td align="letf">전화번호</td>
 														<td></td>
-														<td align="left"><%=inf.getCafe_phone() %></td>
+														<td align="left"><%=inf.getCafe_pohne() %></td>
 
 													</tr>
 													<tr>

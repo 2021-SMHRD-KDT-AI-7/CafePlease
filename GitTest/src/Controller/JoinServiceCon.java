@@ -19,7 +19,7 @@ public class JoinServiceCon extends HttpServlet {
 		
 		System.out.println("[JoinserviceCon]");
 		
-		request.setCharacterEncoding("utf-8"); 
+		request.setCharacterEncoding("EUC-KR"); 
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");

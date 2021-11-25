@@ -161,7 +161,7 @@
             <div class="u-effect-fade u-gallery-item">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
                 <img class="u-back-image u-expanded" src="images/cafe1.jpg">
-              </div>
+              </div>\
               <div class="u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
