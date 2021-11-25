@@ -1,3 +1,6 @@
+<%@page import="Model.CafeImagesDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.CafeImagesDAO"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
@@ -161,15 +164,23 @@
                 <p class="u-gallery-text"></p>
               </div>
             </div>
+            
+            <%-- <%
+            CafeImagesDAO dao = new CafeImagesDAO();
+			ArrayList<CafeImagesDTO> i_list = dao.ViewImages();
+			%>
+			<% for(int i = 0; i<i_list.size(); i++){ %> --%>
+            <!-- 여기서부터 이미지를 뿌려줄 곳 -->
             <div class="u-effect-fade u-gallery-item" data-href="Cafe_Info.jsp" data-page-id="95186816">
               <div class="u-back-slide" data-image-width="828" data-image-height="827">
-                <img class="u-back-image u-expanded" src="images/cafe2.jpg">
+                <img class="u-back-image u-expanded" src="images/cafe5.jpg">
               </div>
               <div class="u-over-slide u-shading u-over-slide-2">
                 <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
               </div>
             </div>
+            <%-- <%} %> --%>
             <div class="u-effect-fade u-gallery-item">
               <div class="u-back-slide" data-image-width="828" data-image-height="822">
                 <img class="u-back-image u-expanded" src="images/cafe5.jpg">

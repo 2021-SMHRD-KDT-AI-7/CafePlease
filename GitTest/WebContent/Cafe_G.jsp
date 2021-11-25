@@ -235,6 +235,132 @@
                 <p class="u-gallery-text"></p>
               </div>
             </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-13">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-13">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-14">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-14">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-15">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-15">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-16">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-16">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-17">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-17">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-18">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-18">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-19">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-19">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-20">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-20">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-21">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-21">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-22">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-22">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-23">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-23">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-24">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-24">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-25">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-25">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-fade u-gallery-item u-gallery-item-26">
+              <div class="u-back-slide" data-image-width="828" data-image-height="823">
+                <img class="u-back-image u-expanded" src="images/cafe3.jpg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-over-slide-26">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
           </div>
         </div>
         <!-- °Ë»ö -->
