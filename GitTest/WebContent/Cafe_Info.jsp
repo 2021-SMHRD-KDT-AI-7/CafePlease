@@ -2,11 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@page import="Model.CafeDTO"%>
-<<<<<<< HEAD
 <%@page import="Model.PicDTO"%>
-=======
 <%@page import="Model.PicDTO" %>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
 <head>
@@ -88,6 +85,23 @@
 #login {
 	margin-right: 100px;
 }
+
+/*카페정보부분,  리뷰부분 */
+#tab-0410, #tab-c8f5{
+		position: absolute;
+}
+
+#tab-c8f5{
+	display: none;
+}
+/* .cafe_info{
+	margin-bottom: 100px; 
+} */
+.u-section-1 .u-gallery-1{
+	margin-top: 500px;
+}
+
+
 </style>
 </head>
 
@@ -95,11 +109,11 @@
 
 <body class="u-body">
 	<%CafeDTO inf = (CafeDTO) session.getAttribute("inf");%>
-<<<<<<< HEAD
+
 	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
-=======
+
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+
 	<!-- 새로만든 헤더부분 시작 -->
 	<div style="height: 85px;">
 		<header>
@@ -161,30 +175,24 @@
 									</h2>
 								</div>
 
-								<!-- 카페정보 -->
+								<!-- 카페정보 탭부분 -->
 								<div class="u-tab-links-align-justify u-tabs u-tabs-1">
 									<ul class="u-tab-list u-unstyled" role="tablist">
-										<li class="u-tab-item" role="presentation"><a
-											class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
+										<li class="u-tab-item" role="presentation">
+										<a class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
 											id="link-tab-0410" href="#tab-0410" role="tab"
 											aria-controls="tab-0410" aria-selected="true">카페정보</a></li>
-										<li class="u-tab-item" role="presentation"><a
-											class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-2"
-											id="link-tab-8453" href="#tab-8453" role="tab"
-											aria-controls="tab-8453" aria-selected="false">메뉴</a></li>
-										<li class="u-tab-item u-tab-item-3" role="presentation">
-											<a
-											class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
+											<a class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
 											id="link-tab-c8f5" href="#tab-c8f5" role="tab"
 											aria-controls="tab-c8f5" aria-selected="false">리뷰</a>
 										</li>
 									</ul>
+									<!-- 카페정보부분 -->
 									<div class="u-tab-content">
-										<div
-											class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1"
+										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test"
 											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
 											<div class="u-container-layout u-container-layout-2">
-												<table>
+												<table class="cafe_info">
 													<tr>
 														<td width="200px" align="letf">주소</td>
 														<td></td>
@@ -242,19 +250,19 @@
 													</p>
 													<p class="u-text u-text-3">
 														
-													</p>
+												</p>
 												</div>
 											</div>
-											<div
-												class="u-container-style u-tab-pane u-white u-tab-pane-3"
-												id="tab-c8f5" role="tabpanel"
-												aria-labelledby="link-tab-c8f5">
+											
+											<!-- 리뷰 부분   -->
+											<div class="u-container-style u-tab-pane u-white u-tab-pane-3 tab_test" id="tab-c8f5" role="tabpanel" aria-labelledby="link-tab-c8f5">
 												<div class="u-container-layout u-container-layout-4">
 													<a href="review.jsp" data-page-id="66156236"
 														class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-2 u-border-hover-palette-2-base u-btn u-button-style u-hover-none u-none u-text-custom-color-2 u-text-hover-palette-2-base u-btn-3">리뷰
 														적으러 가기 !</a>
-													<div
-														class="u-align-center u-table u-table-responsive u-table-1">
+														
+														<!-- 리뷰 테이블 -->
+													<div class="u-align-center u-table u-table-responsive u-table-1">
 														<table class="u-table-entity">
 															<colgroup>
 																<col width="5.1%">
@@ -264,66 +272,48 @@
 															</colgroup>
 															<tbody class="u-table-body">
 																<tr style="height: 46px;">
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell">번호</td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell">내용</td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell">작성자</td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell">평점</td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">번호</td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">내용</td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">작성자</td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">평점</td>
 																</tr>
 																<tr style="height: 46px;">
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
 																</tr>
 																<tr style="height: 46px;">
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td
-																		class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
 																</tr>
 															</tbody>
 														</table>
 													</div>
 												</div>
 											</div>
+									
 										</div>
 									</div>
-
+	
 
 
 
 									<!-- 카페사진들 리스트 -->
-									<div
-										class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1"
-										id="carousel-6bb4">
+									<div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-6bb4">
 
 										<!-- 사진 버튼 (외부,내부,음료...) -->
 										<div id="cate">
-											<button
-												class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All
+											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All
 												Photo</button>
-											<button
-												class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4">
+											<button class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4">
 												out side</button>
-											<button
-												class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7">inside</button>
-											<button
-												class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5">
+											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7">inside</button>
+											<button class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5">
 												menu</button>
-											<button
-												class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6">photo
+											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6">photo
 												zone</button>
 										</div>
 										<!--  사진버튼 끝 -->
@@ -486,9 +476,49 @@
 									</div>
 
 
+									<!-- 카페정보 id #tab-0410, 리뷰 id #tab-c8f5 내용부분 -->
+											
+											<script type="text/javascript">
+											/* 	var $menutab = $('.u-tab-link');  탭부분 태그 
+												$menutab.click(function() {
+													$('#tab-0410').add.Class('.u-tab-pane-3');
+													$(this).next().removeClass('.u-tab-pane-3');
+												}); */
+												
+											 	/* var $menuEle = $('.u-tab-link');  */// 탭메뉴를 변수에 지정
+											 	$('.u-tab-link').click(function() { // 탭메뉴 클릭 이벤트
+												/*     $('.u-tab-pane-1').addClass('u-tab-pane');
+												    $(this).next().removeClass('u-tab-pane'); */
+												    $('#tab-0410').hide();
+												    $('#tab-c8f5').show();
+												}); 
+												
+												 /*   $(document).ready(function(){
+											            $(".u-tab-link").click(function(){
+											                var idx = $(this).index();
+											                $(".u-tab-link").removeClass("tab_test");
+											                $(".u-tab-link").eq(idx).addClass("tab_test");
+											                $(".u-tab-content > div").hide();
+											                $(".u-tab-content > div").eq(idx).show();
+											            })
+											        }) */
+											        
+											       /*  	$(document).ready(function(){
+											          	  $(".u-tab-link").click(function(){
+											                 var idx = $(this).index();
+											                $(".u-tab-link").removeClass("tab_test");
+											                $(".u-tab-link").eq(idx).addClass("tab_test");
+											                $(".u-tab-content > div").hide();
+											                $("#tab-c8f5").eq(idx).show();
+											            })
+											        }) */
+
+											</script>
+								
 
 								</div>
 							</div>
+							
 						</div>
 					</div>
 				</div>

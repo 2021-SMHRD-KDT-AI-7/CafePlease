@@ -24,6 +24,14 @@ public class ReviewDTO {
 		this.cafe_code = cafe_code;
 	}
 	
+	public ReviewDTO(String review_content, int cafe_ratings, String m_id, Date reg_date) {
+		super();
+		this.review_content = review_content;
+		this.cafe_ratings = cafe_ratings;
+		this.m_id = m_id;
+		this.reg_date = reg_date;
+	}
+
 	public int getReview_seq() {
 		return review_seq;
 	}
