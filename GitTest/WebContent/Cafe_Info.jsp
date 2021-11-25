@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@page import="Model.CafeDTO"%>
+<%@page import="Model.PicDTO"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
 <head>
@@ -90,6 +91,7 @@
 
 <body class="u-body">
 	<%CafeDTO inf = (CafeDTO) session.getAttribute("inf");%>
+	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
 	<!-- 새로만든 헤더부분 시작 -->
 	<div style="height: 85px;">
 		<header>
@@ -174,13 +176,12 @@
 											class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1"
 											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
 											<div class="u-container-layout u-container-layout-2">
-												<table border="1">
+												<table>
 													<tr>
 														<td width="200px" align="letf">주소</td>
 														<td></td>
 														<td width="400px" align="left"><%=inf.getCafe_addr() %></td>
-														<td rowspan="9" width="300px"><img
-															src="<%=pic.getPic_path()%>"></td>
+														<td rowspan="9" width="300px"> <img src="./img/D01_01/menu01.jpg"> </td>
 													</tr>
 													<tr>
 														<td><br></td>
@@ -220,7 +221,7 @@
 
 
 												</table>
-												div>
+												<div>
 											</div>
 											<div
 												class="u-align-left u-container-style u-tab-pane u-white u-tab-pane-2"
@@ -229,24 +230,10 @@
 												<div
 													class="u-container-layout u-valign-top u-container-layout-3">
 													<p class="u-text u-text-2">
-														Sample text. Click to select the text box. Click again or
-														double click to start editing the text. Duis aute irure
-														dolor in reprehenderit in voluptate velit esse cillum
-														dolore eu fugiat nulla pariatur.<br> <br>Ut enim
-														ad minim veniam, quis nostrud exercitation ullamco laboris
-														nisi ut aliquip ex ea commodo consequat.&nbsp;Duis aute
-														irure dolor in reprehenderit in voluptate velit esse
-														cillum dolore eu fugiat nulla pariatur.
+														
 													</p>
 													<p class="u-text u-text-3">
-														Sample text. Click to select the text box. Click again or
-														double click to start editing the text. Duis aute irure
-														dolor in reprehenderit in voluptate velit esse cillum
-														dolore eu fugiat nulla pariatur.<br> <br>Ut enim
-														ad minim veniam, quis nostrud exercitation ullamco laboris
-														nisi ut aliquip ex ea commodo consequat.&nbsp;Duis aute
-														irure dolor in reprehenderit in voluptate velit esse
-														cillum dolore eu fugiat nulla pariatur.
+														
 													</p>
 												</div>
 											</div>

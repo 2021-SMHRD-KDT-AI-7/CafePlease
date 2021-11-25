@@ -282,7 +282,7 @@ select * from t_cafeimages
 insert into t_cafe values ('A111','카페현규',0103457,'7시',0.0,0.0,'현규네','졸림','n',sysdate);
 
 
-insert into t_cafe_img values ('A111','B1');
+insert into t_cafe_img values ('D01_01','D01_01_07');
 
 select *from t_cafe 
 where cafe_id=(select cafe_id from t_cafe_img where pic_id ='B2' ) "이미지를 넣으면 정보 나오게 하기"
@@ -299,3 +299,4 @@ select * from user_tables
 select * from t_board
 
 insert into t_board values(t_board_seq.NEXTVAL, 'test', 'test', sysdate, 0, 'TTT', 'test', 'test', 'test')
+
