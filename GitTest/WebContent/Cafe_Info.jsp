@@ -2,7 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@page import="Model.CafeDTO"%>
+<<<<<<< HEAD
 <%@page import="Model.PicDTO"%>
+=======
+<%@page import="Model.PicDTO" %>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
 <head>
@@ -91,7 +95,11 @@
 
 <body class="u-body">
 	<%CafeDTO inf = (CafeDTO) session.getAttribute("inf");%>
+<<<<<<< HEAD
 	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
+=======
+	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 	<!-- 새로만든 헤더부분 시작 -->
 	<div style="height: 85px;">
 		<header>

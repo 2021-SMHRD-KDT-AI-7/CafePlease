@@ -1,6 +1,9 @@
 <%@page import="Model.MemberDTO"%>
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@page import="Model.BoardDTO"%>
+<%@page import="Model.BoardDAO"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
   <head>
@@ -76,7 +79,7 @@
     
   </head>
   <body class="u-body">
-  <!-- 새로만든 헤더부분 시작 -->
+   <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
     <header>
         
@@ -105,6 +108,43 @@
     </header>
 </div>
 <!-- 새로만든 헤더부분 끝 -->
+
+		<!-- 게시판 수정 -->
+		<%
+        	// 세션에 값이 담겨있는지 체크
+        	String UserID = null;
+        	if(session.getAttribute("userID") != null){
+        		UserID = (String)session.getAttribute("userID");
+        	}
+        	if(UserID == null){
+        		PrintWriter script = response.getWriter();
+        		script.println("<script>");
+        		script.println("alert('로그인을 하세요')");
+        		script.println("location.href = 'login.jsp'");
+        		script.println("</script>");
+        	}
+        	int m_id = 0;
+        	if(request.getParameter("m_id") != null){
+        		m_id = Integer.parseInt(request.getParameter("m_id"));
+        	}
+        	if(m_id == 0){
+        		PrintWriter script = response.getWriter();
+        		script.println("<script>");
+        		script.println("alert('유효하지 않은 글 입니다.')");
+        		script.println("location.href = 'Post.jsp'");
+        		script.println("</script>");
+        	}
+        	//해당 'bbsID'에 대한 게시글을 가져온 다음 세션을 통하여 작성자 본인이 맞는지 체크한다
+    		/* Bbs bbs = new BbsDAO().getBbs(bbsID);
+    		if(!userID.equals(bbs.getUserID())){
+    			PrintWriter script = response.getWriter();
+    			script.println("<script>");
+    			script.println("alert('권한이 없습니다')");
+    			script.println("location.href='bbs.jsp'");
+    			script.println("</script>");
+    		} */
+        %>
+
     <section class="u-clearfix u-section-1" id="sec-1aeb">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h4 class="u-text u-text-custom-color-2 u-text-1">
@@ -118,7 +158,7 @@
         <div class="u-expanded-width u-form u-form-1">
           
           <!-- form 시작 -->
-          <form action="Post_inputServiceCon" method="POST" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" enctype="multipart/form-data">
+          <form action="UpdateServiceCon" method="POST" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" enctype="multipart/form-data">
 
             <!-- 제목 -->
             <div class="u-form-group u-form-name">
@@ -154,7 +194,7 @@
   				<div class="row gx-5">
 	              <!-- <input type="reset" value="초기화"> -->
 	              <input class="btn btn-secondary btn-lg col-md-auto" type="reset" value="초기화">
-	              <input class="btn btn-secondary btn-lg col-md-auto" type="submit" value="작성완료">
+	              <input class="btn btn-secondary btn-lg col-md-auto" type="submit" value="수정완료">
 	              <!-- <input type="submit" value="작성완료"> <hr> -->
 	            </div>
 	         </div>
