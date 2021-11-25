@@ -32,18 +32,18 @@
     <meta property="og:title" content="Post">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
-	
 	<style type="text/css">
-		#see{
-			width: 10px;
-		}
-			*{margin: 0px; padding: 0px;}
+	
+		*{margin: 0px; padding: 0px;}
 		
 		#user_icon{
-			position: absolute;
-			bottom: 0;
-			
+		    position: relative;
+		    top: 10px;
+		    margin-right: 20px;
 		
+		}
+		#user_id{
+			margin-right:20px;
 		}
 		#logo{
 			margin-left: 70px;
@@ -67,18 +67,15 @@
 		#login{
 			margin-right: 100px;
 		}
-		
 	</style>
-	
   </head>
   <body class="u-body">
-      <!-- dao, dto, array만듬 -->
-        <%
-        	BoardDAO dao = new BoardDAO();
-        	ArrayList<BoardDTO> b_list = dao.viewBoard();
-        %>
-  
-  <!-- 새로만든 헤더부분 시작 -->
+  <!-- dao, dto, array만듬 -->
+  <%
+   BoardDAO dao = new BoardDAO();
+   ArrayList<BoardDTO> b_list = dao.viewBoard();
+  %>
+   <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
     <header>
         
@@ -87,12 +84,14 @@
                 <img src="./images/_.png" style="width: 200px;" id="logo">
             </a>
         </h4>
-          
+          <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
+            
               <div id="top_menu">
-              	<a href="My_Page.jsp" style="margin-right:50px; " ><img src="./images/user_icon.png" id="user_icon"></a>
+              <b id="user_id"> 닉네임님 환영합니다</b> 
+              	<a href="My_Page.jsp">
+              		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
               	<a href="Post.jsp" id="post">Post</a>
-              	<% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
               	<%if(info!=null){ %>
               		<a href="LogoutServiceCon" id="login">Logout</a>
               	
@@ -100,9 +99,7 @@
               	<a href="Login.jsp" id="login">Login</a>
               	<%} %>
               </div>
-              
-              
-              
+  
           </nav>
     </header>
 </div>
@@ -132,9 +129,10 @@
             <colgroup>
               <col width="5.4%">
               <col width="45%">
-              <col width="12.7%">
-              <col width="16.8%">
-              <col width="20.09999999999999%">
+              <col width="12%">
+              <col width="16%">
+              <col width="16%">
+              <col width="5.4%">
             </colgroup>
             <thead class="u-align-center u-custom-color-2 u-table-header u-table-header-1">
               <tr style="height: 48px;">
@@ -142,8 +140,8 @@
                 <th class="u-border-1 u-border-white u-table-cell">내용</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성일</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성자</th>
-                <th id="see"class="u-border-1 u-border-white u-table-cell">글 조회수</th>
-                <th  class="u-border-1 u-border-white u-table-cell">삭제</th>
+                <th class="u-border-1 u-border-white u-table-cell">글 조회수</th>
+                <th class="u-border-1 u-border-white u-table-cell">삭제</th>
               </tr>
             </thead>
             <tbody class="u-align-center u-table-alt-white u-table-body">

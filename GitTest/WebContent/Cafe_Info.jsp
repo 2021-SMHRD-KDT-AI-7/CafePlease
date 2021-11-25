@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@page import="Model.CafeDTO"%>
+<%@page import="Model.PicDTO" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ko">
 <head>
@@ -90,6 +91,7 @@
 
 <body class="u-body">
 	<%CafeDTO inf = (CafeDTO) session.getAttribute("inf");%>
+	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 	<!-- 새로만든 헤더부분 시작 -->
 	<div style="height: 85px;">
 		<header>
