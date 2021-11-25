@@ -85,7 +85,10 @@
           <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
             
               <div id="top_menu">
-              <b id="user_id"> 닉네임님 환영합니다</b> 
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_id() %>님 환영합니다</b> 
+              <%} %>
+              
               	<a href="My_Page.jsp">
               		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
