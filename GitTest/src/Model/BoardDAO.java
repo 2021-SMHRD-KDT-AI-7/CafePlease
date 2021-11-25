@@ -14,6 +14,7 @@ public class BoardDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
+	int result = 0;
 	ResultSet rs = null;
 	BoardDTO dto = null;
 
@@ -127,7 +128,35 @@ public class BoardDAO {
 		}return dto;
 	}
 	
-	// 메시지 개별 삭제 메소드
+	// 게시판 조회수
+	public void count(String no) {
+		Db_conn();
+		int cnt = 0;
+		try {
+			String sql = "select article_cnt from t_board where article_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, no);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				cnt = rs.getInt(1);
+				cnt++;
+			}
+			
+			String sql1 = "update t_board set article_cnt = ? where article_seq = ?";
+			psmt = conn.prepareStatement(sql1);
+			psmt.setInt(1, cnt);
+			psmt.setString(2, no);
+			psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+	}
+	
+	// 게시판 개별 삭제 메소드
 	public int deleteOne(String num) {
 		Db_conn();
 		try {
@@ -145,24 +174,22 @@ public class BoardDAO {
 	}
 	
 	// 게시판 수정
-	public int rectify(BoardDTO dto) {
-		Db_conn();
-		String sql = "update t_board set article_title = ?, article_content = ?, article_date = sysdate, article_file1 = ?, article_file2 = ?, article_file3 = ? where article_seq = ?";
-		try {
-			psmt = conn.prepareStatement(sql);
-
-			psmt.setString(1, dto.getArticle_title());
-			psmt.setString(2, dto.getArticle_content());
-			psmt.setString(3, dto.getArticle_file1());
-			psmt.setString(4, dto.getArticle_file2());
-			psmt.setString(5, dto.getArticle_file3());
-			psmt.setInt(6, dto.getArticle_seq());
-			
-			return psmt.executeUpdate();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -1;
-	}
+	/*
+	 * public int rectify(BoardDTO dto) { Db_conn(); String sql =
+	 * "update t_board set article_title = ?, article_content = ?, article_date = sysdate, m_id = ?, article_file1 = ?, article_file2 = ?, article_file3 = ? where article_seq = ?"
+	 * ; try { psmt = conn.prepareStatement(sql);
+	 * 
+	 * psmt.setString(1, dto.getArticle_title()); psmt.setString(2,
+	 * dto.getArticle_content()); psmt.setString(3, dto.getM_id());
+	 * psmt.setString(4, dto.getArticle_file1()); psmt.setString(5,
+	 * dto.getArticle_file2()); psmt.setString(6, dto.getArticle_file3());
+	 * psmt.setInt(6, dto.getArticle_seq());
+	 * 
+	 * return psmt.executeUpdate();
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); } finally { Db_close(); } return
+	 * -1;
+	 * 
+	 * }
+	 */
 }

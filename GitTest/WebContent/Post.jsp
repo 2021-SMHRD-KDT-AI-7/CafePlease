@@ -70,11 +70,13 @@
 	</style>
   </head>
   <body class="u-body">
+  
   <!-- dao, dto, array만듬 -->
   <%
-   BoardDAO dao = new BoardDAO();
-   ArrayList<BoardDTO> b_list = dao.viewBoard();
+	   BoardDAO dao = new BoardDAO();
+	   ArrayList<BoardDTO> b_list = dao.viewBoard();
   %>
+  
    <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
     <header>

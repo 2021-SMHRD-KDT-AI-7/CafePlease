@@ -298,5 +298,5 @@ select * from user_tables
 
 select * from t_board
 
-insert into t_board values(t_board_seq.NEXTVAL, 'test', 'test', sysdate, 0, 'TTT', 'test', 'test', 'test')
+insert into t_board values(t_board_seq.NEXTVAL, 'test', 'test', sysdate, 0, 'test', 'test', 'test', 'test')
 
