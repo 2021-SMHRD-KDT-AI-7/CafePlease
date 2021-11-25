@@ -45,6 +45,8 @@ public class BoardDTO {
 		this.article_cnt = article_cnt;
 		this.m_id = m_id;
 	}
+	
+	
 
 	public int getArticle_seq() {
 		return article_seq;

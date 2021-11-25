@@ -106,7 +106,7 @@ public class BoardDAO {
 		try {
 			String sql = "select * from t_board where article_seq = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setNString(1, num);
+			psmt.setString(1, num);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				int article_seq = rs.getInt("article_seq");
@@ -142,5 +142,27 @@ public class BoardDAO {
 		} finally {
 			Db_close();
 		} return cnt;
+	}
+	
+	// 게시판 수정
+	public int rectify(BoardDTO dto) {
+		Db_conn();
+		String sql = "update t_board set article_title = ?, article_content = ?, article_date = sysdate, article_file1 = ?, article_file2 = ?, article_file3 = ? where article_seq = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getArticle_title());
+			psmt.setString(2, dto.getArticle_content());
+			psmt.setString(3, dto.getArticle_file1());
+			psmt.setString(4, dto.getArticle_file2());
+			psmt.setString(5, dto.getArticle_file3());
+			psmt.setInt(6, dto.getArticle_seq());
+			
+			return psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 }
