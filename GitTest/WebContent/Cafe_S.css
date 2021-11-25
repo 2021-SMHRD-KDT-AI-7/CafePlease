@@ -64,11 +64,14 @@
   grid-gap: 17px 17px;
   width: 1140px;
   margin: 80px -12px 0 auto;
+  overflow: scroll;
 }
 
 .u-section-1 .u-gallery-inner-1 {
   grid-template-columns: auto auto auto auto;
   grid-gap: 3px 3px;
+  height: inherit;
+  min-height: 150%;
 }
 
 .u-section-1 .u-gallery-item-1 {
