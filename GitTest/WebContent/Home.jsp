@@ -88,7 +88,10 @@
           <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
             
               <div id="top_menu">
-              <b id="user_id"> 닉네임님 환영합니다</b> 
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_id() %>님 환영합니다</b> 
+              <%} %>
+              
               	<a href="My_Page.jsp">
               		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
@@ -170,6 +173,7 @@
 			ArrayList<CafeImagesDTO> i_list = dao.ViewImages();
 			%>
 			<% for(int i = 0; i<i_list.size(); i++){ %> --%>
+			
             <!-- 여기서부터 이미지를 뿌려줄 곳 -->
             <div class="u-effect-fade u-gallery-item" data-href="Cafe_Info.jsp" data-page-id="95186816">
               <div class="u-back-slide" data-image-width="828" data-image-height="827">
@@ -181,6 +185,7 @@
               </div>
             </div>
             <%-- <%} %> --%>
+            
             <div class="u-effect-fade u-gallery-item">
               <div class="u-back-slide" data-image-width="828" data-image-height="822">
                 <img class="u-back-image u-expanded" src="images/cafe5.jpg">
