@@ -85,6 +85,9 @@
         	String num = request.getParameter("num");
         	BoardDAO dao = new BoardDAO();
         	BoardDTO dto = dao.viewOneBoard(num);
+        	
+        	// 조회수 count
+        	dao.count(num);
         %>
          <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
@@ -126,8 +129,8 @@
           <div class="u-tab-content">
             <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
               <div class="u-container-layout u-container-layout-1">
-                <a href="https://nicepage.cloud" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-4 u-custom-font u-heading-font u-hover-custom-color-6 u-radius-6 u-btn-1">수정</a>
-                <a href="Post.jsp" data-page-id="32994214" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-4 u-custom-font u-heading-font u-hover-custom-color-6 u-radius-6 u-btn-2"> 목록</a>
+                <!-- <a href="https://nicepage.cloud" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-4 u-custom-font u-heading-font u-hover-custom-color-6 u-radius-6 u-btn-1">수정</a>
+                <a href="Post.jsp" data-page-id="32994214" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-4 u-custom-font u-heading-font u-hover-custom-color-6 u-radius-6 u-btn-2"> 목록</a> -->
               </div>
             </div>
           </div>
@@ -144,7 +147,7 @@
             <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
   				<div class="row gx-5">
              		<a class="btn btn-secondary btn-lg col-md-auto" href="Post.jsp" role="button">게시판</a>
-             		<button class="btn btn-secondary btn-lg col-md-auto" type="submit">수정</button>
+             		<a class="btn btn-secondary btn-lg col-md-auto" href="Update.jsp" role="button">수정</a>
              	</div>
         	</div>
 
