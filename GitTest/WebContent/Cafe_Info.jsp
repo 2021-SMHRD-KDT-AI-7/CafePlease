@@ -142,7 +142,7 @@
 	   ArrayList<ReviewDTO> r_list = dao.view_review();
 	%>
 
-	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
+	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 
 
 <!-- 새로만든 헤더부분 시작 -->
@@ -191,7 +191,7 @@
 
 								<!-- 찜, 카페이름, 지도 부분 -->
 								<div id="bar">
-									<a href="jjimServiceCon?m_id=<%= info.getM_id() %>&? cafe_id=<%= inf.getCafe_id() %>"
+									<a href="jjimServiceCon?m_id=<%= info.getM_id() %>&cafe_id=<%= inf.getCafe_id() %>"
 										class="u-border-none u-btn u-button-style u-none u-text-palette-1-base u-btn-1"><span
 										class="u-icon u-icon-1"><svg class="u-svg-content"
 												viewBox="0 0 496.158 496.158" x="0px" y="0px"
