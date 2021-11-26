@@ -353,4 +353,3 @@ select * from t_review
 select avg(cafe_ratings) from t_review
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 
-select * from t_cafeimages where pic_id like 'D%'

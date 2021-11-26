@@ -18366,6 +18366,7 @@ a.pswp__share--download:hover {
 .u-gallery-item {
   position: relative;
   overflow: hidden;
+
 }
 .u-gallery-item .u-back-slide {
   width: 100%;
@@ -18373,6 +18374,7 @@ a.pswp__share--download:hover {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+
 }
 .u-back-image {
   height: 240px;
