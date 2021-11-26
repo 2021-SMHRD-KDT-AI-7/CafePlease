@@ -1,3 +1,6 @@
+<%@page import="Model.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.BoardDAO"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -180,7 +183,14 @@
 				<!-- 마이페이지 내용 시작 -->
 				<div class="u-tab-content">
 
-
+					<% BoardDAO dao = new BoardDAO(); 
+					   ArrayList<BoardDTO> p_list = new ArrayList<BoardDTO>();
+					   if(info!=null){
+						   p_list = dao.view_post(info.getM_id());
+					   }
+					%>
+						
+					
 					<div
 						class="u-align-left u-container-style u-shape-rectangle u-tab-active u-tab-pane u-tab-pane-1 active"
 						id="tab-3a42" role="tabpanel" aria-labelledby="link-tab-3a42"
@@ -198,27 +208,23 @@
 										class="u-align-center u-custom-color-2 u-table-header u-table-header-1">
 										<tr style="height: 33px;">
 											<th class="u-border-1 u-border-white u-table-cell">번호</th>
-											<th class="u-border-1 u-border-white u-table-cell">내용</th>
+											<th class="u-border-1 u-border-white u-table-cell">제목</th>
 											<th class="u-border-1 u-border-white u-table-cell">작성일</th>
-											<th class="u-border-1 u-border-white u-table-cell">댓글 수</th>
+											<th class="u-border-1 u-border-white u-table-cell">조회수</th>
+											 <th class="u-border-1 u-border-white u-table-cell">삭제</th>
 										</tr>
 									</thead>
 									<tbody class="u-align-center u-table-alt-white u-table-body">
+									<% for(int i=0; i<p_list.size(); i++){ %>
 										<tr style="height: 76px;">
-											<td
-												class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-5">1</td>
-											<td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
-											<td class="u-border-1 u-border-grey-5 u-table-cell">2021.05.10</td>
-											<td class="u-border-1 u-border-grey-5 u-table-cell">15</td>
-										</tr>
-										<tr style="height: 76px;">
-											<td
-												class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-9">2</td>
-											<td class="u-border-1 u-border-grey-5 u-table-cell">Description</td>
+											<td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-5"><%=i+1 %></td>
 											<td class="u-border-1 u-border-grey-5 u-table-cell">
-												2021.05.10</td>
-											<td class="u-border-1 u-border-grey-5 u-table-cell">20</td>
+											<a href="View_post.jsp?num=<%= p_list.get(i).getArticle_seq() %>"data-page-id="1476824093" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-6 u-text-black u-text-hover-custom-color-6 u-btn-3"><%=p_list.get(i).getArticle_title() %> ></a></td>
+											<td class="u-border-1 u-border-grey-5 u-table-cell"><%=p_list.get(i).getArticle_date() %></td>
+											<td class="u-border-1 u-border-grey-5 u-table-cell"><%=p_list.get(i).getArticle_cnt() %></td>
+											 <td class="u-border-1 u-border-grey-5 u-table-cell"><a href="DeleteOneServiceCon?seq_num=<%= p_list.get(i).getArticle_seq() %>">X</a></td>
 										</tr>
+										<%} %>
 
 									</tbody>
 								</table>
