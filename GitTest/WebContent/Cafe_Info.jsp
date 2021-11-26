@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 <%@page import="Model.jjimDTO"%>
 =======
 <%@page import="Model.CafeDAO"%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 <%@page import="Model.ReviewDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.ReviewDAO"%>
@@ -232,7 +230,7 @@
 														<td width="200px" align="letf">аж╪р</td>
 														<td></td>
 														<td width="400px" align="left"><%=inf.getCafe_addr() %></td>
-														<td rowspan="8" width="300px"> <img src="./img/D01_01/menu01.jpg" width="300px;"> </td>
+														<td rowspan="8" width="300px"> <img src=<%=pic.getPic_path() %> width="300px;"> </td>
 													</tr>
 													<tr>
 														<td><br></td>

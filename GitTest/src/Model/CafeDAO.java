@@ -103,7 +103,7 @@ public class CafeDAO {
 
 			conn = DriverManager.getConnection(url, DB_id, DB_pw);
 
-			String sql = "select * from t_cafeimages where pic_id=(select pic_id from t_cafe_img where cafe_id=(select cafe_id from t_cafe where cafe_name=?))";
+			String sql = "select * from t_cafeimages where pic_id=(select pic_id from t_cafe_img where rownum=1 and cafe_id=(select cafe_id from t_cafe where cafe_name=?))";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, search_cafe);
