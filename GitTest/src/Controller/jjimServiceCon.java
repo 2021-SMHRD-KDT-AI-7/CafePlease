@@ -29,7 +29,7 @@ public class jjimServiceCon extends HttpServlet {
 		} else {
 			System.out.println("Âò ½ÇÆÐ¤Ð¤Ð");
 		}
-		response.sendRedirect("Cafe_info");
+		response.sendRedirect("Cafe_info.jsp");
 	}
 
 }
