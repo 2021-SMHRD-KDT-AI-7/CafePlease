@@ -1,3 +1,5 @@
+<%@page import="Model.CafeDTO"%>
+<%@page import="Model.jjimDTO"%>
 <%@page import="Model.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.BoardDAO"%>
@@ -112,6 +114,7 @@
 </style>
 </head>
 <body class="u-body">
+
 	<!-- 새로만든 헤더부분 시작 -->
 	<div style="height: 85px;">
 		<header>
