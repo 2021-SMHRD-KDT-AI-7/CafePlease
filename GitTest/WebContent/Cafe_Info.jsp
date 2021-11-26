@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="Model.jjimDTO"%>
 =======
 <%@page import="Model.CafeDAO"%>
