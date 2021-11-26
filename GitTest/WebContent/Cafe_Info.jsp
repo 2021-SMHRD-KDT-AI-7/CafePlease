@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 <%@page import="Model.jjimDTO"%>
-=======
 <%@page import="Model.CafeDAO"%>
 <%@page import="Model.ReviewDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -90,23 +88,13 @@
 		}
 
 /*카페정보부분,  리뷰부분 */
-#tab-0410, #tab-c8f5{
+/* #tab-0410, #tab-c8f5{
 		position: absolute;
-}
+} */
 
 /*  #tab-c8f5{
 	display: none;
 }   */
-
-/* 전체 탭내용 클래스: .tab_test 탭내용중 처음에 보여질 내용 : .cafe_info_tab */
-.tab_test{
-	display: none;
-}
-/* 탭내용중 처음에 보여질 내용 */
-.cafe_info_tab{
-	display: inherit;
-}
-
 
  .cafe_info{
 	color: #401F00;
@@ -127,6 +115,32 @@
 }
 
 
+/* tab */
+[role='tab'] {
+	background: #fff;
+	color: black;
+}
+
+[role='tab'].active {
+	/* 활성화 스타일 */
+	background: #a37a54;
+	color: #fff;
+}
+
+/* panel */
+[role='tabpanel'] {
+	display: none;
+}
+
+[role='tabpanel'].active {
+	/* 활성화 스타일 */
+	display: block;
+}
+
+.tabs>li{
+	height: 40px;
+	font-weight: 100px;
+}
 
 </style>
 </head>
@@ -211,21 +225,21 @@
 								<!-- 카페정보 탭부분 -->
 								<div class="u-tab-links-align-justify u-tabs u-tabs-1">
 									<ul class="u-tab-list u-unstyled tabs" role="tablist">
-										<li class="u-tab-item" role="presentation" data-tab="tab-1">
-										<a class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
-											id="link-tab-0410" href="#tab-0410" role="tab"
-											aria-controls="tab-0410" aria-selected="true">카페정보</a></li>
-											<li class="u-tab-item" role="presentation" data-tab="tab-2">
-											<a class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
-											id="link-tab-c8f5" href="#tab-c8f5" role="tab"
-											aria-controls="tab-c8f5" aria-selected="false">리뷰</a>
+										<li class="u-tab-item" role="tab" id="link-tab-0410" aria-controls="tab-0410" aria-selected="true" tabindex="0"> 카페정보
+										<!-- <a class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
+											 href="#tab-0410" role="tab" aria-controls="tab-0410" aria-selected="true">카페정보</a> --></li>
+											<li class="u-tab-item" role="tab" id="link-tab-c8f5" aria-controls="tab-c8f5" aria-selected="false" tabindex="0">리뷰
+											<!-- <a class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
+											 href="#tab-c8f5" 
+											>리뷰</a> -->
 										</li>
 									</ul>
+									
 									<!-- 카페정보부분 -->
 									<div class="u-tab-content">
 										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test"
-											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
-											<div class="u-container-layout u-container-layout-2 cafe_info_tab">
+											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410" aria-hidden="false">
+											<div class="u-container-layout u-container-layout-2">
 												<table class="cafe_info" >
 													<tr>
 														<td width="200px" align="letf">주소</td>
@@ -290,7 +304,7 @@
 											
 											<!-- 리뷰 부분   -->
 											<div class="u-container-style u-tab-pane u-white u-tab-pane-3 tab_test" id="tab-c8f5" role="tabpanel" aria-labelledby="link-tab-c8f5">
-												<div class="u-container-layout u-container-layout-4">
+												<div class="u-container-layout u-container-layout-4" aria-hidden="true">
 													<a href="review.jsp" data-page-id="66156236"
 														class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-2 u-border-hover-palette-2-base u-btn u-button-style u-hover-none u-none u-text-custom-color-2 u-text-hover-palette-2-base u-btn-3">리뷰
 														적으러 가기 !</a>
