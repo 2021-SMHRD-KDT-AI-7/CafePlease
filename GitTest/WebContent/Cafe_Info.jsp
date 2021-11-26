@@ -93,6 +93,17 @@
 /*  #tab-c8f5{
 	display: none;
 }   */
+
+/* 전체 탭내용 클래스: .tab_test 탭내용중 처음에 보여질 내용 : .cafe_info_tab */
+.tab_test{
+	display: none;
+}
+/* 탭내용중 처음에 보여질 내용 */
+.cafe_info_tab{
+	display: inherit;
+}
+
+
  .cafe_info{
 	color: #401F00;
 
@@ -163,8 +174,7 @@
 <!-- 새로만든 헤더부분 끝 -->
 	<section class="u-clearfix u-section-1" id="sec-e3aa">
 		<div class="u-clearfix u-sheet u-sheet-1">
-			<div
-				class="u-clearfix u-expanded-width u-gutter-0 u-layout-spacing-top u-layout-wrap u-layout-wrap-1">
+			<div class="u-clearfix u-expanded-width u-gutter-0 u-layout-spacing-top u-layout-wrap u-layout-wrap-1">
 				<div class="u-layout">
 					<div class="u-layout-row">
 						<div
@@ -186,21 +196,22 @@
 												<path style="fill:#FFFFFF;"
 													d="M374.116,155.145c-34.799-34.8-91.223-34.8-126.022,0h-0.029c-34.801-34.8-91.224-34.8-126.023,0  c-34.801,34.8-29.783,86.842,0,126.022c31.541,41.491,89.129,109.944,126.023,109.944h0.029c36.895,0,94.481-68.453,126.022-109.944  C403.9,241.988,408.916,189.946,374.116,155.145z"></path></svg><img></span>&nbsp;
 									</a> 
-									<a href="https://nicepage.com/k/shopping-cart-html-templates"
+									<a href="map.jsp"
 										class="u-active-none u-border-2 u-border-custom-color-4 u-btn u-btn-rectangle u-button-style u-custom-font u-heading-font u-hover-none u-none u-radius-0 u-btn-2">지도</a>
 									<h2 class="u-text u-text-custom-color-2 u-text-1"
 										id="cafe_name"><%=inf.getCafe_name() %><span
 											style="font-weight: 700;"></span>
 									 </h2>
 								</div>
-
+		
 								<!-- 카페정보 탭부분 -->
 								<div class="u-tab-links-align-justify u-tabs u-tabs-1">
-									<ul class="u-tab-list u-unstyled" role="tablist">
-										<li class="u-tab-item" role="presentation">
+									<ul class="u-tab-list u-unstyled tabs" role="tablist">
+										<li class="u-tab-item" role="presentation" data-tab="tab-1">
 										<a class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
 											id="link-tab-0410" href="#tab-0410" role="tab"
 											aria-controls="tab-0410" aria-selected="true">카페정보</a></li>
+											<li class="u-tab-item" role="presentation" data-tab="tab-2">
 											<a class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
 											id="link-tab-c8f5" href="#tab-c8f5" role="tab"
 											aria-controls="tab-c8f5" aria-selected="false">리뷰</a>
@@ -210,7 +221,7 @@
 									<div class="u-tab-content">
 										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test"
 											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
-											<div class="u-container-layout u-container-layout-2">
+											<div class="u-container-layout u-container-layout-2 cafe_info_tab">
 												<table class="cafe_info" >
 													<tr>
 														<td width="200px" align="letf">주소</td>
@@ -495,39 +506,15 @@
 									<!-- 카페정보 id #tab-0410, 리뷰 id #tab-c8f5 내용부분 -->
 											
 											<script type="text/javascript">
-											/* 	var $menutab = $('.u-tab-link');  탭부분 태그 
-												$menutab.click(function() {
-													$('#tab-0410').add.Class('.u-tab-pane-3');
-													$(this).next().removeClass('.u-tab-pane-3');
-												}); */
+											/* 전체 탭내용 클래스: .tab_test 탭내용중 처음에 보여질 내용 : .cafe_info_tab */
+											
+											$(document). ready(function(){
+											
+												// 탭 클릭시
 												
-											 	/* var $menuEle = $('.u-tab-link');  */// 탭메뉴를 변수에 지정
-											 	$('.u-tab-link').click(function() { // 탭메뉴 클릭 이벤트
-												/*     $('.u-tab-pane-1').addClass('u-tab-pane');
-												    $(this).next().removeClass('u-tab-pane'); */
-												    $('#tab-0410').hide();
-												    $('#tab-c8f5').show();
-												}); 
 												
-												 /*   $(document).ready(function(){
-											            $(".u-tab-link").click(function(){
-											                var idx = $(this).index();
-											                $(".u-tab-link").removeClass("tab_test");
-											                $(".u-tab-link").eq(idx).addClass("tab_test");
-											                $(".u-tab-content > div").hide();
-											                $(".u-tab-content > div").eq(idx).show();
-											            })
-											        }) */
-											        
-											       /*  	$(document).ready(function(){
-											          	  $(".u-tab-link").click(function(){
-											                 var idx = $(this).index();
-											                $(".u-tab-link").removeClass("tab_test");
-											                $(".u-tab-link").eq(idx).addClass("tab_test");
-											                $(".u-tab-content > div").hide();
-											                $("#tab-c8f5").eq(idx).show();
-											            })
-											        }) */
+											})
+											
 
 											</script>
 								
