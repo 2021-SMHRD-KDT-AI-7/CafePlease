@@ -393,4 +393,7 @@ select * from t_cafe where cafe_name='도지커피';
 select * from T_CAFEIMAGES order by DBMS_RANDOM.VALUE
 select * from (
 				select * from t_cafeimages where pic_id like 'D%'
-				order by dbms_random.value)
+				order by dbms_random.value);
+				
+delete from T_CAFE_IMG where pic_id like 'S04_01_60';
+				
