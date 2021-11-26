@@ -76,18 +76,17 @@ image: markerImage // 마커이미지 설정
 //마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map); 
 
-//인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-var iwContent = '<div style="padding:5px;"> <a href="https://map.kakao.com/link/map/Hello World!,<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>" style="color:black" target="_blank">카페이름 들어갈 곳</a> </div>',
-iwPosition = new kakao.maps.LatLng(<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>); //인포윈도우 표시 위치입니다
+<%-- var iwContent = '<div style="padding:5px;">'<%= inf.getCafe_id() %>'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwPosition = new kakao.maps.LatLng(33.450701, 126.570667), //인포윈도우 표시 위치입니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
-//인포윈도우를 생성합니다
+//인포윈도우를 생성하고 지도에 표시합니다
 var infowindow = new kakao.maps.InfoWindow({
-	position : iwPosition, 
-	content : iwContent 
-});
-
-//마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-infowindow.open(map, marker);
+map: map, // 인포윈도우가 표시될 지도
+position : iwPosition, 
+content : iwContent,
+removable : iwRemoveable
+}); --%>
 
 </script>
 

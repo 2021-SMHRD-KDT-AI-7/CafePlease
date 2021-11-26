@@ -40,6 +40,7 @@ public class jjimDAO {
 		}
 	}
 	
+	// 찜목록 추가
 	public int jjim(jjimDTO dto) {
 		Db_conn();
 		try {
@@ -64,4 +65,22 @@ public class jjimDAO {
 		return cnt;
 	}
 	
+	// 찜목록 삭제
+	public int jjimdelete(String cafe_id) {
+		Db_conn();
+		try {
+			
+			String sql = "delect from t_jjim where cafe_id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cafe_id);
+			cnt = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return cnt;
+	}
 }

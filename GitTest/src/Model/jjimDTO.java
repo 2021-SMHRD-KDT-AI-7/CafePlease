@@ -11,6 +11,12 @@ public class jjimDTO {
 		this.cafe_id = cafe_id;
 	}
 
+	public jjimDTO(String cafe_id) {
+		super();
+		this.cafe_id = cafe_id;
+	}
+
+
 	public String getM_id() {
 		return m_id;
 	}
