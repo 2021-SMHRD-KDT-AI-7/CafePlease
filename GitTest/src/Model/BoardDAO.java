@@ -252,13 +252,22 @@ public class BoardDAO {
             // Äõ¸® ÁØºñ        	
             String sql = "update t_board set article_title = ? , article_content = ?, article_file1 = ?, article_file2 = ?, article_file3 = ? where article_seq=?";
             psmt = conn.prepareStatement(sql);
-  
+            
 			psmt.setString(1, dto.getArticle_title());
 			psmt.setString(2, dto.getArticle_content());
 			psmt.setString(3, dto.getArticle_file1());
 			psmt.setString(4, dto.getArticle_file2());
 			psmt.setString(5, dto.getArticle_file3());
 			psmt.setInt(6, dto.getArticle_seq());
+			
+            
+            System.out.println("dto test : "+dto.getArticle_seq());
+            System.out.println("dto test : "+dto.getArticle_title());
+            System.out.println("dto test : "+dto.getArticle_content());
+            System.out.println("dto test : "+dto.getArticle_file1());
+            System.out.println("dto test : "+dto.getArticle_file2());
+            System.out.println("dto test : "+dto.getArticle_file3());
+            
 
 			cnt = psmt.executeUpdate();
  

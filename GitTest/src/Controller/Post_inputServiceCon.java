@@ -33,9 +33,31 @@ public class Post_inputServiceCon extends HttpServlet {
 		String article_title = multi.getParameter("title");
 		String m_id = multi.getParameter("writer");
 		String article_content = multi.getParameter("content");
-		String article_file1 = URLEncoder.encode(multi.getFilesystemName("fileName1"), "EUC-KR");
-		String article_file2 = URLEncoder.encode(multi.getFilesystemName("fileName2"), "EUC-KR");
-		String article_file3 = URLEncoder.encode(multi.getFilesystemName("fileName3"), "EUC-KR");
+		
+		String article_file1;
+		String article_file2;
+		String article_file3;
+		if(multi.getFilesystemName("fileName1") != null) {
+			article_file1 = URLEncoder.encode(multi.getFilesystemName("fileName1"), "EUC-KR");
+	      } else {
+	    	  article_file1 ="null";
+	      }
+		
+		if(multi.getFilesystemName("fileName2") != null) {
+			article_file2 = URLEncoder.encode(multi.getFilesystemName("fileName2"), "EUC-KR");
+	      } else {
+	    	  article_file2 ="null";
+	      }
+		
+		if(multi.getFilesystemName("fileName3") != null) {
+			article_file3 = URLEncoder.encode(multi.getFilesystemName("fileName3"), "EUC-KR");
+	      } else {
+	    	  article_file3 ="null";
+	      }
+		
+//		String article_file1 = URLEncoder.encode(multi.getFilesystemName("fileName1"), "EUC-KR");
+//		String article_file2 = URLEncoder.encode(multi.getFilesystemName("fileName2"), "EUC-KR");
+//		String article_file3 = URLEncoder.encode(multi.getFilesystemName("fileName3"), "EUC-KR");
 
 		System.out.println("title : " + article_title);
 		System.out.println("writer : " + m_id);

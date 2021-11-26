@@ -153,9 +153,9 @@
   				<div class="row gx-5">
 		            <!-- <a>최대 3개까지 업로드가 가능합니다.</a> <br> -->
 		            <!-- <input multiple="multiple" name="fileName[]" type="file" id="email-4c01"  style="float: right;"> -->
-		            <input class="upfile" name="fileName1" type="file" style="float: right;"> <br>
-		            <input class="upfile" name="fileName2" type="file" style="float: right;"> <br>
-		            <input class="upfile" name="fileName3" type="file" style="float: right;">
+		            <input class="upfile" name="fileName1" type="file" style="float: right;" value="<%= dto.getArticle_file1() %>"> <br>
+		            <input class="upfile" name="fileName2" type="file" style="float: right;" value="<%= dto.getArticle_file2() %>"> <br>
+		            <input class="upfile" name="fileName3" type="file" style="float: right;" value="<%= dto.getArticle_file3() %>">
 	            	<%-- <%= dto.getArticle_file1() %>
 		            <%= dto.getArticle_file2() %>
 		            <%= dto.getArticle_file3() %> --%>

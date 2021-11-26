@@ -173,12 +173,30 @@
               <tr style="height: 77px;">
                 <td class="u-border-6 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-7">다운로드</td>
                 <td class="u-border-6 u-border-grey-5 u-table-cell">
+                <% if(dto.getArticle_file1() != null) { %>
                 	<a href="file/<%= dto.getArticle_file1() %>" download> 다운로드1 </a> <br>
+                <% } %>
+                
+                <% if(dto.getArticle_file2() != null) { %>
                 	<a href="file/<%= dto.getArticle_file2() %>" download> 다운로드2 </a> <br>
+                <% } %>
+                
+                <% if(dto.getArticle_file3() != null) { %>
                 	<a href="file/<%= dto.getArticle_file3() %>" download> 다운로드3 </a> <br>
+                <% } %>
+                
+                <% if(dto.getArticle_file1() != null) { %>
                 	<img src="file/<%= dto.getArticle_file1() %>">
+                <% } %>
+                
+                <% if(dto.getArticle_file2() != null) { %>
                 	<img src="file/<%= dto.getArticle_file2() %>">
+                <% } %>
+                
+                <% if(dto.getArticle_file3() != null) { %>
                 	<img src="file/<%= dto.getArticle_file3() %>">
+                <% } %>
+                
                 </td>
               </tr>
             </tbody>
