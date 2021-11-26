@@ -77,7 +77,7 @@ image: markerImage // 마커이미지 설정
 marker.setMap(map); 
 
 //인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-var iwContent = '<div style="padding:5px;"> <a href="https://map.kakao.com/link/map/Hello World!,35.144437, 126.840318" style="color:black" target="_blank">카페이름 들어갈 곳</a> </div>',
+var iwContent = '<div style="padding:5px;"> <a href="https://map.kakao.com/link/map/Hello World!,<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>" style="color:black" target="_blank">카페이름 들어갈 곳</a> </div>',
 iwPosition = new kakao.maps.LatLng(<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>); //인포윈도우 표시 위치입니다
 
 //인포윈도우를 생성합니다
