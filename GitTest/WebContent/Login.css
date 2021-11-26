@@ -22,17 +22,17 @@
 }
 
 .u-section-1 .u-input-1 {
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .u-section-1 .u-input-2 {
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .u-section-1 .u-btn-1 {
   letter-spacing: 2px;
   border-style: solid;
-  text-transform: uppercase;
+  text-transform: none;
   padding: 10px 31px 10px 30px;
 }
 

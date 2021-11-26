@@ -139,7 +139,7 @@
   .fr-view .fr-text-spaced {
     letter-spacing: 1px; }
   .fr-view .fr-text-uppercase {
-    text-transform: uppercase; }
+    text-transform: none; }
   .fr-view .fr-class-highlighted {
     background-color: #ffff00; }
   .fr-view .fr-class-code {
@@ -17092,7 +17092,7 @@ p {
   margin-bottom: 0.5rem;
 }
 .u-uppercase {
-  text-transform: uppercase;
+  text-transform: none;
 }
 .u-align-left {
   text-align: left;
