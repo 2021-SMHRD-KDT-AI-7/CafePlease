@@ -385,3 +385,9 @@ select * from t_cafeimages where pic_id like 'D%'
 select * from t_jjim
 =======
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+
+select * from t_cafe where cafe_name='도지커피';
+
+
+
+select * from T_CAFEIMAGES where pic_id order by DBMS.RANDOM.VALUE

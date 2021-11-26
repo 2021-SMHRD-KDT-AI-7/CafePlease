@@ -142,7 +142,7 @@
 	   ArrayList<ReviewDTO> r_list = dao.view_review();
 	%>
 
-	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
+	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
 
 
 <!-- 새로만든 헤더부분 시작 -->
