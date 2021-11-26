@@ -128,7 +128,8 @@
         <div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-185d">
           <div class="u-gallery-inner u-gallery-inner-1" role="listbox">
             
-            <% for(int i = 0; i<i_list.size(); i++){ %>  
+            <% for(int i = 0; i<i_list.size(); i++){ %>
+            <a href="CafeInfoServiceCon?img=<%= i_list.get(i).getPic_path() %>">  
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
                 <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="N<%= i+1 %>.jpg">
@@ -138,6 +139,7 @@
                 <p class="u-gallery-text"></p>
               </div>
             </div>
+            </a>
              <%} %> 
             
             <!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2">
