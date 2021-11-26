@@ -1,4 +1,4 @@
-<%-- <%@page import="Model.MemberDTO"%>
+<%@page import="Model.MemberDTO"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -180,4 +180,4 @@
         </p>
       </div></footer>
   </body>
-</html> --%>
+</html>
