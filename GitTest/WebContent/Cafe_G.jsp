@@ -34,36 +34,48 @@
     <meta property="og:type" content="website">
     <style type="text/css">
 	
-		*{margin: 0px; padding: 0px;}
-		
-		#user_icon{
-			position: absolute;
-			bottom: 0;
-			
-		
-		}
-		#logo{
-			margin-left: 70px;
-		}
-		#top_menu{
-			position: absolute;
-			display:inline;
-			top: 20px;
-			right: 10px;
-			color: black;
-		}
-		#top_menu a{
-			color: #401F00;
-		}
-		#home{
-			margin-right: 20px;
-		}
-		#post{
-			margin-right: 20px;
-		}
-		#login{
-			margin-right: 100px;
-		}
+		* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#user_icon {
+	position: relative;
+	top: 10px;
+	margin-right: 20px;
+}
+
+#user_id {
+	margin-right: 20px;
+}
+
+#logo {
+	margin-left: 70px;
+}
+
+#top_menu {
+	position: absolute;
+	display: inline;
+	top: 20px;
+	right: 10px;
+	color: black;
+}
+
+#top_menu a {
+	color: #401F00;
+}
+
+#home {
+	margin-right: 20px;
+}
+
+#post {
+	margin-right: 20px;
+}
+
+#login {
+	margin-right: 100px;
+}
 	</style>
 
   </head>

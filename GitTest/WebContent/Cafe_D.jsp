@@ -37,40 +37,54 @@
     
     <style type="text/css">
 	
-		*{margin: 0px; padding: 0px;}
-		
-		#user_icon{
-			position: absolute;
-			bottom: 0;
-			
-		
-		}
-		#logo{
-			margin-left: 70px;
-		}
-		#top_menu{
-			position: absolute;
-			display:inline;
-			top: 20px;
-			right: 10px;
-			color: black;
-		}
-		#top_menu a{
-			color: #401F00;
-		}
-		#home{
-			margin-right: 20px;
-		}
-		#post{
-			margin-right: 20px;
-		}
-		#login{
-			margin-right: 100px;
-		}
+			* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#user_icon {
+	position: relative;
+	top: 10px;
+	margin-right: 20px;
+}
+
+#user_id {
+	margin-right: 20px;
+}
+
+#logo {
+	margin-left: 70px;
+}
+
+#top_menu {
+	position: absolute;
+	display: inline;
+	top: 20px;
+	right: 10px;
+	color: black;
+}
+
+#top_menu a {
+	color: #401F00;
+}
+
+#home {
+	margin-right: 20px;
+}
+
+#post {
+	margin-right: 20px;
+}
+
+#login {
+	margin-right: 100px;
+}
+
 	</style>
     
   </head>
-  <body class="u-body">  <!-- 새로만든 헤더부분 시작 -->
+  <body class="u-body"> 
+ <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
     <header>
         
@@ -79,12 +93,17 @@
                 <img src="./images/_.png" style="width: 200px;" id="logo">
             </a>
         </h4>
-          
+          <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
+            
               <div id="top_menu">
-              	<a href="My_Page.jsp" style="margin-right:50px; " ><img src="./images/user_icon.png" id="user_icon"></a>
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
+              <%} %>
+              
+              	<a href="My_Page.jsp">
+              		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
               	<a href="Post.jsp" id="post">Post</a>
-              	<% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
               	<%if(info!=null){ %>
               		<a href="LogoutServiceCon" id="login">Logout</a>
               	
@@ -92,9 +111,7 @@
               	<a href="Login.jsp" id="login">Login</a>
               	<%} %>
               </div>
-              
-              
-              
+  
           </nav>
     </header>
 </div>
