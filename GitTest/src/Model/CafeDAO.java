@@ -35,7 +35,7 @@ public class CafeDAO {
 			if (rs.next()) {
 				String cafe_id = rs.getString("cafe_id");
 				String cafe_name = rs.getString("cafe_name");
-				String cafe_phone = rs.getString("cafe_phone");
+				String cafe_phone = rs.getString("cafe_pohne");
 				String cafe_running_time = rs.getString("cafe_running_time");
 				String cafe_info = rs.getString("cafe_info");
 				String cafe_menu = rs.getString("cafe_menu");

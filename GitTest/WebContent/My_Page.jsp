@@ -110,7 +110,7 @@
           </font>님 환영합니다!<span style="font-weight: 700;"></span>
         </h3>
         
-        
+        <!--마이페이지 탭 메뉴 부분  -->
         <div class="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
           <ul class="u-spacing-30 u-tab-list u-unstyled" role="tablist">
             <li class="u-tab-item" role="presentation">
@@ -123,6 +123,8 @@
               <a class="u-active-custom-color-4 u-button-style u-tab-link u-tab-link-3" id="tab-d7e7" href="#link-tab-d7e7" role="tab" aria-controls="link-tab-d7e7" aria-selected="false">회원정보 수정</a>
             </li>
           </ul>
+          
+          <!-- 마이페이지 내용 시작 -->
           <div class="u-tab-content">
             <div class="u-align-left u-container-style u-shape-rectangle u-tab-active u-tab-pane u-tab-pane-1" id="tab-3a42" role="tabpanel" aria-labelledby="link-tab-3a42">
               <div class="u-container-layout u-container-layout-1">
@@ -188,6 +190,8 @@
                     </tbody>
                   </table>
                 </div>
+            
+            <!-- 게시글 찾기...기능?? 시간되면하자... -->
                 <div class="u-form u-form-1">
                   <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-11 u-inner-form" style="padding: 0px;" source="custom" name="form">
                     <div class="u-form-group u-form-group-1">
@@ -205,6 +209,9 @@
                 </div>
               </div>
             </div>
+            
+            
+            <!--찜한 카페 목록 -->
             <div class="u-align-left u-container-style u-shape-rectangle u-tab-pane u-tab-pane-2" id="tab-4d57" role="tabpanel" aria-labelledby="link-tab-4d57">
               <div class="u-container-layout u-container-layout-2">
                 <h6 class="u-text u-text-custom-color-2 u-text-default u-text-2">찜한 카페&nbsp;<span class="u-text-custom-color-7">6</span>개
@@ -267,8 +274,8 @@
 </g></svg></span>
 
 				<!-- 회원정보 수정 -->
-                <div class="u-form u-form-21">
-                  <form action="UpdateInfoServiceCon" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+                 <div class="u-form u-form-21">
+                  <form action="MemberUpdateCon" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                     <div class="u-form-group u-form-group-3">
                       <label for="text-7466" class="u-form-control-hidden u-label"></label>
                       <input type="text" placeholder="변경하실 비밀번호를 입력해주세요" id="text-7466" name="ed_pw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
@@ -298,7 +305,7 @@
       </div>
     </section>
     
-    <!-- 회원정보 수정 -->
+    <!-- < 회원정보 수정 
                 <div class="u-form u-form-21">
                   <form action="MemberUpdateCon" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                     <div class="u-form-group u-form-group-3">
@@ -322,7 +329,7 @@
                     <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
                     <input type="hidden" value="" name="recaptchaResponse">
                   </form>
-                </div>
+                </div> -->
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-fd77"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Queen Bee Project cafe please&nbsp;<br>our team member is worker that KMJ, LMS, PHG, LMS<br>and last queen bee, KHJ<br>Thank you
