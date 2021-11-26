@@ -78,12 +78,17 @@
                 <img src="./images/_.png" style="width: 200px;" id="logo">
             </a>
         </h4>
-          
+          <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
+            
               <div id="top_menu">
-              	<a href="My_Page.jsp" style="margin-right:50px; " ><img src="./images/user_icon.png" id="user_icon"></a>
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
+              <%} %>
+              
+              	<a href="My_Page.jsp">
+              		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
               	<a href="Post.jsp" id="post">Post</a>
-              	<% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
               	<%if(info!=null){ %>
               		<a href="LogoutServiceCon" id="login">Logout</a>
               	
@@ -91,9 +96,7 @@
               	<a href="Login.jsp" id="login">Login</a>
               	<%} %>
               </div>
-              
-              
-              
+  
           </nav>
     </header>
 </div>
@@ -122,9 +125,9 @@
         </div>
         <!--  카페검색기능끝 -->
         
-        <h6 class="u-text u-text-custom-color-2 u-text-2">#첨단</h6>
-        <h6 class="u-text u-text-custom-color-2 u-text-3">#수완지구</h6>
-        <h6 class="u-text u-text-custom-color-2 u-text-4">#송정역</h6>
+        <h6 class="u-text u-text-custom-color-2 u-text-2"><a href="#" role="button">#첨단</a></h6>
+        <h6 class="u-text u-text-custom-color-2 u-text-3"><a href="#" role="button">#수완지구</a></h6>
+        <h6 class="u-text u-text-custom-color-2 u-text-4"><a href="#" role="button">#송정역</a></h6>
        
                <%
             CafeImagesDAO dao = new CafeImagesDAO();

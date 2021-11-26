@@ -43,7 +43,7 @@
 		
 		#user_icon{
 		    position: relative;
-		    top: 10px;
+		/*     top: 10px; */
 		    margin-right: 20px;
 		
 		}
@@ -72,13 +72,17 @@
 		#login{
 			margin-right: 100px;
 		}
+		.post_input_icon{
+			background-color: #A37A54;
+			border-color: #A37A54;
+		}
     </style>
     
   </head>
   <body class="u-body">
-  <!-- 새로만든 헤더부분 시작 -->
+   <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
-    <header>
+    <header style="margin-top: 20px;">
         
       <h4>
             <a href="Home.jsp">
@@ -88,7 +92,10 @@
           <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
             
               <div id="top_menu">
-              <b id="user_id"> 닉네임님 환영합니다</b> 
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
+              <%} %>
+              
               	<a href="My_Page.jsp">
               		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
@@ -105,6 +112,7 @@
     </header>
 </div>
 <!-- 새로만든 헤더부분 끝 -->
+
     <section class="u-clearfix u-section-1" id="sec-1aeb">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h4 class="u-text u-text-custom-color-2 u-text-1">
@@ -153,8 +161,8 @@
             <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
   				<div class="row gx-5">
 	              <!-- <input type="reset" value="초기화"> -->
-	              <input class="btn btn-secondary btn-lg col-md-auto" type="reset" value="초기화">
-	              <input class="btn btn-secondary btn-lg col-md-auto" type="submit" value="작성완료">
+	              <input class="btn btn-secondary btn-lg col-md-auto post_input_icon" type="reset" value="초기화" >
+	              <input class="btn btn-secondary btn-lg col-md-auto post_input_icon" type="submit" value="작성완료">
 	              <!-- <input type="submit" value="작성완료"> <hr> -->
 	            </div>
 	         </div>

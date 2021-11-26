@@ -175,7 +175,7 @@
             
               <div id="top_menu">
               <%if(info != null){ %>
-              <b id="user_id"> <%=info.getM_id() %>님 환영합니다</b> 
+              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
               <%} %>
               
               	<a href="My_Page.jsp">

@@ -46,7 +46,7 @@
 		
 		#user_icon{
 		    position: relative;
-		    top: 10px;
+	/* 	    top: 10px; */
 		    margin-right: 20px;
 		
 		}
@@ -83,7 +83,7 @@
   <body class="u-body">
    <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
-    <header>
+    <header style="margin-top: 20px;">
         
       <h4>
             <a href="Home.jsp">
@@ -93,7 +93,10 @@
           <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
             
               <div id="top_menu">
-              <b id="user_id"> 닉네임님 환영합니다</b> 
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
+              <%} %>
+              
               	<a href="My_Page.jsp">
               		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
