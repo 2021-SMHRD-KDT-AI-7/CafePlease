@@ -47,7 +47,9 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from t_cafeimages where pic_id like 'D%' ";
+			String sql = "select * from (" + 
+					"				select * from t_cafeimages where pic_id like 'D%'" + 
+					"				order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -74,7 +76,9 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from t_cafeimages where pic_id like 'P%' ";
+			String sql = "select * from (\r\n" + 
+					"				select * from t_cafeimages where pic_id like 'P%'\r\n" + 
+					"				order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -101,7 +105,9 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from t_cafeimages where pic_id like 'S%' ";
+			String sql = "select * from (\r\n" + 
+					"				select * from t_cafeimages where pic_id like 'S%'\r\n" + 
+					"				order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -128,7 +134,9 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from t_cafeimages where pic_id like 'N%' ";
+			String sql = "select * from (\r\n" + 
+					"				select * from t_cafeimages where pic_id like 'N%'\r\n" + 
+					"				order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -155,7 +163,9 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from t_cafeimages where pic_id like 'G%' ";
+			String sql = "select * from (\r\n" + 
+					"				select * from t_cafeimages where pic_id like 'G%'\r\n" + 
+					"				order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();

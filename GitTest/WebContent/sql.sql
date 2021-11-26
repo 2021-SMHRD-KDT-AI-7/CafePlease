@@ -390,4 +390,7 @@ select * from t_cafe where cafe_name='도지커피';
 
 
 
-select * from T_CAFEIMAGES where pic_id order by DBMS.RANDOM.VALUE
+select * from T_CAFEIMAGES order by DBMS_RANDOM.VALUE
+select * from (
+				select * from t_cafeimages where pic_id like 'D%'
+				order by dbms_random.value)
