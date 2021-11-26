@@ -42,17 +42,17 @@ public class CafeImagesDAO {
 		}
 	}
 	
-	public ArrayList<CafeImagesDTO> ViewImages() { // 보여주기 메소드
+	public ArrayList<CafeImagesDTO> ViewImages_D() { // 동구 보여주기 메소드
 		ArrayList<CafeImagesDTO> i_list = new ArrayList<CafeImagesDTO>();
 		Db_conn();
 
 		try {
-			String sql = "select * from t_cafeimages";
+			String sql = "select * from t_cafeimages where pic_id like 'D%' ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				String pic_id = rs.getString("pic_id");
 				String pic_path = rs.getString("pic_path");
 				int pic_type = rs.getInt("pic_type");
@@ -69,5 +69,112 @@ public class CafeImagesDAO {
 		return i_list;
 	}
 	
+	public ArrayList<CafeImagesDTO> ViewImages_B() { // 북구 보여주기 메소드
+		ArrayList<CafeImagesDTO> i_list = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+
+		try {
+			String sql = "select * from t_cafeimages where pic_id like 'P%' ";
+			psmt = conn.prepareStatement(sql);
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String pic_id = rs.getString("pic_id");
+				String pic_path = rs.getString("pic_path");
+				int pic_type = rs.getInt("pic_type");
+				Date reg_date = rs.getDate("reg_date");
+
+				dto = new CafeImagesDTO(pic_id, pic_path, pic_type, reg_date);
+				i_list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return i_list;
+	}
+	
+	public ArrayList<CafeImagesDTO> ViewImages_S() { // 서구 보여주기 메소드
+		ArrayList<CafeImagesDTO> i_list = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+
+		try {
+			String sql = "select * from t_cafeimages where pic_id like 'S%' ";
+			psmt = conn.prepareStatement(sql);
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String pic_id = rs.getString("pic_id");
+				String pic_path = rs.getString("pic_path");
+				int pic_type = rs.getInt("pic_type");
+				Date reg_date = rs.getDate("reg_date");
+
+				dto = new CafeImagesDTO(pic_id, pic_path, pic_type, reg_date);
+				i_list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return i_list;
+	}
+	
+	public ArrayList<CafeImagesDTO> ViewImages_N() { // 남구 보여주기 메소드
+		ArrayList<CafeImagesDTO> i_list = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+
+		try {
+			String sql = "select * from t_cafeimages where pic_id like 'N%' ";
+			psmt = conn.prepareStatement(sql);
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String pic_id = rs.getString("pic_id");
+				String pic_path = rs.getString("pic_path");
+				int pic_type = rs.getInt("pic_type");
+				Date reg_date = rs.getDate("reg_date");
+
+				dto = new CafeImagesDTO(pic_id, pic_path, pic_type, reg_date);
+				i_list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return i_list;
+	}
+	
+	public ArrayList<CafeImagesDTO> ViewImages_G() { // 광산구 보여주기 메소드
+		ArrayList<CafeImagesDTO> i_list = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+
+		try {
+			String sql = "select * from t_cafeimages where pic_id like 'G%' ";
+			psmt = conn.prepareStatement(sql);
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String pic_id = rs.getString("pic_id");
+				String pic_path = rs.getString("pic_path");
+				int pic_type = rs.getInt("pic_type");
+				Date reg_date = rs.getDate("reg_date");
+
+				dto = new CafeImagesDTO(pic_id, pic_path, pic_type, reg_date);
+				i_list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return i_list;
+	}
 	
 }

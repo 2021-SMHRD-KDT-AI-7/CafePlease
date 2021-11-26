@@ -130,17 +130,23 @@
         <div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-185d">
           <div class="u-gallery-inner u-gallery-inner-1" role="listbox">
             
-            <% for(int i = 0; i<i_list.size(); i++){ %>  
+            <% ArrayList<CafeImagesDTO> i_list_D01 = new ArrayList<CafeImagesDTO>(); 
+          for(int i = 0; i<i_list.size(); i++){
+        	  if (i_list.get(i).getPic_id().contains("D01")) { 
+					i_list_D01.add(i_list.get(i)); %>  
+            
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
-                <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="in<%= i+1 %>.jpg">
+                <img class="u-back-image u-expanded" src="<%= i_list_D01.get(i).getPic_path() %>" alt="<%= i+1 %>.jpg">
               </div>
               <div class="u-align-center u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
               </div>
             </div>
-            <%} %> 
+            <%}   
+              } %> 
+            
             
             <!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2" data-href="Cafe_Info.jsp" data-page-id="95186816">
               <div class="u-back-slide" data-image-width="828" data-image-height="827">
