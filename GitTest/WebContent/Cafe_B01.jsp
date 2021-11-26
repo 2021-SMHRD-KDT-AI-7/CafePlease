@@ -138,7 +138,7 @@
 					
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
-                <img class="u-back-image u-expanded" src="<%= i_list_P01.get(i).getPic_path() %>" alt="<%= i+1 %>.jpg">
+           <img class="u-back-image u-expanded" src="<%= i_list_P01.get(i).getPic_path() %>" alt="<%= i+1 %>.jpg">
               </div>
               <div class="u-align-center u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
