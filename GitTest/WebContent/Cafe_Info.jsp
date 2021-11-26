@@ -1,3 +1,4 @@
+<%@page import="Model.CafeDAO"%>
 <%@page import="Model.ReviewDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.ReviewDAO"%>

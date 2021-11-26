@@ -26,19 +26,19 @@ public class CafeInfoServiceCon extends HttpServlet {
        System.out.println("카페 정보띄워라"); 
    
       request.setCharacterEncoding("EUC-KR");
-      String 이미지=request.getParameter("이미지"); //클릭시 이미지 파일 경로가 와야함
-      
+      String img=request.getParameter("img"); //클릭시 이미지 파일 경로가 와야함
+      System.out.println("img");
        //<a href="CafeInfoServiceCon? 경로 적기 이거로 보내야 받을수 있음. 쿼리스트링 사용!
       //something은 받아올 이미지 경로!
    
       CafeDAO dao= new CafeDAO();
       
-      CafeDTO inf= dao.cafeimg_info(이미지);
+      CafeDTO inf= dao.cafeimg_info(img);
       
       if (inf != null) {
          HttpSession session = request.getSession();
          session.setAttribute("inf", inf);
-         response.sendRedirect("돌아가야할 카페정보 페이지");}
+         response.sendRedirect("Cafe_Info.jsp");}
    }
 
 }
