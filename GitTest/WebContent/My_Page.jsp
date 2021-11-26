@@ -103,6 +103,10 @@
 .tabs>li{
 	height: 40px;
 	font-weight: 100px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	vertical-align:middle;
 }
 
 </style>

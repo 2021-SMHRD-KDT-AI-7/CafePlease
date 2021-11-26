@@ -101,7 +101,7 @@
 
 }
 .u-section-1 .u-gallery-1{
-	margin-top: 600px;
+	margin-top: 150px;
 }
 #th{
 	background-color: #401F00;
@@ -138,6 +138,10 @@
 }
 
 .tabs>li{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	vertical-align:middle;
 	height: 40px;
 	font-weight: 100px;
 }
@@ -237,7 +241,7 @@
 									
 									<!-- 카페정보부분 -->
 									<div class="u-tab-content">
-										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test"
+										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test active"
 											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410" aria-hidden="false">
 											<div class="u-container-layout u-container-layout-2">
 												<table class="cafe_info" >
@@ -301,7 +305,8 @@
 												</p>
 												</div>
 											</div>
-											
+											</div>
+												</div>
 											<!-- 리뷰 부분   -->
 											<div class="u-container-style u-tab-pane u-white u-tab-pane-3 tab_test" id="tab-c8f5" role="tabpanel" aria-labelledby="link-tab-c8f5">
 												<div class="u-container-layout u-container-layout-4" aria-hidden="true">
@@ -340,8 +345,8 @@
 												</div>
 											</div>
 									
-										</div>
-									</div>
+									
+									
 	
 
 
@@ -510,33 +515,8 @@
 												</div>
 											</div>
 										</div>
-										<button data-page-id="654928509"
-											class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-4 u-border-hover-palette-2-base u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-custom-color-4 u-text-hover-palette-2-base u-btn-9">
-											더보기&nbsp; <span class="u-icon u-text-custom-color-4"><svg
-													class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px"
-													style="width: 1em; height: 1em;">
-													<path
-														d="M441.156,322.876l-48.666-47.386c-3.319-3.243-8.619-3.234-11.93,0.017l-81.894,80.299V8.533 c0-4.71-3.823-8.533-8.533-8.533h-68.267c-4.71,0-8.533,3.823-8.533,8.533v347.273l-81.894-80.299    c-3.311-3.243-8.602-3.251-11.921-0.017l-48.666,47.386c-1.655,1.604-2.586,3.806-2.586,6.11c0,2.304,0.939,4.506,2.586,6.11 l179.2,174.481c1.655,1.613,3.806,2.423,5.948,2.423c2.15,0,4.292-0.811,5.956-2.423l179.2-174.481 c1.647-1.604,2.577-3.806,2.577-6.11C443.733,326.682,442.803,324.48,441.156,322.876z"></path></svg><img></span>
-										</button>
-									</div>
-
-
-									<!-- 카페정보 id #tab-0410, 리뷰 id #tab-c8f5 내용부분 -->
-											
-											<script type="text/javascript">
-											/* 전체 탭내용 클래스: .tab_test 탭내용중 처음에 보여질 내용 : .cafe_info_tab */
-											
-											$(document). ready(function(){
-											
-												// 탭 클릭시
-												
-												
-											})
-											
-
-											</script>
 								
-
+									</div>
 								</div>
 							</div>
 							
@@ -545,7 +525,33 @@
 				</div>
 			</div>
 	</section>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
 
+		function eventHandler(e) {
+			var $eTarget = $(e.currentTarget);
+			console.log($eTarget)
+			var $targetPanel = $('[aria-labelledby="' + $eTarget.attr('id')+ '"]');
+			console.log($targetPanel)
+
+			// 조건문으로 이벤트 구분
+			if (e.type === 'click') { // 클릭 시 동작
+				$eTarget.attr('aria-selected', true).addClass('active')
+						.siblings('[role="tab"]').attr('aria-selected', false)
+						.removeClass('active');
+
+				$targetPanel.attr('aria-hidden', false).addClass('active')
+						.siblings('[role="tabpanel"]')
+						.attr('aria-hidden', true).removeClass('active');
+			} else if (e.type === 'keydown' && e.which === 13) { // 키가 눌렸을 때 && 키가 엔터일 때
+				// e.which 는 keycode 값을 판별하는데 13 이 엔터 키에 해당되는 keycode
+				$(this).click(); // 현재 Element에 클릭이벤트 발생시킴
+			}
+		}
+
+		// 바인딩에 keydown 이벤트 추가 - 쉼표 없음
+		$('[role="tab"]').on('click keydown', eventHandler);
+	</script>
 
 
 	<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
