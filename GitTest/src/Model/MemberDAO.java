@@ -103,15 +103,14 @@ public class MemberDAO {
 	public int update(MemberDTO info) { // 회원정보수정
 		Db_conn();
 
-		String sql = "update t_member set m_pwd=?, where m_id = ?";
+		String sql = "update t_member set m_pwd=?, m_nickname=? where m_id = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, info.getM_pwd());
 			psmt.setString(2, info.getM_nickname());
-			psmt.setString(3, info.getM_gender());
-			psmt.setString(4, info.getM_id());
-
+			psmt.setString(3, info.getM_id());
+			
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

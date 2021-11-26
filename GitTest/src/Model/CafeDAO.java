@@ -37,14 +37,14 @@ public class CafeDAO {
 				String cafe_name = rs.getString("cafe_name");
 				String cafe_phone = rs.getString("cafe_phone");
 				String cafe_running_time = rs.getString("cafe_running_time");
+				String cafe_info = rs.getString("cafe_info");
+				String cafe_menu = rs.getString("cafe_menu");
 				int cafe_latitude = rs.getInt("cafe_latitude");
 				int cafe_longitude = rs.getInt("cafe_longitude");
 				String cafe_addr = rs.getString("cafe_addr");
-				String cafe_tag = rs.getString("cafe_tag");
 				Date reg_date = rs.getDate("reg_date");
 
-				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_latitude, cafe_longitude,
-						cafe_addr, cafe_tag, reg_date);
+				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_info, cafe_menu, cafe_latitude, cafe_longitude, cafe_addr, reg_date);
 			}
 
 		} catch (Exception e) {
@@ -73,18 +73,17 @@ public class CafeDAO {
 			if (rs.next()) {
 				String cafe_id = rs.getString("cafe_id");
 				String cafe_name = rs.getString("cafe_name");
-				String cafe_phone = rs.getString("cafe_phone");
+				String cafe_phone = rs.getString("cafe_pohne");
 				String cafe_running_time = rs.getString("cafe_running_time");
+				String cafe_info = rs.getString("cafe_info");
+				String cafe_menu = rs.getString("cafe_menu");
 				int cafe_latitude = rs.getInt("cafe_latitude");
 				int cafe_longitude = rs.getInt("cafe_longitude");
 				String cafe_addr = rs.getString("cafe_addr");
-				String cafe_tag = rs.getString("cafe_tag");
 				Date reg_date = rs.getDate("reg_date");
 
-				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_latitude, cafe_longitude,
-						cafe_addr, cafe_tag, reg_date);
+				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_info, cafe_menu, cafe_latitude, cafe_longitude, cafe_addr, reg_date);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -103,21 +102,21 @@ public class CafeDAO {
 			String DB_pw = "smhrd2";
 
 			conn = DriverManager.getConnection(url, DB_id, DB_pw);
-			
+
 			String sql = "select * from t_cafeimages where pic_id=(select pic_id from t_cafe_img where cafe_id=(select cafe_id from t_cafe where cafe_name=?))";
-			
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, search_cafe);
 			rs = psmt.executeQuery();
-			
+
 			if (rs.next()) {
-				String pic_id = rs.getString("pic_id");				
+				String pic_id = rs.getString("pic_id");
 				String pic_path = rs.getString("pic_path");
 				int pic_type = rs.getInt("pic_type");
 				java.sql.Date reg_date = rs.getDate("reg_date");
-				
+
 				dtoa = new PicDTO(pic_id, pic_path, pic_type, reg_date);
-				
+
 				System.out.println(dtoa.getPic_path());
 			}
 		} catch (Exception e) {

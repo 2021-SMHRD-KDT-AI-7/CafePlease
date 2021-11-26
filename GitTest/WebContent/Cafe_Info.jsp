@@ -1,3 +1,6 @@
+<%@page import="Model.ReviewDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.ReviewDAO"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -48,58 +51,66 @@
 	margin-left: 100px;
 }
 
-* {
-	margin: 0px;
-	padding: 0px;
-}
-
-#user_icon {
-	position: absolute;
-	bottom: 0;
-}
-
-#logo {
-	margin-left: 70px;
-}
-
-#top_menu {
-	position: absolute;
-	display: inline;
-	top: 20px;
-	right: 10px;
-	color: black;
-}
-
-#top_menu a {
-	color: #401F00;
-}
-
-#home {
-	margin-right: 20px;
-}
-
-#post {
-	margin-right: 20px;
-}
-
-#login {
-	margin-right: 100px;
-}
+*{margin: 0px; padding: 0px;}
+		
+		#user_icon{
+		    position: relative;
+		    top: 10px;
+		    margin-right: 20px;
+		
+		}
+		#user_id{
+			margin-right:20px;
+		}
+		#logo{
+			margin-left: 70px;
+		}
+		#top_menu{
+			position: absolute;
+			display:inline;
+			top: 20px;
+			right: 10px;
+			color: black;
+		}
+		#top_menu a{
+			color: #401F00;
+		}
+		#home{
+			margin-right: 20px;
+		}
+		#post{
+			margin-right: 20px;
+		}
+		#login{
+			margin-right: 100px;
+		}
 
 /*카페정보부분,  리뷰부분 */
 #tab-0410, #tab-c8f5{
 		position: absolute;
 }
 
-#tab-c8f5{
+/*  #tab-c8f5{
 	display: none;
+}   */
+ .cafe_info{
+	color: #401F00;
+
 }
-/* .cafe_info{
-	margin-bottom: 100px; 
-} */
 .u-section-1 .u-gallery-1{
-	margin-top: 500px;
+	margin-top: 600px;
 }
+#th{
+	background-color: #401F00;
+	color: white;
+	font-weight: 700px;
+	
+}
+.u-table-entity td{
+	text-align: center;
+	border:0 !important;
+}
+
 
 
 </style>
@@ -111,38 +122,45 @@
 	<%CafeDTO inf = (CafeDTO) session.getAttribute("inf");%>
 
 	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
+	<% ReviewDAO dao = new ReviewDAO(); 
+	   ArrayList<ReviewDTO> r_list = dao.view_review();
+	%>
 
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 
-	<!-- 새로만든 헤더부분 시작 -->
-	<div style="height: 85px;">
-		<header>
 
-			<h4>
-				<a href="Home.jsp"> <img src="./images/_.png"
-					style="width: 200px;" id="logo">
-				</a>
-			</h4>
-
-			<div id="top_menu">
-				<a href="My_Page.jsp" style="margin-right: 50px;"><img
-					src="./images/user_icon.png" id="user_icon"></a> <a
-					href="Home.jsp" id="home">Home</a> <a href="Post.jsp" id="post">Post</a>
-				<% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
-				<%if(info!=null){ %>
-				<a href="LogoutServiceCon" id="login">Logout</a>
-
-				<%} else{ %>
-				<a href="Login.jsp" id="login">Login</a>
-				<%} %>
-			</div>
-
-
-
-			</nav>
-		</header>
-	</div>
-	<!-- 새로만든 헤더부분 끝 -->
+<!-- 새로만든 헤더부분 시작 -->
+<div style="height: 85px;">
+    <header>
+        
+      <h4>
+            <a href="Home.jsp">
+                <img src="./images/_.png" style="width: 200px;" id="logo">
+            </a>
+        </h4>
+          <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
+            
+              <div id="top_menu">
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_id() %>님 환영합니다</b> 
+              <%} %>
+              
+              	<a href="My_Page.jsp">
+              		<img src="./images/user_icon.png" id="user_icon"> </a>
+              	<a href="Home.jsp" id="home">Home</a>
+              	<a href="Post.jsp" id="post">Post</a>
+              	<%if(info!=null){ %>
+              		<a href="LogoutServiceCon" id="login">Logout</a>
+              	
+              	<%} else{ %>
+              	<a href="Login.jsp" id="login">Login</a>
+              	<%} %>
+              </div>
+  
+          </nav>
+    </header>
+</div>
+<!-- 새로만든 헤더부분 끝 -->
 	<section class="u-clearfix u-section-1" id="sec-e3aa">
 		<div class="u-clearfix u-sheet u-sheet-1">
 			<div
@@ -167,12 +185,13 @@
 													d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082  c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z"></path>
 												<path style="fill:#FFFFFF;"
 													d="M374.116,155.145c-34.799-34.8-91.223-34.8-126.022,0h-0.029c-34.801-34.8-91.224-34.8-126.023,0  c-34.801,34.8-29.783,86.842,0,126.022c31.541,41.491,89.129,109.944,126.023,109.944h0.029c36.895,0,94.481-68.453,126.022-109.944  C403.9,241.988,408.916,189.946,374.116,155.145z"></path></svg><img></span>&nbsp;
-									</a> <a href="https://nicepage.com/k/shopping-cart-html-templates"
+									</a> 
+									<a href="https://nicepage.com/k/shopping-cart-html-templates"
 										class="u-active-none u-border-2 u-border-custom-color-4 u-btn u-btn-rectangle u-button-style u-custom-font u-heading-font u-hover-none u-none u-radius-0 u-btn-2">지도</a>
 									<h2 class="u-text u-text-custom-color-2 u-text-1"
 										id="cafe_name"><%=inf.getCafe_name() %><span
 											style="font-weight: 700;"></span>
-									</h2>
+									 </h2>
 								</div>
 
 								<!-- 카페정보 탭부분 -->
@@ -192,12 +211,12 @@
 										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test"
 											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
 											<div class="u-container-layout u-container-layout-2">
-												<table class="cafe_info">
+												<table class="cafe_info" >
 													<tr>
 														<td width="200px" align="letf">주소</td>
 														<td></td>
 														<td width="400px" align="left"><%=inf.getCafe_addr() %></td>
-														<td rowspan="9" width="300px"> <img src="./img/D01_01/menu01.jpg"> </td>
+														<td rowspan="8" width="300px"> <img src="./img/D01_01/menu01.jpg" width="300px;"> </td>
 													</tr>
 													<tr>
 														<td><br></td>
@@ -205,7 +224,7 @@
 													<tr>
 														<td align="letf">전화번호</td>
 														<td></td>
-														<td align="left"><%=inf.getCafe_phone() %></td>
+														<td align="left"><%=inf.getCafe_pohne() %></td>
 
 													</tr>
 													<tr>
@@ -223,7 +242,7 @@
 													<tr>
 														<td align="letf">매장정보</td>
 														<td width="100px"></td>
-														<td align="left"></td>
+														<td align="left"><%=inf.getCafe_info() %></td>
 
 													</tr>
 													<tr>
@@ -232,7 +251,7 @@
 													<tr>
 														<td align="letf">메뉴</td>
 														<td align="left"></td>
-														<td><br></td>
+														<td><br><%=inf.getCafe_menu() %></td>
 													</tr>
 
 
@@ -271,24 +290,21 @@
 																<col width="8.5%">
 															</colgroup>
 															<tbody class="u-table-body">
-																<tr style="height: 46px;">
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">번호</td>
+																<tr style="height: 46px;" id="th">
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell " >번호</td>
 																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">내용</td>
 																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">작성자</td>
 																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">평점</td>
 																</tr>
+																<% for(int i=0; i<r_list.size(); i++){ %>
+																
 																<tr style="height: 46px;">
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"><%= i+1 %></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"><%=r_list.get(i).getReview_content()  %></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"><%=r_list.get(i).getM_id() %></td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"><%=r_list.get(i).getCafe_ratings() %></td>
 																</tr>
-																<tr style="height: 46px;">
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-																</tr>
+																<%} %>
 															</tbody>
 														</table>
 													</div>

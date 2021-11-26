@@ -30,15 +30,18 @@
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
     
-    	<style type="text/css">
+    <style type="text/css">
 	
 		*{margin: 0px; padding: 0px;}
 		
 		#user_icon{
-			position: absolute;
-			bottom: 0;
-			
+		    position: relative;
+		    top: 10px;
+		    margin-right: 20px;
 		
+		}
+		#user_id{
+			margin-right:20px;
 		}
 		#logo{
 			margin-left: 70px;
@@ -64,7 +67,8 @@
 		}
 	</style>
   </head>
-  <body class="u-body"> <!-- 새로만든 헤더부분 시작 -->
+  <body class="u-body">  
+  <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
     <header>
         
@@ -73,12 +77,17 @@
                 <img src="./images/_.png" style="width: 200px;" id="logo">
             </a>
         </h4>
-          
+          <% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
+            
               <div id="top_menu">
-              	<a href="My_Page.jsp" style="margin-right:50px; " ><img src="./images/user_icon.png" id="user_icon"></a>
+              <%if(info != null){ %>
+              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
+              <%} %>
+              
+              	<a href="My_Page.jsp">
+              		<img src="./images/user_icon.png" id="user_icon"> </a>
               	<a href="Home.jsp" id="home">Home</a>
               	<a href="Post.jsp" id="post">Post</a>
-              	<% MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
               	<%if(info!=null){ %>
               		<a href="LogoutServiceCon" id="login">Logout</a>
               	
@@ -86,9 +95,7 @@
               	<a href="Login.jsp" id="login">Login</a>
               	<%} %>
               </div>
-              
-              
-              
+  
           </nav>
     </header>
 </div>
@@ -96,9 +103,14 @@
     <section class="u-align-left u-clearfix u-section-1" id="sec-f0aa">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-text u-text-custom-color-2 u-text-default u-text-1">
-          <font color="#ffa242"><b>user</b>
+         <%if(info != null){ %>
+          <font color="#ffa242"><b><%=info.getM_nickname() %></b>
+           
+              <%} %>
           </font>님 환영합니다!<span style="font-weight: 700;"></span>
         </h3>
+        
+        
         <div class="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
           <ul class="u-spacing-30 u-tab-list u-unstyled" role="tablist">
             <li class="u-tab-item" role="presentation">
@@ -253,23 +265,25 @@
               <div class="u-container-layout u-container-layout-9">
                 <p class="u-custom-font u-heading-font u-large-text u-text u-text-variant u-text-9">변경하실 정보를 입력해주세요</p><span class="u-icon u-icon-circle u-text-custom-color-4 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 360 360" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-8163"></use></svg><svg class="u-svg-content" viewBox="0 0 360 360" x="0px" y="0px" id="svg-8163" style="enable-background:new 0 0 360 360;"><g><path d="M303.118,0H56.882C25.516,0,0,25.516,0,56.882v246.236C0,334.484,25.516,360,56.882,360h246.236   C334.484,360,360,334.484,360,303.118V56.882C360,25.516,334.484,0,303.118,0z M322.078,303.118c0,10.454-8.506,18.96-18.959,18.96   H56.882c-10.454,0-18.959-8.506-18.959-18.96V56.882c0-10.454,8.506-18.959,18.959-18.959h246.236   c10.454,0,18.959,8.506,18.959,18.959V303.118z"></path><path d="M249.844,106.585c-6.116,0-11.864,2.383-16.19,6.71l-84.719,84.857l-22.58-22.578c-4.323-4.324-10.071-6.706-16.185-6.706   c-6.115,0-11.863,2.382-16.187,6.705c-4.323,4.323-6.703,10.071-6.703,16.185c0,6.114,2.38,11.862,6.703,16.184l38.77,38.77   c4.323,4.324,10.071,6.706,16.186,6.706c6.112,0,11.862-2.383,16.19-6.71L266.03,145.662c8.923-8.926,8.922-23.448,0-32.374   C261.707,108.966,255.958,106.585,249.844,106.585z"></path>
 </g></svg></span>
-                <div class="u-form u-form-2">
-                  <form action="#" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+
+				<!-- 회원정보 수정 -->
+                <div class="u-form u-form-21">
+                  <form action="UpdateInfoServiceCon" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                     <div class="u-form-group u-form-group-3">
                       <label for="text-7466" class="u-form-control-hidden u-label"></label>
-                      <input type="text" placeholder="비밀번호" id="text-7466" name="ed_pw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
+                      <input type="text" placeholder="변경하실 비밀번호를 입력해주세요" id="text-7466" name="ed_pw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
                     </div>
                     <div class="u-form-group u-form-group-4">
                       <label for="text-7c4e" class="u-form-control-hidden u-label"></label>
-                      <input type="text" placeholder="비밀번호 확인" id="text-7c4e" name="ed_pw_check" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
+                      <input type="text" placeholder="비밀번호를 한 번더 입력해주세요" id="text-7c4e" name="ed_pw_check" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
                     </div>
                     <div class="u-form-group u-form-group-5">
                       <label for="text-13b4" class="u-form-control-hidden u-label"></label>
-                      <input type="text" placeholder="닉네임" id="text-13b4" name="ed_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
+                      <input type="text" placeholder="변경하실 닉네임을 입력해주세요" id="text-13b4" name="ed_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
                     </div>
                     <div class="u-align-center u-form-group u-form-submit">
-                      <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-4 u-hover-palette-1-dark-1 u-btn-8">저장<br>
-                      </a>
+                      <input type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-4 u-hover-palette-1-dark-1 u-btn-8"><br>
+                     
                       <input type="submit" value="submit" class="u-form-control-hidden">
                     </div>
                     <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
@@ -284,7 +298,31 @@
       </div>
     </section>
     
-    
+    <!-- 회원정보 수정 -->
+                <div class="u-form u-form-21">
+                  <form action="MemberUpdateCon" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+                    <div class="u-form-group u-form-group-3">
+                      <label for="text-7466" class="u-form-control-hidden u-label"></label>
+                      <input type="text" placeholder="변경하실 비밀번호를 입력해주세요" id="text-7466" name="ed_pw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
+                    </div>
+                    <div class="u-form-group u-form-group-4">
+                      <label for="text-7c4e" class="u-form-control-hidden u-label"></label>
+                      <input type="text" placeholder="비밀번호를 한 번더 입력해주세요" id="text-7c4e" name="ed_pw_check" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
+                    </div>
+                    <div class="u-form-group u-form-group-5">
+                      <label for="text-13b4" class="u-form-control-hidden u-label"></label>
+                      <input type="text" placeholder="변경하실 닉네임을 입력해주세요" id="text-13b4" name="ed_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-48 u-white">
+                    </div>
+                    <div class="u-align-center u-form-group u-form-submit">
+                      <input type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-4 u-hover-palette-1-dark-1 u-btn-8"><br>
+                     
+                      <input type="submit" value="submit" class="u-form-control-hidden">
+                    </div>
+                    <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                    <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                  </form>
+                </div>
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-fd77"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Queen Bee Project cafe please&nbsp;<br>our team member is worker that KMJ, LMS, PHG, LMS<br>and last queen bee, KHJ<br>Thank you

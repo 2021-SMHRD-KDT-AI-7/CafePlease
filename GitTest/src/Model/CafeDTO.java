@@ -4,35 +4,35 @@ import java.util.Date;
 
 public class CafeDTO {
 	
-	private String cafe_code;
+	private String cafe_id;
 	private String cafe_name;
-	private String cafe_phone;
+	private String cafe_pohne;
 	private String cafe_running_time;
+	private String cafe_info;
+	private String cafe_menu;
 	private int cafe_latitude;
-	private int cafe_longtitude;
+	private int cafe_longitude;
 	private String cafe_addr;
-	private String cafe_tag;
 	private Date reg_date;
-	public String getCafe_code() {
-		return cafe_code;
-	}
-	
-	public CafeDTO(String cafe_code, String cafe_name, String cafe_phone, String cafe_running_time, int cafe_latitude,
-			int cafe_longtitude, String cafe_addr,String cafe_tag, Date reg_date) {
+	public CafeDTO(String cafe_id, String cafe_name, String cafe_pohne, String cafe_running_time, String cafe_info,
+			String cafe_menu, int cafe_latitude, int cafe_longitude, String cafe_addr, Date reg_date) {
 		super();
-		this.cafe_code = cafe_code;
+		this.cafe_id = cafe_id;
 		this.cafe_name = cafe_name;
-		this.cafe_phone = cafe_phone;
+		this.cafe_pohne = cafe_pohne;
 		this.cafe_running_time = cafe_running_time;
+		this.cafe_info = cafe_info;
+		this.cafe_menu = cafe_menu;
 		this.cafe_latitude = cafe_latitude;
-		this.cafe_longtitude = cafe_longtitude;
+		this.cafe_longitude = cafe_longitude;
 		this.cafe_addr = cafe_addr;
-		this.cafe_tag = cafe_tag;
 		this.reg_date = reg_date;
 	}
-
-	public void setCafe_code(String cafe_code) {
-		this.cafe_code = cafe_code;
+	public String getCafe_id() {
+		return cafe_id;
+	}
+	public void setCafe_id(String cafe_id) {
+		this.cafe_id = cafe_id;
 	}
 	public String getCafe_name() {
 		return cafe_name;
@@ -40,11 +40,11 @@ public class CafeDTO {
 	public void setCafe_name(String cafe_name) {
 		this.cafe_name = cafe_name;
 	}
-	public String getCafe_phone() {
-		return cafe_phone;
+	public String getCafe_pohne() {
+		return cafe_pohne;
 	}
-	public void setCafe_phone(String cafe_phone) {
-		this.cafe_phone = cafe_phone;
+	public void setCafe_pohne(String cafe_pohne) {
+		this.cafe_pohne = cafe_pohne;
 	}
 	public String getCafe_running_time() {
 		return cafe_running_time;
@@ -52,29 +52,35 @@ public class CafeDTO {
 	public void setCafe_running_time(String cafe_running_time) {
 		this.cafe_running_time = cafe_running_time;
 	}
+	public String getCafe_info() {
+		return cafe_info;
+	}
+	public void setCafe_info(String cafe_info) {
+		this.cafe_info = cafe_info;
+	}
+	public String getCafe_menu() {
+		return cafe_menu;
+	}
+	public void setCafe_menu(String cafe_menu) {
+		this.cafe_menu = cafe_menu;
+	}
 	public int getCafe_latitude() {
 		return cafe_latitude;
 	}
 	public void setCafe_latitude(int cafe_latitude) {
 		this.cafe_latitude = cafe_latitude;
 	}
-	public int getCafe_longtitude() {
-		return cafe_longtitude;
+	public int getCafe_longitude() {
+		return cafe_longitude;
 	}
-	public void setCafe_longtitude(int cafe_longtitude) {
-		this.cafe_longtitude = cafe_longtitude;
+	public void setCafe_longitude(int cafe_longitude) {
+		this.cafe_longitude = cafe_longitude;
 	}
 	public String getCafe_addr() {
 		return cafe_addr;
 	}
 	public void setCafe_addr(String cafe_addr) {
 		this.cafe_addr = cafe_addr;
-	}
-	public String getCafe_tag() {
-		return cafe_tag;
-	}
-	public void setCafe_tag(String cafe_tag) {
-		this.cafe_tag = cafe_tag;
 	}
 	public Date getReg_date() {
 		return reg_date;
