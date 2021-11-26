@@ -386,10 +386,16 @@ select * from t_jjim
 =======
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 
+<<<<<<< HEAD
+
+
+select * from t_cafeimages where pic_id=(select pic_id from t_cafe_img where rownum = 1 and cafe_id=(select cafe_id from t_cafe where cafe_name='딥그레이'))
+=======
 select * from t_cafe where cafe_name='도지커피';
 
 
 
+<<<<<<< HEAD
 select * from T_CAFEIMAGES order by DBMS_RANDOM.VALUE
 select * from (
 				select * from t_cafeimages where pic_id like 'D%'
@@ -397,3 +403,7 @@ select * from (
 				
 delete from T_CAFE_IMG where pic_id like 'S04_01_60';
 				
+=======
+select * from T_CAFEIMAGES where pic_id order by DBMS.RANDOM.VALUE
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
