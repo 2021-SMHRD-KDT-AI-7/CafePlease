@@ -18366,6 +18366,7 @@ a.pswp__share--download:hover {
 .u-gallery-item {
   position: relative;
   overflow: hidden;
+
 }
 .u-gallery-item .u-back-slide {
   width: 100%;
@@ -18373,6 +18374,7 @@ a.pswp__share--download:hover {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+
 }
 .u-back-image {
   height: 240px;
@@ -18543,13 +18545,13 @@ a.pswp__share--download:hover {
   flex-direction: column;
   flex: 1;
 }
-.u-tabs .u-tab-content > .u-tab-pane {
+/* .u-tabs .u-tab-content > .u-tab-pane {
   flex: 1;
   display: none;
-}
-.u-tabs .u-tab-content > .u-tab-active {
+} */
+/* .u-tabs .u-tab-content > .u-tab-active {
   display: flex;
-}
+} */
 .u-tabs.u-tab-links-align-left .u-tab-list {
   justify-content: flex-start;
 }
@@ -34582,8 +34584,8 @@ a.u-link.u-text-hover-grey-90:hover {
         li.active > a.u-button-style.u-button-style.u-active-custom-color-4,
         li.active > a.u-button-style.u-button-style.u-active-custom-color-4[class*="u-border-"]
         {
-            color: #ffffff !important;
-            background-color: #a37a54 !important;
+            /*color: #ffffff !important;
+            /* background-color: #a37a54 !important; */
         }
 
         a.u-link.u-hover-custom-color-4:hover {
