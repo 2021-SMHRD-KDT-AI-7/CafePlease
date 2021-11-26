@@ -133,7 +133,7 @@
             <% for(int i = 0; i<i_list.size(); i++){ %>  
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
-                <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="in<%= i+1 %>.jpg">
+                <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="D<%= i+1 %>.jpg">
               </div>
               <div class="u-align-center u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>

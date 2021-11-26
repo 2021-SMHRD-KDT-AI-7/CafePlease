@@ -1,3 +1,6 @@
+<%@page import="Model.CafeImagesDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.CafeImagesDAO"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -123,20 +126,29 @@
         <h6 class="u-text u-text-custom-color-2 u-text-3">#수완지구</h6>
         <h6 class="u-text u-text-custom-color-2 u-text-4">#송정역</h6>
        
+               <%
+            CafeImagesDAO dao = new CafeImagesDAO();
+			ArrayList<CafeImagesDTO> i_list = dao.ViewImages_G();
+            System.out.println(i_list.size());
+			%>
        
        <!--카페갤러리기능 -->
         <div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-185d">
           <div class="u-gallery-inner u-gallery-inner-1" role="listbox">
-            <div class="u-effect-fade u-gallery-item u-gallery-item-1">
+            
+            <% for(int i = 0; i<i_list.size(); i++){ %>  
+                        <div class="u-effect-fade u-gallery-item u-gallery-item-1">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
-                <img class="u-back-image u-expanded" src="images/cafe1.jpg">
+                <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="G<%= i+1 %>.jpg">
               </div>
               <div class="u-align-center u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
               </div>
             </div>
-            <div class="u-effect-fade u-gallery-item u-gallery-item-2">
+              <%} %> 
+                    
+            <!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2">
               <div class="u-back-slide" data-image-width="828" data-image-height="827">
                 <img class="u-back-image u-expanded" src="images/cafe2.jpg">
               </div>
@@ -360,7 +372,7 @@
                 <h3 class="u-gallery-heading"></h3>
                 <p class="u-gallery-text"></p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- 검색 -->
