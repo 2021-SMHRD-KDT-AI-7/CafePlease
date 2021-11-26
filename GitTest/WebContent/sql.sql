@@ -160,6 +160,7 @@ ALTER TABLE t_comment
 ;
 =============================================================================================리뷰
 drop table t_review;
+select * from t_review;
 DROP SEQUENCE t_review_SEQ;
 DROP TRIGGER t_review_AI_TRG;
 
@@ -315,10 +316,35 @@ ALTER TABLE t_cafe_img
 
 =======================================================================================
 
+
+CREATE TABLE t_jjim
+(
+    m_id    VARCHAR2(20)    NOT NULL, 
+    cafe_id     VARCHAR2(20)    NOT NULL
+)
+;
+COMMENT ON TABLE t_jjim IS '찜목록 테이블'
+;
+COMMENT ON COLUMN t_jjim.m_id IS '찜한 ID'
+;
+COMMENT ON COLUMN t_jjim.cafe_id IS '유저가 찜한 카페들 '
+;
+ALTER TABLE t_jjim
+    ADD CONSTRAINT FK_t_jjim_cafe_id_t_cafe_c FOREIGN KEY (cafe_id)
+        REFERENCES t_cafe (cafe_id)
+;
+ALTER TABLE t_jjim
+    ADD CONSTRAINT FK_t_jjim_m_id_t_member FOREIGN KEY (m_id)
+        REFERENCES t_member (m_id)
+; 
+
+=======================================================================================
+
 select * from t_cafe
 delete from t_member
 select * from t_board
 select * from t_cafeimages
+select * from t_cafe_img
 
 insert into t_cafe values ('H1_01','형지',010-1111-1111,'형지네집','11:00~12:00','오늘 회식어때?','형지표 html',0,0,0,'n',sysdate);
 insert into t_cafeimages values ('H1_01_01','./img/D1_01/food01.jpg',1,sysdate)
