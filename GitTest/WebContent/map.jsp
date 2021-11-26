@@ -28,60 +28,65 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a2d0ec402889e9beb2e6f23071881448"></script>
 <script>
-	
-//마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+/* // 카카오 지도 스크립트의 중심좌표 위치(위도, 경도)값을 수정한다.
+var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+var options = { //지도를 생성할 때 필요한 기본 옵션
+    center: new kakao.maps.LatLng(35.144437, 126.840318), //지도의 중심좌표.
+    level: 3 //지도의 레벨(확대, 축소 정도)
+};
+var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+// 중심좌표 위치에 마커 표시하기
+// 위에서 알아낸 위도/경도 값을 저장하는 변수를 생성한다.
+var markerPosition  = new kakao.maps.LatLng(35.144437, 126.840318);
+
+// 해당 변수를 이용해 카카오맵에 위치(마커)설정
+var marker = new kakao.maps.Marker({
+	position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 위 에서 작성한 지도 생성 및 객체 리턴 변수를 연결해줍니다
+marker.setMap(map); */
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };  
+mapOption = { 
+    center: new kakao.maps.LatLng(35.144437, 126.840318), // 지도의 중심좌표
+    level: 1 // 지도의 확대 레벨
+};
 
-// 지도를 생성합니다    
-var map = new kakao.maps.Map(mapContainer, mapOption); 
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-// 장소 검색 객체를 생성합니다
-var ps = new kakao.maps.services.Places(); 
+var imageSrc = './img/g1.gif', // 마커이미지의 주소입니다    
+imageSize = new kakao.maps.Size(80, 85), // 마커이미지의 크기입니다
+imageOption = {offset: new kakao.maps.Point(100, 100)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+  
+//마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+markerPosition = new kakao.maps.LatLng(35.144437, 126.840318); // 마커가 표시될 위치입니다
 
-// 키워드로 장소를 검색합니다
-ps.keywordSearch('이태원 맛집', placesSearchCB); 
+//마커를 생성합니다
+var marker = new kakao.maps.Marker({
+position: markerPosition, 
+image: markerImage // 마커이미지 설정 
+});
 
-// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-function placesSearchCB (data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
+//마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map); 
 
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
-        var bounds = new kakao.maps.LatLngBounds();
+//인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+var iwContent = '<div style="padding:5px;"> <a href="https://map.kakao.com/link/map/Hello World!,35.144437, 126.840318" style="color:black" target="_blank">카페이름 들어갈 곳</a> </div>',
+iwPosition = new kakao.maps.LatLng(35.144437, 126.840318); //인포윈도우 표시 위치입니다
 
-        for (var i=0; i<data.length; i++) {
-            displayMarker(data[i]);    
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-        }       
+//인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+	position : iwPosition, 
+	content : iwContent 
+});
 
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        map.setBounds(bounds);
-    } 
-}
+//마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker);
 
-// 지도에 마커를 표시하는 함수입니다
-function displayMarker(place) {
-    
-    // 마커를 생성하고 지도에 표시합니다
-    var marker = new kakao.maps.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x) 
-    });
-
-    // 마커에 클릭이벤트를 등록합니다
-    kakao.maps.event.addListener(marker, 'click', function() {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-        infowindow.open(map, marker);
-    });
-}
-	
 </script>
 
 </body>

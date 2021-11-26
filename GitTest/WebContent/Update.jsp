@@ -111,7 +111,20 @@
 </div>
 <!-- 새로만든 헤더부분 끝 -->
 
+<!-- 게시글 수정 -->
+<%
+	//해당 게시글번호를 통하여 게시글을 수정
+	int num = Integer.parseInt(request.getParameter("num")); //trim은 공백을 없앰
+	
+	//하나의 게시글의 대한 정보를 리턴
+	BoardDAO dao = new BoardDAO();
+	BoardDTO dto = dao.getOneUpdateBoard(num); 
+	
+	/* String num = request.getParameter("num");
+	BoardDAO dao = new BoardDAO();
+	BoardDTO dto = dao.updateBoard(num); */
 
+%>
 
     <section class="u-clearfix u-section-1" id="sec-1aeb">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -131,13 +144,8 @@
             <!-- 제목 -->
             <div class="u-form-group u-form-name">
               <label for="name-4c01" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="제목" id="name-4c01" name="title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-            </div>
-            
-            <!-- 작성자 -->
-            <div class="u-form-group">
-              <label for="email-4c01" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="작성자" id="email-4c01" name="writer" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+              <input type="text" placeholder="제목" value="<%= dto.getArticle_title() %>" id="name-4c01" name="title" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              <input type="hidden" value="<%= dto.getArticle_seq() %>" name="seq">
             </div>
            
             <!-- 파일 선택 -->
@@ -148,13 +156,16 @@
 		            <input class="upfile" name="fileName1" type="file" style="float: right;"> <br>
 		            <input class="upfile" name="fileName2" type="file" style="float: right;"> <br>
 		            <input class="upfile" name="fileName3" type="file" style="float: right;">
+	            	<%-- <%= dto.getArticle_file1() %>
+		            <%= dto.getArticle_file2() %>
+		            <%= dto.getArticle_file3() %> --%>
             </div>
 	    </div>
            
            <!-- 내용 -->
             <div class="u-form-group u-form-message">
               <label for="message-4c01" class="u-form-control-hidden u-label"></label>
-              <textarea rows="10" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
+              <textarea rows="10" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""> <%=dto.getArticle_content()%></textarea>
             </div>
             
             <!-- 초기화, 작성완료 -->

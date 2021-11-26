@@ -147,7 +147,7 @@
             <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
   				<div class="row gx-5">
              		<a class="btn btn-secondary btn-lg col-md-auto" href="Post.jsp" role="button">게시판</a>
-             		<a class="btn btn-secondary btn-lg col-md-auto" href="Update.jsp" role="button">수정</a>
+             		<a class="btn btn-secondary btn-lg col-md-auto" href="Update.jsp?num=<%= num %>" role="button">수정</a>
              	</div>
         	</div>
 

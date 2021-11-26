@@ -343,3 +343,6 @@ select * from t_board
 
 insert into t_board values(t_board_seq.NEXTVAL, 'test', 'test', sysdate, 0, 'test', 'test', 'test', 'test')
 
+select * from t_board where article_seq=6
+
+update t_board set article_title = 'testsdfsdf' , article_content = 'testghjghj', article_file1 = 'tesfghgfhgt', article_file2 = 'testsdfdf', article_file3 = 'testsdfs' where article_seq=6
