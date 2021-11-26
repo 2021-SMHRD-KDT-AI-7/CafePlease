@@ -146,7 +146,7 @@
                 <th class="u-border-1 u-border-white u-table-cell">작성일</th>
                 <th class="u-border-1 u-border-white u-table-cell">작성자</th>
                 <th class="u-border-1 u-border-white u-table-cell">글 조회수</th>
-                <th class="u-border-1 u-border-white u-table-cell">삭제</th>
+               
               </tr>
             </thead>
             <tbody class="u-align-center u-table-alt-white u-table-body">
@@ -161,16 +161,42 @@
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_date() %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getM_id() %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_cnt() %></td>
-                <td class="u-border-1 u-border-grey-5 u-table-cell"><a href="DeleteOneServiceCon?seq_num=<%= b_list.get(i).getArticle_seq() %>">X</a></td>
+               
               </tr>
             <% } %>
             <!-- 끝 -->
             
             </tbody>
           </table>
+          	<!-- 게시글 찾기...기능?? 시간되면하자... -->
+							<div class="u-form u-form-1">
+								<form action="#" method="POST"
+									class="u-clearfix u-form-horizontal u-form-spacing-11 u-inner-form"
+									style="padding: 0px;" source="custom" name="form">
+									<div class="u-form-group u-form-group-1">
+										<label for="email-2555"
+											class="u-form-control-hidden u-label u-label-1">Email</label>
+										<input type="text" id="email-2555" name="search_cafe"
+											class="u-border-2 u-border-grey-5 u-input u-input-rectangle u-radius-45 u-white"
+											required="required" placeholder="검색어를 입력하세요">
+									</div>
+									<div class="u-align-left u-form-group u-form-submit">
+										<a href="#"
+											class="u-active-custom-color-4 u-border-2 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-4 u-hover-custom-color-4 u-radius-50 u-btn-1">검색</a>
+										<input type="submit" value="submit"
+											class="u-form-control-hidden">
+									</div>
+									<div class="u-form-send-message u-form-send-success">
+										Thank you! Your message has been sent.</div>
+									<div class="u-form-send-error u-form-send-message">
+										Unable to send your message. Please fix errors then try again.
+									</div>
+									<input type="hidden" value="" name="recaptchaResponse">
+								</form>
+							</div>
         </div>
         <!-- 자유게시판 끝 -->
-        
+        	
       </div>
     </section>
     

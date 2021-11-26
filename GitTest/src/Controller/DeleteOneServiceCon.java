@@ -28,7 +28,7 @@ public class DeleteOneServiceCon extends HttpServlet {
 			System.out.println("메시지 개별 삭제 실패");
 		}
 		
-		response.sendRedirect("Post.jsp");
+		response.sendRedirect("My_Page.jsp");
 		
 	}
 

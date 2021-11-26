@@ -278,4 +278,40 @@ public class BoardDAO {
 		}
         return cnt;
     }
+    
+	// 내가 쓴 게시물만 보여주는 메소드
+	public ArrayList<BoardDTO> view_post(String id) {
+		
+		ArrayList<BoardDTO> p_list = new ArrayList<BoardDTO>();
+		Db_conn();
+		
+		try {
+			
+			String sql = "select * from t_board where m_id = ? order by article_date";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				
+				int article_seq = rs.getInt("article_seq");
+				String article_title = rs.getString("article_title");
+				String article_content = rs.getString("article_content");
+				Date article_date = rs.getDate("article_date"); //여기 에러 뭐지
+				int article_cnt=rs.getInt("article_cnt");
+				String m_id = rs.getString("m_id");
+				String article_file1=rs.getString("article_file1");
+				String article_file2=rs.getString("article_file2");
+				String article_file3=rs.getString("article_file3");
+				
+				dto = new BoardDTO(article_seq, article_title, article_content, article_date, article_cnt, m_id, article_file1, article_file2, article_file3);
+				p_list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			Db_close();
+		}return p_list;
+	}
 }
