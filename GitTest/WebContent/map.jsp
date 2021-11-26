@@ -1,3 +1,4 @@
+<%@page import="Model.CafeDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -22,6 +23,7 @@
 	 5. 코드에 대한 설명을 읽은 뒤에 원하는 부분을 수정해서 원하는 기능을 만들어 준다! -->
 
 <body>
+<% CafeDTO inf = (CafeDTO) session.getAttribute("inf"); %>
 
 <div id="map" style="width:100%;height:100%;"></div>
 <div id="clickLatlng"></div>
@@ -51,7 +53,7 @@ marker.setMap(map); */
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = { 
-    center: new kakao.maps.LatLng(35.144437, 126.840318), // 지도의 중심좌표
+    center: new kakao.maps.LatLng(<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>), // 지도의 중심좌표
     level: 1 // 지도의 확대 레벨
 };
 
@@ -63,7 +65,7 @@ imageOption = {offset: new kakao.maps.Point(100, 100)}; // 마커이미지의 옵션입니
   
 //마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-markerPosition = new kakao.maps.LatLng(35.144437, 126.840318); // 마커가 표시될 위치입니다
+markerPosition = new kakao.maps.LatLng(<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>); // 마커가 표시될 위치입니다
 
 //마커를 생성합니다
 var marker = new kakao.maps.Marker({
@@ -76,7 +78,7 @@ marker.setMap(map);
 
 //인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 var iwContent = '<div style="padding:5px;"> <a href="https://map.kakao.com/link/map/Hello World!,35.144437, 126.840318" style="color:black" target="_blank">카페이름 들어갈 곳</a> </div>',
-iwPosition = new kakao.maps.LatLng(35.144437, 126.840318); //인포윈도우 표시 위치입니다
+iwPosition = new kakao.maps.LatLng(<%= inf.getCafe_latitude() %>, <%= inf.getCafe_longitude() %>); //인포윈도우 표시 위치입니다
 
 //인포윈도우를 생성합니다
 var infowindow = new kakao.maps.InfoWindow({
