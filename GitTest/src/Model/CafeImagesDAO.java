@@ -180,7 +180,9 @@ public class CafeImagesDAO {
 		Db_conn();
 		
 		try {
-			String sql = "select T.pic_id,T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='?'";
+			String sql = "select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name =?";
+			System.out.println(sql);
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, search_cafe);
 			rs = psmt.executeQuery();

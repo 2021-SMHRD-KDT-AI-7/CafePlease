@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@page import="Model.CafeImagesDTO"%>
 <%@page import="Model.CafeImagesDAO"%>
 <%@page import="Model.jjimDTO"%>
@@ -90,22 +91,17 @@
 			margin-right: 100px;
 		}
 
-/*카페정보부분,  리뷰부분 */
-/* #tab-0410, #tab-c8f5{
-		position: absolute;
-} */
-
-/*  #tab-c8f5{
-	display: none;
-}   */
-
+#cate{
+	margin-top: 150px
+}
  .cafe_info{
 	color: #401F00;
 
 }
+
 .u-section-1 .u-gallery-1{
-	margin-top: 150px;
-}
+	overflow: scroll;
+} 
 #th{
 	background-color: #401F00;
 	color: white;
@@ -164,12 +160,24 @@
 
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 
+	<!-- 카페 검색으로 인포창에 이미지들 뿌려주기 -->
 	<% 
-		String search_cafe = request.getParameter("search_cafe");
 		CafeImagesDAO dao1 = new CafeImagesDAO();
-		ArrayList<CafeImagesDTO> i_list1 = dao1.viewOneCafe(search_cafe);
-		System.out.println(i_list1.size());
-	%>
+		ArrayList<CafeImagesDTO> i_list1 = null;
+	
+		if(request.getParameter("search_cafe") != null){	
+			String search_cafe = URLDecoder.decode(request.getParameter("search_cafe"), "euc-kr") ;
+			
+			i_list1 = dao1.SearchOneCafe(search_cafe);
+			System.out.println(i_list1.size());
+			System.out.println("검색한 카페");
+		}else{
+			
+			i_list1 = dao1.SearchOneCafe(inf.getCafe_name());
+			System.out.println(i_list1.size());
+			System.out.println("노 검색 카페");
+		}
+	%> 
 
 <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
@@ -303,7 +311,14 @@
 													<tr>
 														<td align="letf">메뉴</td>
 														<td align="left"></td>
-														<td><br><%=inf.getCafe_menu() %></td>
+													<%-- 	<td><br><%
+															String[] menus = inf.getCafe_menu().split(", ");
+														
+															for(String menu : menus){
+																out.print(menu.substring(0, menu.length()-6)+" - ");
+																out.print(menu.substring(menu.length()-6)+"");
+															}
+														%></td> --%>
 													</tr>
 
 
@@ -367,12 +382,6 @@
 									
 									
 	
-
-
-
-									<!-- 카페사진들 리스트 -->
-									<div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-6bb4">
-
 										<!-- 사진 버튼 (외부,내부,음료...) -->
 										<div id="cate">
 											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All
@@ -387,6 +396,9 @@
 										</div>
 										<!--  사진버튼 끝 -->
 
+
+									<!-- 카페사진들 리스트 -->
+									<div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-6bb4">
 
 										<div class="u-gallery-inner u-gallery-inner-1" role="listbox">
 										
@@ -403,9 +415,9 @@
 													<p class="u-gallery-text"></p>
 												</div>
 											</div>
-											  <%} %> 
+											  <%} %>
 											
-											<div class="u-effect-fade u-gallery-item u-gallery-item-2">
+											<!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2">
 												<div class="u-back-slide" data-image-width="594"
 													data-image-height="594">
 													<img class="u-back-image u-expanded"
@@ -537,7 +549,7 @@
 													<p class="u-gallery-text"></p>
 												</div>
 											</div>
-										</div>
+										</div> -->
 								
 									</div>
 								</div>
