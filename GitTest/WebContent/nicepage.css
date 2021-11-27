@@ -4191,6 +4191,7 @@ ol {
   top: 0;
   width: 100%;
   height: 240px;
+/*   display: none; */
 }
 .u-background-effect {
   overflow: hidden;
