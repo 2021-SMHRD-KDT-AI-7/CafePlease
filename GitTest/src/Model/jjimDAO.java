@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class jjimDAO {
 
@@ -82,5 +83,26 @@ public class jjimDAO {
 			Db_close();
 		}
 		return cnt;
+	}
+	
+	public void jjimlist() {
+		ArrayList<jjimDTO> jlist = new ArrayList<jjimDTO>();
+		Db_conn();
+		try {
+			String sql = "select * from t_jjim where m_id = ? order by article_date desc";
+			psmt = conn.prepareStatement(sql);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
 	}
 }

@@ -269,13 +269,17 @@
 
 
 					<!--찜한 카페 목록 -->
+					<% 	int cnt = 0;
+						for(int i = 0; i < 10; i++) {
+							cnt++;
+					   	} %>
 					<div
 						class="u-align-left u-container-style u-shape-rectangle u-tab-pane u-tab-pane-2"
 						id="tab-4d57" role="tabpanel" aria-labelledby="link-tab-4d57"
 						aria-hidden="true">
 						<div class="u-container-layout u-container-layout-2">
 							<h6 class="u-text u-text-custom-color-2 u-text-default u-text-2">
-								찜한 카페&nbsp;<span class="u-text-custom-color-7">6</span>개
+								찜한 카페&nbsp;<span class="u-text-custom-color-7"><%= cnt %></span>개
 							</h6>
 							<div class="u-list u-list-1">
 								<div class="u-repeater u-repeater-1">
