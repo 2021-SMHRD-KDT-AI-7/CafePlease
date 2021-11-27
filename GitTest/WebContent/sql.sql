@@ -405,5 +405,4 @@ delete from T_CAFE_IMG where pic_id like 'S04_01_60';
 				
 =======
 select * from T_CAFEIMAGES where pic_id order by DBMS.RANDOM.VALUE
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+

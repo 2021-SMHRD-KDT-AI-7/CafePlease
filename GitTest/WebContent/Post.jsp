@@ -12,7 +12,7 @@
     <meta name="keywords" content="Information">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Post</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Post.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -66,6 +66,13 @@
 		}
 		#login{
 			margin-right: 100px;
+		}
+		.u-btn-submit{
+			display: flex;
+			width: 70px;
+			justify-content: center;
+			vertical-align: middle;
+			height: 25px;
 		}
 	</style>
   </head>
@@ -122,7 +129,7 @@
             <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
               <div class="u-container-layout u-container-layout-1">
                 <a href="Post_input.jsp" data-page-id="7275902" class="u-border-none u-btn u-button-style u-none u-text-custom-color-2 u-btn-1">게시글 작성하기</a>
-                <h4 class="u-text u-text-default u-text-1">&lt;&lt; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; &gt;&gt;</h4>
+                <h4 class="u-text u-text-default u-text-1" style="margin-bottom:150px">&lt;&lt; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; &gt;&gt;</h4>
               </div>
             </div>
           </div>
@@ -169,7 +176,7 @@
             </tbody>
           </table>
           	<!-- 게시글 찾기...기능?? 시간되면하자... -->
-							<div class="u-form u-form-1">
+							<!-- <div class="u-form u-form-1">
 								<form action="#" method="POST"
 									class="u-clearfix u-form-horizontal u-form-spacing-11 u-inner-form"
 									style="padding: 0px;" source="custom" name="form">
@@ -194,7 +201,7 @@
 									<input type="hidden" value="" name="recaptchaResponse">
 								</form>
 							</div>
-        </div>
+        </div> -->
         <!-- 자유게시판 끝 -->
         	
       </div>
