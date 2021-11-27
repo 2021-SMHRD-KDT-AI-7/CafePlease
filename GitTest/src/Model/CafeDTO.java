@@ -10,12 +10,12 @@ public class CafeDTO {
 	private String cafe_running_time;
 	private String cafe_info;
 	private String cafe_menu;
-	private int cafe_latitude;
-	private int cafe_longitude;
+	private Double cafe_latitude;
+	private Double cafe_longitude;
 	private String cafe_addr;
 	private Date reg_date;
 	public CafeDTO(String cafe_id, String cafe_name, String cafe_pohne, String cafe_running_time, String cafe_info,
-			String cafe_menu, int cafe_latitude, int cafe_longitude, String cafe_addr, Date reg_date) {
+			String cafe_menu, Double cafe_latitude, Double cafe_longitude, String cafe_addr, Date reg_date) {
 		super();
 		this.cafe_id = cafe_id;
 		this.cafe_name = cafe_name;
@@ -64,16 +64,16 @@ public class CafeDTO {
 	public void setCafe_menu(String cafe_menu) {
 		this.cafe_menu = cafe_menu;
 	}
-	public int getCafe_latitude() {
+	public Double getCafe_latitude() {
 		return cafe_latitude;
 	}
-	public void setCafe_latitude(int cafe_latitude) {
+	public void setCafe_latitude(Double cafe_latitude) {
 		this.cafe_latitude = cafe_latitude;
 	}
-	public int getCafe_longitude() {
+	public Double getCafe_longitude() {
 		return cafe_longitude;
 	}
-	public void setCafe_longitude(int cafe_longitude) {
+	public void setCafe_longitude(Double cafe_longitude) {
 		this.cafe_longitude = cafe_longitude;
 	}
 	public String getCafe_addr() {

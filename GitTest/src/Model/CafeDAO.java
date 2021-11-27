@@ -39,8 +39,8 @@ public class CafeDAO {
 				String cafe_running_time = rs.getString("cafe_running_time");
 				String cafe_info = rs.getString("cafe_info");
 				String cafe_menu = rs.getString("cafe_menu");
-				int cafe_latitude = rs.getInt("cafe_latitude");
-				int cafe_longitude = rs.getInt("cafe_longitude");
+				Double cafe_latitude = rs.getDouble("cafe_latitude");
+				Double cafe_longitude = rs.getDouble("cafe_longitude");
 				String cafe_addr = rs.getString("cafe_addr");
 				Date reg_date = rs.getDate("reg_date");
 
@@ -77,8 +77,8 @@ public class CafeDAO {
 				String cafe_running_time = rs.getString("cafe_running_time");
 				String cafe_info = rs.getString("cafe_info");
 				String cafe_menu = rs.getString("cafe_menu");
-				int cafe_latitude = rs.getInt("cafe_latitude");
-				int cafe_longitude = rs.getInt("cafe_longitude");
+				Double cafe_latitude = rs.getDouble("cafe_latitude");
+				Double cafe_longitude = rs.getDouble("cafe_longitude");
 				String cafe_addr = rs.getString("cafe_addr");
 				Date reg_date = rs.getDate("reg_date");
 
