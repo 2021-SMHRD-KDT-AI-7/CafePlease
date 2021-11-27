@@ -16,10 +16,11 @@ public class jjimdeleteServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("EUC-KR");
-			
+		
+		String m_id = request.getParameter("m_id");
 		String cafe_id = request.getParameter("cafe_id");
 		
-		jjimDTO dto = new jjimDTO(cafe_id);
+		jjimDTO dto = new jjimDTO(m_id, cafe_id);
 		
 		jjimDAO dao = new jjimDAO();
 		int cnt = dao.jjim(dto);
@@ -29,7 +30,7 @@ public class jjimdeleteServiceCon extends HttpServlet {
 		} else {
 			System.out.println("Âò »èÁ¦ ½ÇÆÐ¤Ð¤Ð");
 		}
-		response.sendRedirect("Cafe_Info.jsp");
+		response.sendRedirect("My_Page.jsp");
 		
 	}
 

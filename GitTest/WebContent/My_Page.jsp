@@ -1,3 +1,4 @@
+<%@page import="Model.jjimDAO"%>
 <%@page import="Model.CafeDTO"%>
 <%@page import="Model.jjimDTO"%>
 <%@page import="Model.BoardDTO"%>
@@ -269,8 +270,10 @@
 
 
 					<!--찜한 카페 목록 -->
+					<% jjimDAO jjim = new jjimDAO(); 
+					   ArrayList<jjimDTO> j_list = new ArrayList<jjimDTO>(); %>
 					<% 	int cnt = 0;
-						for(int i = 0; i < 10; i++) {
+						for(int i = 0; i < j_list.size(); i++) {
 							cnt++;
 					   	} %>
 					<div
@@ -281,7 +284,27 @@
 							<h6 class="u-text u-text-custom-color-2 u-text-default u-text-2">
 								찜한 카페&nbsp;<span class="u-text-custom-color-7"><%= cnt %></span>개
 							</h6>
+							<% for(int i = 0; i < j_list.size(); i++) { %>
 							<div class="u-list u-list-1">
+								<div class="u-repeater u-repeater-1">
+									<div class="u-container-style u-list-item u-repeater-item">
+										<div
+											class="u-container-layout u-similar-container u-container-layout-3">
+											<img alt=""
+												class="u-expanded-width u-image u-image-default u-image-1"
+												data-image-width="1125" data-image-height="1500"
+												src="images/pexelsphoto949067.jpeg">
+											<h3 class="u-text u-text-default u-text-3"><%= j_list.get(i).getCafe_name() %></h3>
+											<a href="Cafe_Info.jsp" data-page-id="95186816"
+												class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-body-color u-btn-2">해당
+												카페로 이동</a>
+											<a href = "jjimdeleteServiceCon?m_id=<%= j_list.get(i).getM_id() %>&cafe_id<%= j_list.get(i).getCafe_id() %>"> X </a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% } %>
+							<!-- <div class="u-list u-list-1">
 								<div class="u-repeater u-repeater-1">
 									<div class="u-container-style u-list-item u-repeater-item">
 										<div
@@ -360,7 +383,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
