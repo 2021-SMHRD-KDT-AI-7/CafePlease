@@ -405,6 +405,7 @@ delete from T_CAFE_IMG where pic_id like 'S04_01_60';
 				
 =======
 select * from T_CAFEIMAGES where pic_id order by DBMS.RANDOM.VALUE
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 
@@ -430,3 +431,6 @@ delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in01.jpg';
 
 
 select * from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='도지커피'
+=======
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
