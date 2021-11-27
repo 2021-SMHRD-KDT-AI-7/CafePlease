@@ -17,6 +17,12 @@ public class CafeImagesDTO {
 		this.reg_date = reg_date;
 	}
 
+	public CafeImagesDTO(String pic_id, String pic_path) {
+		super();
+		this.pic_id = pic_id;
+		this.pic_path = pic_path;
+	}
+	
 	public String getPic_id() {
 		return pic_id;
 	}

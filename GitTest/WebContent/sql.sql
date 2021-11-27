@@ -407,3 +407,26 @@ delete from T_CAFE_IMG where pic_id like 'S04_01_60';
 select * from T_CAFEIMAGES where pic_id order by DBMS.RANDOM.VALUE
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+
+delete from T_CAFE_IMG where pic_id like 'N01_01_02';
+delete from T_CAFE_IMG where pic_id like 'N01_01_03';
+delete from T_CAFE_IMG where pic_id like 'N01_01_04';
+delete from T_CAFE_IMG where pic_id like 'N01_01_05';
+delete from T_CAFE_IMG where pic_id like 'N01_01_06';
+delete from T_CAFE_IMG where pic_id like 'N01_01_07';
+delete from T_CAFE_IMG where pic_id like 'N01_01_08';
+delete from T_CAFE_IMG where pic_id like 'N01_01_09';
+delete from T_CAFE_IMG where pic_id like 'N01_01_01';
+
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in02.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in03.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in04.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in05.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in06.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in07.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in08.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in09.jpg';
+delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in01.jpg';
+
+
+select * from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='도지커피'

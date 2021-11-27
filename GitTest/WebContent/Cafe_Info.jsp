@@ -1,3 +1,5 @@
+<%@page import="Model.CafeImagesDTO"%>
+<%@page import="Model.CafeImagesDAO"%>
 <%@page import="Model.jjimDTO"%>
 <%@page import="Model.CafeDAO"%>
 <%@page import="Model.ReviewDTO"%>
@@ -161,6 +163,12 @@
 
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 
+	<% 
+		String search_cafe = request.getParameter("search_cafe");
+		CafeImagesDAO dao1 = new CafeImagesDAO();
+		ArrayList<CafeImagesDTO> i_list1 = dao1.viewOneCafe(search_cafe);
+		System.out.println(i_list1.size());
+	%>
 
 <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
@@ -370,11 +378,13 @@
 
 
 										<div class="u-gallery-inner u-gallery-inner-1" role="listbox">
+										
+										<% for(int i = 0; i<i_list1.size(); i++){ %>
 											<div class="u-effect-fade u-gallery-item u-gallery-item-1">
 												<div class="u-back-slide" data-image-width="828"
 													data-image-height="812">
 													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575.jpg">
+														src="<%= i_list1.get(i).getPic_path() %>">
 												</div>
 												<div
 													class="u-align-center u-over-slide u-shading u-over-slide-1">
@@ -382,6 +392,8 @@
 													<p class="u-gallery-text"></p>
 												</div>
 											</div>
+											  <%} %> 
+											
 											<div class="u-effect-fade u-gallery-item u-gallery-item-2">
 												<div class="u-back-slide" data-image-width="594"
 													data-image-height="594">

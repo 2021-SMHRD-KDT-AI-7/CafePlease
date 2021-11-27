@@ -187,4 +187,32 @@ public class CafeImagesDAO {
 		return i_list;
 	}
 	
+	public ArrayList<CafeImagesDTO> viewOneCafe(String search_cafe) {  // 카페 검색으로 카페인포 이미지 보여주기
+		ArrayList<CafeImagesDTO> i_list1 = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+		
+		try {
+			String sql = "select * from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='?'";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, search_cafe);
+			
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				String pic_id = rs.getString("pic_id");
+				String pic_path = rs.getString("pic_path");
+
+				
+				dto = new CafeImagesDTO(pic_id, pic_path);
+				i_list1.add(dto);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			Db_close();
+		}		
+		return i_list1;
+		
+	}
+	
 }
