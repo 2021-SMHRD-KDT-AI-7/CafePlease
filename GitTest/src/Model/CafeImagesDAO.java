@@ -47,9 +47,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (" + 
-					"				select * from t_cafeimages where pic_id like 'D%'" + 
-					"				order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'D%'	order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -76,15 +74,9 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (\r\n" + 
-					"				select * from t_cafeimages where pic_id like 'P%'\r\n" + 
-					"				order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'P%' order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
-		
 			rs = psmt.executeQuery();
-			
-			
-
 			while (rs.next()) {
 				String pic_id = rs.getString("pic_id");
 				String pic_path = rs.getString("pic_path");
@@ -107,9 +99,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (\r\n" + 
-					"				select * from t_cafeimages where pic_id like 'S%'\r\n" + 
-					"				order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'S%'	order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -136,9 +126,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (\r\n" + 
-					"				select * from t_cafeimages where pic_id like 'N%'\r\n" + 
-					"				order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'N%'	order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -165,9 +153,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (\r\n" + 
-					"				select * from t_cafeimages where pic_id like 'G%'\r\n" + 
-					"				order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'G%' order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -189,10 +175,9 @@ public class CafeImagesDAO {
 		return i_list;
 	}
 	
-	public ArrayList<CafeImagesDTO> viewOneCafe(String search_cafe) {  // 카페 검색으로 카페인포 이미지 보여주기
+	public ArrayList<CafeImagesDTO> SearchOneCafe(String search_cafe) {  // 카페 검색으로 카페인포 이미지 보여주기
 		ArrayList<CafeImagesDTO> i_list1 = new ArrayList<CafeImagesDTO>();
 		Db_conn();
-		System.out.println("[viewOneCafe]");
 		
 		try {
 			String sql = "select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name =?";
@@ -220,7 +205,8 @@ public class CafeImagesDAO {
 			Db_close();
 		}		
 		return i_list1;
-		
 	}
+
+	
 	
 }

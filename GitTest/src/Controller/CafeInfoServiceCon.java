@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import Model.CafeDAO;
 import Model.CafeDTO;
 import Model.MemberDAO;
+import Model.PicDTO;
 
 
 @WebServlet("/CafeInfoServiceCon")
@@ -35,9 +36,13 @@ public class CafeInfoServiceCon extends HttpServlet {
       
       CafeDTO inf= dao.cafeimg_info(img);
       
+      PicDTO dtoa = dao.InfoPic(inf.getCafe_name());
+      
       if (inf != null) {
          HttpSession session = request.getSession();
          session.setAttribute("inf", inf);
+         session.setAttribute("pic", dtoa);	
+         
          response.sendRedirect("Cafe_Info.jsp");}
    }
 

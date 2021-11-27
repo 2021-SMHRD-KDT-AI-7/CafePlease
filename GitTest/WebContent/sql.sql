@@ -434,3 +434,5 @@ select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.
 =======
 
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+
+select * from (select * from t_cafeimages where pic_id like 'D%' order by dbms_random.value) 
