@@ -139,9 +139,10 @@
 					<input type="hidden" value="" name="recaptchaResponse">
 				</form>
 			</div>
-			<h6 class="u-text u-text-custom-color-2 u-text-2">#쌍촌,화정동</h6>
-			<h6 class="u-text u-text-custom-color-2 u-text-3">#금호동</h6>
-			<h6 class="u-text u-text-custom-color-2 u-text-4">#상무지구</h6>
+			<h6 class="u-text u-text-custom-color-2 u-text-2"><a href="#" role="button">#쌍촌,화정동</a></h6>
+			<h6 class="u-text u-text-custom-color-2 u-text-3"><a href="#" role="button">#금호동<
+			/a></h6>
+			<h6 class="u-text u-text-custom-color-2 u-text-4"><a href="#" role="button">#상무지구</a></h6>
 
 			<%
             CafeImagesDAO dao = new CafeImagesDAO();
