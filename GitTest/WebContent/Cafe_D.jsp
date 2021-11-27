@@ -135,9 +135,9 @@
             <input type="hidden" value="" name="recaptchaResponse">
           </form>
         </div>
-        <h6 class="u-text u-text-custom-color-2 u-text-2">#기타</h6>
-        <h6 class="u-text u-text-custom-color-2 u-text-3">#충장로</h6>
-        <h6 class="u-text u-text-custom-color-2 u-text-4">#동명동</h6>
+        <h6 class="u-text u-text-custom-color-2 u-text-2"><a href="#" role="button">#기타</a></h6>
+        <h6 class="u-text u-text-custom-color-2 u-text-3"><a href="#" role="button">#충장로</a></h6>
+        <h6 class="u-text u-text-custom-color-2 u-text-4"><a href="#" role="button">#동명동</a></h6>
         
         <%
             CafeImagesDAO dao = new CafeImagesDAO();

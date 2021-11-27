@@ -23,6 +23,7 @@
 <title>Cafe_Info</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Cafe_Info.css" media="screen">
+<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
 <!--<script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>  -->
 <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
