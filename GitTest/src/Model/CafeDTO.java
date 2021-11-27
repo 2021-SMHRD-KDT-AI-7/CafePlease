@@ -14,8 +14,9 @@ public class CafeDTO {
 	private Double cafe_longitude;
 	private String cafe_addr;
 	private Date reg_date;
+	private String cafe_pic;
 	public CafeDTO(String cafe_id, String cafe_name, String cafe_pohne, String cafe_running_time, String cafe_info,
-			String cafe_menu, Double cafe_latitude, Double cafe_longitude, String cafe_addr, Date reg_date) {
+			String cafe_menu, Double cafe_latitude, Double cafe_longitude, String cafe_addr, Date reg_date,String cafe_pic) {
 		super();
 		this.cafe_id = cafe_id;
 		this.cafe_name = cafe_name;
@@ -27,6 +28,7 @@ public class CafeDTO {
 		this.cafe_longitude = cafe_longitude;
 		this.cafe_addr = cafe_addr;
 		this.reg_date = reg_date;
+		this.cafe_pic = cafe_pic;
 	}
 	public String getCafe_id() {
 		return cafe_id;
@@ -81,6 +83,12 @@ public class CafeDTO {
 	}
 	public void setCafe_addr(String cafe_addr) {
 		this.cafe_addr = cafe_addr;
+	}
+	public String getCafe_pic() {
+		return cafe_pic;
+	}
+	public void setCafe_pic(String cafe_pic) {
+		this.cafe_pic = cafe_pic;
 	}
 	public Date getReg_date() {
 		return reg_date;
