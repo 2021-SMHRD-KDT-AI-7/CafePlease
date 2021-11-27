@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@page import="Model.CafeImagesDTO"%>
 <%@page import="Model.CafeImagesDAO"%>
 <%@page import="Model.jjimDTO"%>
@@ -164,7 +165,8 @@
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 
 	<% 
-		String search_cafe = request.getParameter("search_cafe");
+		String search_cafe = URLDecoder.decode(request.getParameter("search_cafe"), "euc-kr") ;
+		System.out.println(":::::::::"+search_cafe);
 		CafeImagesDAO dao1 = new CafeImagesDAO();
 		ArrayList<CafeImagesDTO> i_list1 = dao1.viewOneCafe(search_cafe);
 		System.out.println(i_list1.size());
@@ -216,7 +218,7 @@
 
 								<!-- 찜, 카페이름, 지도 부분 -->
 								<div id="bar">
-									<a href="jjimServiceCon?m_id=<%= info.getM_id() %>&cafe_id=<%= inf.getCafe_id() %>"
+									<a href="jjimServiceCon?m_id=<%= info.getM_id() %>&cafe_id=<%= inf.getCafe_id() %>" id="jjimO"
 										class="u-border-none u-btn u-button-style u-none u-text-palette-1-base u-btn-1"><span
 										class="u-icon u-icon-1"><svg class="u-svg-content"
 												viewBox="0 0 496.158 496.158" x="0px" y="0px"
@@ -225,7 +227,17 @@
 													d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082  c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z"></path>
 												<path style="fill:#FFFFFF;"
 													d="M374.116,155.145c-34.799-34.8-91.223-34.8-126.022,0h-0.029c-34.801-34.8-91.224-34.8-126.023,0  c-34.801,34.8-29.783,86.842,0,126.022c31.541,41.491,89.129,109.944,126.023,109.944h0.029c36.895,0,94.481-68.453,126.022-109.944  C403.9,241.988,408.916,189.946,374.116,155.145z"></path></svg><img></span>&nbsp;
-									</a> 
+									</a>  
+									
+									<script type="text/javascript">
+										
+								        $("#jjimO").on("click", function(){
+								        	alert("찜목록에 추가 되었습니다.");
+								            }
+								        );
+										
+									</script>
+									
 									<a href="map.jsp"
 										class="u-active-none u-border-2 u-border-custom-color-4 u-btn u-btn-rectangle u-button-style u-custom-font u-heading-font u-hover-none u-none u-radius-0 u-btn-2">지도</a>
 									<h2 class="u-text u-text-custom-color-2 u-text-1"
@@ -394,7 +406,7 @@
 											</div>
 											  <%} %> 
 											
-											<div class="u-effect-fade u-gallery-item u-gallery-item-2">
+											<!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2">
 												<div class="u-back-slide" data-image-width="594"
 													data-image-height="594">
 													<img class="u-back-image u-expanded"
@@ -526,7 +538,7 @@
 													<p class="u-gallery-text"></p>
 												</div>
 											</div>
-										</div>
+										</div> -->
 								
 									</div>
 								</div>

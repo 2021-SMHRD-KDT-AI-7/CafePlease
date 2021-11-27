@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +40,7 @@ public class SearchServiceCon extends HttpServlet {
 			HttpSession session_pic = request.getSession();			
 			session.setAttribute("inf", inf);
 			session_pic.setAttribute("pic", dtoa);			
-			path = "Cafe_Info.jsp"; // 성공시 이동경로
+			path = "Cafe_Info.jsp?search_cafe="+URLEncoder.encode(search_cafe, "euc-kr"); // 성공시 이동경로
 		}else {
 			System.out.println("아 못찾음...");
 			path = "Home.jsp"; // 실패시 이동경로
