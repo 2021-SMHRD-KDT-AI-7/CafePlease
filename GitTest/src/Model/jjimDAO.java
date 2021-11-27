@@ -71,7 +71,7 @@ public class jjimDAO {
 		Db_conn();
 		try {
 			
-			String sql = "delect from t_jjim where cafe_id = ?";
+			String sql = "delect from t_jjim where m_id = ? and cafe_id = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, cafe_id);
@@ -85,7 +85,8 @@ public class jjimDAO {
 		return cnt;
 	}
 	
-	public void jjimlist() {
+	// Âò¸ñ·Ï Á¶È¸
+	public ArrayList<jjimDTO> jjimlist() {
 		ArrayList<jjimDTO> jlist = new ArrayList<jjimDTO>();
 		Db_conn();
 		try {
@@ -103,6 +104,6 @@ public class jjimDAO {
 			e.printStackTrace();
 		} finally {
 			Db_close();
-		}
+		} return jlist;
 	}
 }
