@@ -433,10 +433,5 @@ delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in01.jpg';
 select * from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='도지커피'
 =======
 select * from t_jjim
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
 
-select distinct C.Cafe_id, T.pic_path from t_cafeimages T, t_jjim J, t_cafe C, T_CAFE_IMG I where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_id =J.cafe_id and J.m_id='asd'
-select distinct * from t_jjim
-
-select T.pic_id,T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='도지커피'
 		

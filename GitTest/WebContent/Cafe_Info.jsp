@@ -1,6 +1,3 @@
-<%@page import="java.net.URLDecoder"%>
-<%@page import="Model.CafeImagesDTO"%>
-<%@page import="Model.CafeImagesDAO"%>
 <%@page import="Model.jjimDTO"%>
 <%@page import="Model.CafeDAO"%>
 <%@page import="Model.ReviewDTO"%>
@@ -23,7 +20,6 @@
 <title>Cafe_Info</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Cafe_Info.css" media="screen">
-<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
 <!--<script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>  -->
 <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
@@ -91,17 +87,32 @@
 			margin-right: 100px;
 		}
 
-#cate{
-	margin-top: 150px
+/*카페정보부분,  리뷰부분 */
+#tab-0410, #tab-c8f5{
+		position: absolute;
 }
+
+/*  #tab-c8f5{
+	display: none;
+}   */
+
+/* 전체 탭내용 클래스: .tab_test 탭내용중 처음에 보여질 내용 : .cafe_info_tab */
+.tab_test{
+	display: none;
+}
+/* 탭내용중 처음에 보여질 내용 */
+.cafe_info_tab{
+	display: inherit;
+}
+
+
  .cafe_info{
 	color: #401F00;
 
 }
-
 .u-section-1 .u-gallery-1{
-	overflow: scroll;
-} 
+	margin-top: 600px;
+}
 #th{
 	background-color: #401F00;
 	color: white;
@@ -114,36 +125,6 @@
 }
 
 
-/* tab */
-[role='tab'] {
-	background: #fff;
-	color: black;
-}
-
-[role='tab'].active {
-	/* 활성화 스타일 */
-	background: #a37a54;
-	color: #fff;
-}
-
-/* panel */
-[role='tabpanel'] {
-	display: none;
-}
-
-[role='tabpanel'].active {
-	/* 활성화 스타일 */
-	display: block;
-}
-
-.tabs>li{
-	display: flex;
-	justify-content:center;
-	align-items:center;
-	vertical-align:middle;
-	height: 40px;
-	font-weight: 100px;
-}
 
 </style>
 </head>
@@ -160,24 +141,6 @@
 
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
 
-	<!-- 카페 검색으로 인포창에 이미지들 뿌려주기 -->
-	<% 
-		CafeImagesDAO dao1 = new CafeImagesDAO();
-		ArrayList<CafeImagesDTO> i_list1 = null;
-	
-		if(request.getParameter("search_cafe") != null){	
-			String search_cafe = URLDecoder.decode(request.getParameter("search_cafe"), "euc-kr") ;
-			
-			i_list1 = dao1.SearchOneCafe(search_cafe);
-			System.out.println(i_list1.size());
-			System.out.println("검색한 카페");
-		}else{
-			
-			i_list1 = dao1.SearchOneCafe(inf.getCafe_name());
-			System.out.println(i_list1.size());
-			System.out.println("노 검색 카페");
-		}
-	%> 
 
 <!-- 새로만든 헤더부분 시작 -->
 <div style="height: 85px;">
@@ -192,7 +155,7 @@
             
               <div id="top_menu">
               <%if(info != null){ %>
-              <b id="user_id"> <%=info.getM_nickname() %>님 환영합니다</b> 
+              <b id="user_id"> <%=info.getM_id() %>님 환영합니다</b> 
               <%} %>
               
               	<a href="My_Page.jsp">
@@ -225,7 +188,7 @@
 
 								<!-- 찜, 카페이름, 지도 부분 -->
 								<div id="bar">
-									<a href="jjimServiceCon?m_id=<%= info.getM_id() %>&cafe_id=<%= inf.getCafe_id() %>" id="jjimO"
+									<a href="jjimServiceCon?m_id=<%= info.getM_id() %>&cafe_id=<%= inf.getCafe_id() %>"
 										class="u-border-none u-btn u-button-style u-none u-text-palette-1-base u-btn-1"><span
 										class="u-icon u-icon-1"><svg class="u-svg-content"
 												viewBox="0 0 496.158 496.158" x="0px" y="0px"
@@ -234,17 +197,7 @@
 													d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082  c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z"></path>
 												<path style="fill:#FFFFFF;"
 													d="M374.116,155.145c-34.799-34.8-91.223-34.8-126.022,0h-0.029c-34.801-34.8-91.224-34.8-126.023,0  c-34.801,34.8-29.783,86.842,0,126.022c31.541,41.491,89.129,109.944,126.023,109.944h0.029c36.895,0,94.481-68.453,126.022-109.944  C403.9,241.988,408.916,189.946,374.116,155.145z"></path></svg><img></span>&nbsp;
-									</a>  
-									
-									<script type="text/javascript">
-										
-								        $("#jjimO").on("click", function(){
-								        	alert("찜목록에 추가 되었습니다.");
-								            }
-								        );
-										
-									</script>
-									
+									</a> 
 									<a href="map.jsp"
 										class="u-active-none u-border-2 u-border-custom-color-4 u-btn u-btn-rectangle u-button-style u-custom-font u-heading-font u-hover-none u-none u-radius-0 u-btn-2">지도</a>
 									<h2 class="u-text u-text-custom-color-2 u-text-1"
@@ -256,27 +209,27 @@
 								<!-- 카페정보 탭부분 -->
 								<div class="u-tab-links-align-justify u-tabs u-tabs-1">
 									<ul class="u-tab-list u-unstyled tabs" role="tablist">
-										<li class="u-tab-item" role="tab" id="link-tab-0410" aria-controls="tab-0410" aria-selected="true" tabindex="0"> 카페정보
-										<!-- <a class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
-											 href="#tab-0410" role="tab" aria-controls="tab-0410" aria-selected="true">카페정보</a> --></li>
-											<li class="u-tab-item" role="tab" id="link-tab-c8f5" aria-controls="tab-c8f5" aria-selected="false" tabindex="0">리뷰
-											<!-- <a class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
-											 href="#tab-c8f5" 
-											>리뷰</a> -->
+										<li class="u-tab-item" role="presentation" data-tab="tab-1">
+										<a class="active u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-1"
+											id="link-tab-0410" href="#tab-0410" role="tab"
+											aria-controls="tab-0410" aria-selected="true">카페정보</a></li>
+											<li class="u-tab-item" role="presentation" data-tab="tab-2">
+											<a class="u-active-white u-border-6 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-custom-color-4 u-hover-custom-color-6 u-tab-link u-tab-link-3"
+											id="link-tab-c8f5" href="#tab-c8f5" role="tab"
+											aria-controls="tab-c8f5" aria-selected="false">리뷰</a>
 										</li>
 									</ul>
-									
 									<!-- 카페정보부분 -->
 									<div class="u-tab-content">
-										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test active"
-											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410" aria-hidden="false">
-											<div class="u-container-layout u-container-layout-2">
+										<div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1 tab_test"
+											id="tab-0410" role="tabpanel" aria-labelledby="link-tab-0410">
+											<div class="u-container-layout u-container-layout-2 cafe_info_tab">
 												<table class="cafe_info" >
 													<tr>
 														<td width="200px" align="letf">주소</td>
 														<td></td>
 														<td width="400px" align="left"><%=inf.getCafe_addr() %></td>
-														<td rowspan="8" width="300px"> <img src=<%=pic.getPic_path() %> width="300px;"> </td>
+														<td rowspan="8" width="300px"> <img src=<%=inf.getCafe_pic() %> width="300px;"> </td>
 													</tr>
 													<tr>
 														<td><br></td>
@@ -311,14 +264,7 @@
 													<tr>
 														<td align="letf">메뉴</td>
 														<td align="left"></td>
-													<%-- 	<td><br><%
-															String[] menus = inf.getCafe_menu().split(", ");
-														
-															for(String menu : menus){
-																out.print(menu.substring(0, menu.length()-6)+" - ");
-																out.print(menu.substring(menu.length()-6)+"");
-															}
-														%></td> --%>
+														<td><br><%=inf.getCafe_menu() %></td>
 													</tr>
 
 
@@ -339,11 +285,10 @@
 												</p>
 												</div>
 											</div>
-											</div>
-												</div>
+											
 											<!-- 리뷰 부분   -->
 											<div class="u-container-style u-tab-pane u-white u-tab-pane-3 tab_test" id="tab-c8f5" role="tabpanel" aria-labelledby="link-tab-c8f5">
-												<div class="u-container-layout u-container-layout-4" aria-hidden="true">
+												<div class="u-container-layout u-container-layout-4">
 													<a href="review.jsp" data-page-id="66156236"
 														class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-2 u-border-hover-palette-2-base u-btn u-button-style u-hover-none u-none u-text-custom-color-2 u-text-hover-palette-2-base u-btn-3">리뷰
 														적으러 가기 !</a>
@@ -379,9 +324,15 @@
 												</div>
 											</div>
 									
-									
-									
+										</div>
+									</div>
 	
+
+
+
+									<!-- 카페사진들 리스트 -->
+									<div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-6bb4">
+
 										<!-- 사진 버튼 (외부,내부,음료...) -->
 										<div id="cate">
 											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All
@@ -397,17 +348,12 @@
 										<!--  사진버튼 끝 -->
 
 
-									<!-- 카페사진들 리스트 -->
-									<div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-6bb4">
-
 										<div class="u-gallery-inner u-gallery-inner-1" role="listbox">
-										
-										<% for(int i = 0; i<i_list1.size(); i++){ %>
 											<div class="u-effect-fade u-gallery-item u-gallery-item-1">
 												<div class="u-back-slide" data-image-width="828"
 													data-image-height="812">
 													<img class="u-back-image u-expanded"
-														src="<%= i_list1.get(i).getPic_path() %>">
+														src="images/KakaoTalk_20211119_150234575.jpg">
 												</div>
 												<div
 													class="u-align-center u-over-slide u-shading u-over-slide-1">
@@ -415,9 +361,7 @@
 													<p class="u-gallery-text"></p>
 												</div>
 											</div>
-											  <%} %>
-											
-											<!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2">
+											<div class="u-effect-fade u-gallery-item u-gallery-item-2">
 												<div class="u-back-slide" data-image-width="594"
 													data-image-height="594">
 													<img class="u-back-image u-expanded"
@@ -549,9 +493,34 @@
 													<p class="u-gallery-text"></p>
 												</div>
 											</div>
-										</div> -->
-								
+										</div>
+										<button data-page-id="654928509"
+											class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-custom-color-4 u-border-hover-palette-2-base u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-custom-color-4 u-text-hover-palette-2-base u-btn-9">
+											더보기&nbsp; <span class="u-icon u-text-custom-color-4"><svg
+													class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px"
+													style="width: 1em; height: 1em;">
+													<path
+														d="M441.156,322.876l-48.666-47.386c-3.319-3.243-8.619-3.234-11.93,0.017l-81.894,80.299V8.533 c0-4.71-3.823-8.533-8.533-8.533h-68.267c-4.71,0-8.533,3.823-8.533,8.533v347.273l-81.894-80.299    c-3.311-3.243-8.602-3.251-11.921-0.017l-48.666,47.386c-1.655,1.604-2.586,3.806-2.586,6.11c0,2.304,0.939,4.506,2.586,6.11 l179.2,174.481c1.655,1.613,3.806,2.423,5.948,2.423c2.15,0,4.292-0.811,5.956-2.423l179.2-174.481 c1.647-1.604,2.577-3.806,2.577-6.11C443.733,326.682,442.803,324.48,441.156,322.876z"></path></svg><img></span>
+										</button>
 									</div>
+
+
+									<!-- 카페정보 id #tab-0410, 리뷰 id #tab-c8f5 내용부분 -->
+											
+											<script type="text/javascript">
+											/* 전체 탭내용 클래스: .tab_test 탭내용중 처음에 보여질 내용 : .cafe_info_tab */
+											
+											$(document). ready(function(){
+											
+												// 탭 클릭시
+												
+												
+											})
+											
+
+											</script>
+								
+
 								</div>
 							</div>
 							
@@ -560,33 +529,7 @@
 				</div>
 			</div>
 	</section>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
 
-		function eventHandler(e) {
-			var $eTarget = $(e.currentTarget);
-			console.log($eTarget)
-			var $targetPanel = $('[aria-labelledby="' + $eTarget.attr('id')+ '"]');
-			console.log($targetPanel)
-
-			// 조건문으로 이벤트 구분
-			if (e.type === 'click') { // 클릭 시 동작
-				$eTarget.attr('aria-selected', true).addClass('active')
-						.siblings('[role="tab"]').attr('aria-selected', false)
-						.removeClass('active');
-
-				$targetPanel.attr('aria-hidden', false).addClass('active')
-						.siblings('[role="tabpanel"]')
-						.attr('aria-hidden', true).removeClass('active');
-			} else if (e.type === 'keydown' && e.which === 13) { // 키가 눌렸을 때 && 키가 엔터일 때
-				// e.which 는 keycode 값을 판별하는데 13 이 엔터 키에 해당되는 keycode
-				$(this).click(); // 현재 Element에 클릭이벤트 발생시킴
-			}
-		}
-
-		// 바인딩에 keydown 이벤트 추가 - 쉼표 없음
-		$('[role="tab"]').on('click keydown', eventHandler);
-	</script>
 
 
 	<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
