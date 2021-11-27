@@ -430,8 +430,9 @@ delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in09.jpg';
 delete from T_CAFEIMAGES where pic_path ='./img/N01_01/in01.jpg';
 
 
-select * from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='도지커피'
+select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name ='도지커피'
 =======
-select * from t_jjim
 
-		
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-7/CafePlease.git
+
+select * from (select * from t_cafeimages where pic_id like 'D%' order by dbms_random.value) 

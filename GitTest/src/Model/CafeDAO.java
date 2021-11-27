@@ -43,8 +43,8 @@ public class CafeDAO {
 				Double cafe_longitude = rs.getDouble("cafe_longitude");
 				String cafe_addr = rs.getString("cafe_addr");
 				Date reg_date = rs.getDate("reg_date");
-				String cafe_pic = rs.getString("cafe_pic");
-				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_info, cafe_menu, cafe_latitude, cafe_longitude, cafe_addr, reg_date, cafe_pic);
+
+				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_info, cafe_menu, cafe_latitude, cafe_longitude, cafe_addr, reg_date);
 			}
 
 		} catch (Exception e) {
@@ -81,9 +81,8 @@ public class CafeDAO {
 				Double cafe_longitude = rs.getDouble("cafe_longitude");
 				String cafe_addr = rs.getString("cafe_addr");
 				Date reg_date = rs.getDate("reg_date");
-				String cafe_pic = rs.getString("cafe_pic");
 
-				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_info, cafe_menu, cafe_latitude, cafe_longitude, cafe_addr, reg_date, cafe_pic);
+				dto = new CafeDTO(cafe_id, cafe_name, cafe_phone, cafe_running_time, cafe_info, cafe_menu, cafe_latitude, cafe_longitude, cafe_addr, reg_date);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
