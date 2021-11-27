@@ -70,6 +70,7 @@
 			margin-right: 100px;
 		}
 		.slide1{
+		
 			height: 500px;
 		}
 		

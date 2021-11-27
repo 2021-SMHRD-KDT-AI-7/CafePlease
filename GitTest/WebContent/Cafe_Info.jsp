@@ -167,7 +167,7 @@
 	
 		if(request.getParameter("search_cafe") != null){	
 			String search_cafe = URLDecoder.decode(request.getParameter("search_cafe"), "euc-kr") ;
-			
+			System.out.println(search_cafe);
 			i_list1 = dao1.SearchOneCafe(search_cafe);
 			System.out.println(i_list1.size());
 			System.out.println("검색한 카페");
