@@ -79,15 +79,17 @@ public class ReviewDAO {
 	}
 	
 	// 리뷰 평점 평균 구하는 메소드
-	public int avg_review() {
+	public int avg_review(String cafe_id) {
 		Db_conn();
 		
 		try {
 			
-			String sql="select avg(cafe_ratings) from t_review";
+			String sql="select avg(cafe_ratings) from t_review where cafe_id=?";
 			psmt = conn.prepareStatement(sql);
 			
+			psmt.setString(1, cafe_id);
 			rs=psmt.executeQuery();
+			
 			
 			if(rs.next()) {
 				avg = rs.getInt("avg(cafe_ratings)");
@@ -103,14 +105,16 @@ public class ReviewDAO {
 		return avg;
 	}
 	
-	public ArrayList<ReviewDTO> view_review() {
+	public ArrayList<ReviewDTO> view_review(String cafe_id) {
 		
 		Db_conn();
 		ArrayList<ReviewDTO> r_list = new ArrayList<ReviewDTO>();
 		
 		try {
-			String sql = "Select review_seq,review_content,cafe_ratings, m_id from t_review";
+			String sql = "Select review_seq,review_content,cafe_ratings, m_id from t_review where cafe_id=?";
 			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, cafe_id);
 			rs=psmt.executeQuery();
 			
 			while(rs.next()) {

@@ -12,7 +12,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Post_input</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Post_input.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -75,6 +75,11 @@
 		#login{
 			margin-right: 100px;
 		}
+		.up_file{
+			background-color: #a37a54;
+			border: 0;
+		}
+	
     </style>
     
 
@@ -129,7 +134,7 @@
 
 %>
 
-    <section class="u-clearfix u-section-1" id="sec-1aeb">
+    <section class="u-clearfix u-section-1" id="sec-1aeb" style="margin-bottom: 50px;">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h4 class="u-text u-text-custom-color-2 u-text-1">
           <span style="font-weight: 700;">게시물 작성</span>
@@ -151,8 +156,16 @@
               <input type="hidden" value="<%= dto.getArticle_seq() %>" name="seq">
             </div>
            
-            <!-- 파일 선택 -->
-            <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
+           
+           
+           <!-- 내용 -->
+            <div class="u-form-group u-form-message">
+              <label for="message-4c01" class="u-form-control-hidden u-label"></label>
+              <textarea rows="10" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""> <%=dto.getArticle_content()%></textarea>
+            </div>
+            
+             <!-- 파일 선택 -->
+            <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 60px;">
   				<div class="row gx-5">
 		            <!-- <a>최대 3개까지 업로드가 가능합니다.</a> <br> -->
 		            <!-- <input multiple="multiple" name="fileName[]" type="file" id="email-4c01"  style="float: right;"> -->
@@ -164,19 +177,12 @@
 		            <%= dto.getArticle_file3() %> --%>
             </div>
 	    </div>
-           
-           <!-- 내용 -->
-            <div class="u-form-group u-form-message">
-              <label for="message-4c01" class="u-form-control-hidden u-label"></label>
-              <textarea rows="10" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""> <%=dto.getArticle_content()%></textarea>
-            </div>
-            
             <!-- 초기화, 작성완료 -->
-            <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end " >
   				<div class="row gx-5">
 	              <!-- <input type="reset" value="초기화"> -->
-	              <input class="btn btn-secondary btn-lg col-md-auto" type="reset" value="초기화">
-	              <input class="btn btn-secondary btn-lg col-md-auto" type="submit" value="수정완료">
+	              <input class="btn btn-secondary btn-lg col-md-auto up_file" type="reset" value="초기화">
+	              <input class="btn btn-secondary btn-lg col-md-auto up_file" type="submit" value="수정완료">
 	              <!-- <input type="submit" value="작성완료"> <hr> -->
 	            </div>
 	         </div>

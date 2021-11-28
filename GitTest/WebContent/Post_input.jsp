@@ -9,7 +9,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Post_input</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Post_input.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -76,6 +76,15 @@
 			background-color: #A37A54;
 			border-color: #A37A54;
 		}
+		.post_input{
+			margin-bottom: 50px;
+		}
+		.file_up{
+			/* color:#401F00; 브라운 */
+			 color:#DB545A; /* 핑크*/
+			/* color:#A35559; 찐한핑크*/
+			font-weight: 700;
+		}
     </style>
     
   </head>
@@ -116,7 +125,7 @@
     <section class="u-clearfix u-section-1" id="sec-1aeb">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h4 class="u-text u-text-custom-color-2 u-text-1">
-          <span style="font-weight: 700;">게시물 작성</span>
+          <span style="font-weight: 700;" >게시물 작성</span>
           <span style="font-weight: 700;">
             <span style="font-weight: 400;"></span>
           </span>
@@ -126,7 +135,7 @@
         <div class="u-expanded-width u-form u-form-1">
           
           <!-- form 시작 -->
-          <form action="Post_inputServiceCon" method="POST" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" enctype="multipart/form-data">
+          <form action="Post_inputServiceCon" method="POST" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form post_input" source="custom" name="form" style="padding: 10px;" enctype="multipart/form-data">
 
             <!-- 제목 -->
             <div class="u-form-group u-form-name">
@@ -139,32 +148,34 @@
               <label for="email-4c01" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="작성자" id="email-4c01" name="writer" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
             </div>
-           
+            
+           <!-- 내용 -->
+            <div class="u-form-group u-form-message">
+              <label for="message-4c01" class="u-form-control-hidden u-label"></label>
+              <textarea rows="10" cols="50" id="message-4c01" placeholder="내용을  입력해주세요" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
+            </div>
+            
+              
             <!-- 파일 선택 -->
             <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
   				<div class="row gx-5">
 		            <!-- <a>최대 3개까지 업로드가 가능합니다.</a> <br> -->
 		            <!-- <input multiple="multiple" name="fileName[]" type="file" id="email-4c01"  style="float: right;"> -->
+		            <h6 class="upfile file_up" style="margin-left: 25px;">최대 3개까지 업로드 가능합니다.</h6>
 		            <input class="upfile" name="fileName1" type="file" style="float: right;"> <br>
 		            <input class="upfile" name="fileName2" type="file" style="float: right;"> <br>
 		            <input class="upfile" name="fileName3" type="file" style="float: right;">
-            </div>
-	    </div>
-           
-           <!-- 내용 -->
-            <div class="u-form-group u-form-message">
-              <label for="message-4c01" class="u-form-control-hidden u-label"></label>
-              <textarea rows="10" cols="50" id="message-4c01" name="content" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
-            </div>
-            
+         	   </div>
+	   		 </div>
+	   		 
             <!-- 초기화, 작성완료 -->
-            <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
+             <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end"> 
   				<div class="row gx-5">
 	              <!-- <input type="reset" value="초기화"> -->
 	              <input class="btn btn-secondary btn-lg col-md-auto post_input_icon" type="reset" value="초기화" >
 	              <input class="btn btn-secondary btn-lg col-md-auto post_input_icon" type="submit" value="작성완료">
 	              <!-- <input type="submit" value="작성완료"> <hr> -->
-	            </div>
+	          </div> 
 	         </div>
         </form>
         <!-- form끝 -->

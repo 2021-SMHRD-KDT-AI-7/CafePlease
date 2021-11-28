@@ -14,7 +14,7 @@
     <meta name="keywords" content="오늘의 인기 카페에요 !">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Cafe_D</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Cafe_D.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -166,7 +166,6 @@
             
           </div>
         </div>
-        <a href="" data-page-id="more" class="more">더보기&nbsp; </a>
         
       </div>
     </section>

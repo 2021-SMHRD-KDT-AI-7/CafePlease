@@ -20,7 +20,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
-<title>Cafe_Info</title>
+<title>Cafe Please!</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Cafe_Info.css" media="screen">
 <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
@@ -155,7 +155,7 @@
 
 	<%-- <%PicDTO pic =(PicDTO) session.getAttribute("pic");  %> --%>
 	<% ReviewDAO dao = new ReviewDAO(); 
-	   ArrayList<ReviewDTO> r_list = dao.view_review();
+	   ArrayList<ReviewDTO> r_list = dao.view_review(inf.getCafe_id());
 	%>
 
 	<%PicDTO pic =(PicDTO) session.getAttribute("pic");  %>
@@ -359,7 +359,7 @@
 															</colgroup>
 															<tbody class="u-table-body">
 																<tr style="height: 46px;" id="th">
-																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell " >번호</td>
+																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">번호</td>
 																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">내용</td>
 																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">작성자</td>
 																	<td class="u-border-1 u-border-grey-dark-1 u-table-cell">평점</td>

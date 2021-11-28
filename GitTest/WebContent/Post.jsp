@@ -74,6 +74,13 @@
 			vertical-align: middle;
 			height: 25px;
 		}
+		.li_tab{
+			background-color: #a37a54;
+			color:white;
+		}
+		.tb{
+			margin-top: 50px;
+		}
 	</style>
   </head>
   <body class="u-body">
@@ -121,7 +128,7 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-expanded-width u-tabs u-tabs-1">
           <ul class="u-spacing-15 u-tab-list u-unstyled" role="tablist">
-            <li class="u-tab-item" role="presentation">
+            <li class="u-tab-item li_tab" role="presentation">
               <a class="active u-active-custom-color-4 u-button-style u-tab-link u-tab-link-1" id="link-tab-0da5" href="#tab-0da5" role="tab" aria-controls="tab-0da5" aria-selected="true">자유게시판</a>
             </li>
           </ul>
@@ -129,7 +136,7 @@
             <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
               <div class="u-container-layout u-container-layout-1">
                 <a href="Post_input.jsp" data-page-id="7275902" class="u-border-none u-btn u-button-style u-none u-text-custom-color-2 u-btn-1">게시글 작성하기</a>
-                <h4 class="u-text u-text-default u-text-1" style="margin-bottom:150px">&lt;&lt; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; &gt;&gt;</h4>
+               <!--  <h4 class="u-text u-text-default u-text-1" style="margin-bottom:150px">&lt;&lt; 1&nbsp; 2&nbsp; 3&nbsp; 4&nbsp; 5&nbsp; &gt;&gt;</h4> -->
               </div>
             </div>
           </div>
@@ -137,7 +144,7 @@
         
         <!-- 자유게시판 table 시작 -->
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
-          <table class="u-table-entity">
+          <table class="u-table-entity tb" >
             <colgroup>
               <col width="5.4%">
               <col width="45%">

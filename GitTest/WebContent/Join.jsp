@@ -9,7 +9,7 @@
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Join</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Join.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>

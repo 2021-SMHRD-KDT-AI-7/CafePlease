@@ -11,7 +11,7 @@
     <meta name="keywords" content="4.5">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>review</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="review.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -120,7 +120,7 @@
         <h5 class="u-text u-text-default u-text-1"><%=inf.getCafe_name() %></h5>
         
         <%ReviewDAO dao = new ReviewDAO(); %>
-        <h2 class="u-text u-text-default u-text-2"><%=dao.avg_review()%>점</h2>
+        <h2 class="u-text u-text-default u-text-2"><%=dao.avg_review(inf.getCafe_id())%>점</h2>
 
 			<!-- 카페별점부분  -->
 			<h6 class="u-text u-text-default u-text-3">카페에 대한 원두점수를 주세요!</h6>

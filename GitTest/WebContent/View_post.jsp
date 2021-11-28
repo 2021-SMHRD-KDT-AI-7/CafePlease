@@ -11,7 +11,7 @@
     <meta name="keywords" content="Information">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>View_post</title>
+    <title>Cafe Please!</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="View_post.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -74,7 +74,10 @@
 		#login{
 			margin-right: 100px;
 		}
-
+		.view_btn{
+			background-color: #A37A54;
+			border: 0;
+		}
     	
     </style>
   </head>
@@ -149,8 +152,8 @@
             </colgroup>
             <div class="container px-4 d-grid gap-2 d-md-flex justify-content-md-end">
   				<div class="row gx-5">
-             		<a class="btn btn-secondary btn-lg col-md-auto" href="Post.jsp" role="button">게시판</a>
-             		<a class="btn btn-secondary btn-lg col-md-auto" href="Update.jsp?num=<%= num %>" role="button">수정</a>
+             		<a class="btn btn-secondary btn-lg col-md-auto view_btn" href="Post.jsp" role="button">게시판</a>
+             		<a class="btn btn-secondary btn-lg col-md-auto" href="Update.jsp?num=<%= num %>" role="button" style="background-color: #A37A54;">수정</a>
              	</div>
         	</div>
 
