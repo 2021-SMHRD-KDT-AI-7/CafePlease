@@ -18,12 +18,9 @@ public class jjimdeleteServiceCon extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		
 		String m_id = request.getParameter("m_id");
-		String cafe_id = request.getParameter("cafe_id");
-		
-		jjimDTO dto = new jjimDTO(m_id, cafe_id);
 		
 		jjimDAO dao = new jjimDAO();
-		int cnt = dao.jjim(dto);
+		int cnt = dao.jjimdelete(m_id);
 		
 		if(cnt > 0) {
 			System.out.println("찜 삭제 성공!!");

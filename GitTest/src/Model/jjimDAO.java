@@ -12,6 +12,7 @@ public class jjimDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
+	jjimDTO dto = null;
 
 	public void Db_conn() { // 학원에서 준 서버연결 메소드
 		try {
@@ -67,14 +68,14 @@ public class jjimDAO {
 	}
 	
 	// 찜목록 삭제
-	public int jjimdelete(String cafe_id) {
+	public int jjimdelete(String m_id) {
 		Db_conn();
 		try {
 			
-			String sql = "delect from t_jjim where m_id = ? and cafe_id = ?";
+			String sql = "delect from t_jjim where cafe_id = (select cafe_id from t_jjim where m_id = ?)";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, cafe_id);
+			psmt.setString(1, m_id);
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -85,20 +86,50 @@ public class jjimDAO {
 		return cnt;
 	}
 	
-	// 찜목록 조회
-	public ArrayList<jjimDTO> jjimlist() {
-		ArrayList<jjimDTO> jlist = new ArrayList<jjimDTO>();
+	// 찜목록  id와 카페id 가져오기
+	public ArrayList<jjimDTO> id(String id) {
+		ArrayList<jjimDTO> ids = new ArrayList<jjimDTO>();
 		Db_conn();
 		try {
-			String sql = "select * from t_jjim where m_id = ? order by article_date desc";
+			String sql = "select * from t_jjim where m_id = ?";
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
 			
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
+				String m_id = rs.getString("m_id");
+				String cafe_id = rs.getString("cafe_id");
 				
+				dto = new jjimDTO(m_id, cafe_id);
+				ids.add(dto);
 			}
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		} return ids;
+	}
+	
+	// 찜목록 조회
+	public ArrayList<jjimDTO> jjimlist(String num) {
+		ArrayList<jjimDTO> jlist = new ArrayList<jjimDTO>();
+		Db_conn();
+		try {
+			String sql = "select cafe_name, cafe_pic from t_cafe where cafe_id in (select cafe_id from t_jjim where m_id = ?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, num);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				String m_id = rs.getString("cafe_name");
+				String cafe_id = rs.getString("cafe_pic");
+				
+				dto = new jjimDTO(m_id, cafe_id);
+				jlist.add(dto);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
