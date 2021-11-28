@@ -306,10 +306,9 @@
 											<a href="Cafe_Info.jsp" data-page-id="95186816"
 												class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-body-color u-btn-2">해당
 												카페로 이동</a>
-											<a href="jjimdeleteServiceCon?m_id<%= info.getM_id() %>" data-page-id="95186816"
+											<a href="jjimdeleteServiceCon?m_id=<%= id.get(i).getM_id() %>&cafe_id=<%= id.get(i).getCafe_id() %>" data-page-id="95186816"
 												class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-custom-font u-heading-font u-hover-none u-none u-text-body-color u-btn-2">
 												찜목록 삭제 X</a>
-											
 										</div>
 									</div>
 									<% } %>

@@ -68,14 +68,14 @@ public class jjimDAO {
 	}
 	
 	// Âò¸ñ·Ï »èÁ¦
-	public int jjimdelete(String m_id) {
+	public int jjimdelete(String m_id, String cafe_id) {
 		Db_conn();
 		try {
-			
-			String sql = "delect from t_jjim where cafe_id = (select cafe_id from t_jjim where m_id = ?)";
+			String sql = "delete from t_jjim where m_id =? and cafe_id = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, m_id);
+			psmt.setString(2, cafe_id);
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -90,6 +90,7 @@ public class jjimDAO {
 	public ArrayList<jjimDTO> id(String id) {
 		ArrayList<jjimDTO> ids = new ArrayList<jjimDTO>();
 		Db_conn();
+		
 		try {
 			String sql = "select * from t_jjim where m_id = ?";
 			psmt = conn.prepareStatement(sql);

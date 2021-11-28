@@ -147,11 +147,10 @@
           <table class="u-table-entity tb" >
             <colgroup>
               <col width="5.4%">
-              <col width="45%">
+              <col width="50.4%">
               <col width="12%">
               <col width="16%">
               <col width="16%">
-              <col width="5.4%">
             </colgroup>
             <thead class="u-align-center u-custom-color-2 u-table-header u-table-header-1">
               <tr style="height: 48px;">
