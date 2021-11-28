@@ -8,6 +8,9 @@ public class CafeImagesDTO {
 	private String pic_path;
 	private int pic_type;
 	private Date reg_date;
+	private String cafe_pic;
+	private String cafe_name;
+	private String cafe_id;
 	
 	public CafeImagesDTO(String pic_id, String pic_path, int pic_type, Date reg_date) {
 		super();
@@ -23,6 +26,37 @@ public class CafeImagesDTO {
 		this.pic_path = pic_path;
 	}
 	
+	public CafeImagesDTO(String cafe_name, String cafe_id, String cafe_pic) {
+		super();
+		this.cafe_name = cafe_name;
+		this.cafe_id = cafe_id;
+		this.cafe_pic = cafe_pic;
+	}
+
+	public String getCafe_pic() {
+		return cafe_pic;
+	}
+
+	public void setCafe_pic(String cafe_pic) {
+		this.cafe_pic = cafe_pic;
+	}
+
+	public String getCafe_name() {
+		return cafe_name;
+	}
+
+	public void setCafe_name(String cafe_name) {
+		this.cafe_name = cafe_name;
+	}
+
+	public String getCafe_id() {
+		return cafe_id;
+	}
+
+	public void setCafe_id(String cafe_id) {
+		this.cafe_id = cafe_id;
+	}
+
 	public String getPic_id() {
 		return pic_id;
 	}

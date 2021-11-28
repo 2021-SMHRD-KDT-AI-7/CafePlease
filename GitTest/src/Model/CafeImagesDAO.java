@@ -207,6 +207,30 @@ public class CafeImagesDAO {
 		return i_list1;
 	}
 
-	
+	public ArrayList<CafeImagesDTO> TopCafe() {
+		ArrayList<CafeImagesDTO> p_list = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+		try {
+			String sql = "select rownum, total.* from (select cafe_name, cafe_id, cafe_ranking*0.0001+cafe_new_yn as total, cafe_pic  from t_cafe order by total desc) total where rownum<8";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			System.out.println(rs.next());
+			
+			while (rs.next()) {
+				String cafe_name = rs.getString("cafe_name");
+				String cafe_id = rs.getString("cafe_id");
+				String cafe_pic = rs.getString("cafe_pic");
+
+				dto = new CafeImagesDTO(cafe_name, cafe_id, cafe_pic);
+				p_list.add(dto);
+			}
+			System.out.println(p_list.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return p_list;
+	}
 	
 }
