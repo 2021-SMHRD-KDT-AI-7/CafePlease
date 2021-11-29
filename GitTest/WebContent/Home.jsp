@@ -75,15 +75,23 @@
 		} 
 		
 		.cafe_po .slide1{
-			height: 400px;
+			height: 330px;
 			
 		}
 		.slide1 img{
-			height: 450px;
+			height: 330px;
 			
 		}
+		
 		.u-over-slide{
 			display: none;
+		}
+		#update_date{
+			font-size: 12px;
+			
+		}
+		.u-section-2 .u-gallery-1{
+			margin-top: 80px !important;
 		}
 	</style>
 
@@ -179,14 +187,14 @@
 			ArrayList<CafeImagesDTO> p_list = dao.TopCafe();
             System.out.println(p_list.size());
 			%>     
-			
+			<h6 id="update_date" style="margin-top: 80px;">2021.11.29 기준 업데이트</h6>
         <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1">
           <div class="u-gallery-inner u-gallery-inner-1 cafe_po">
           
            <% for(int i = 0; i<p_list.size(); i++){ %> 
             
             <div class="u-effect-fade u-gallery-item ">
-          
+ 
               <div class="u-back-slide slide1" data-image-width="828" data-image-height="823">
                <a href="CafeInfoServiceCon?img=<%= p_list.get(i).getPic_path()%>"> <img class="u-back-image u-expanded" src="<%= p_list.get(i).getCafe_pic() %>">   </a>
               </div>
