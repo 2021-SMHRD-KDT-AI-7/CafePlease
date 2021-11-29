@@ -180,8 +180,9 @@
 			
         <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1">
           <div class="u-gallery-inner u-gallery-inner-1 cafe_po">
+          
            <% for(int i = 0; i<p_list.size(); i++){ %> 
-           
+            <a href="CafeInfoServiceCon?img=<%= p_list.get(i).getPic_path()%>"> 
             <div class="u-effect-fade u-gallery-item ">
               <div class="u-back-slide slide1" data-image-width="828" data-image-height="823">
                 <img class="u-back-image u-expanded" src="<%= p_list.get(i).getCafe_pic() %>">

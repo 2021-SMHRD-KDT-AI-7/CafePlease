@@ -26,9 +26,9 @@ public class CafeImagesDTO {
 		this.pic_path = pic_path;
 	}
 	
-	public CafeImagesDTO(String cafe_name, String cafe_id, String cafe_pic) {
+	public CafeImagesDTO(String pic_path, String cafe_id, String cafe_pic) {
 		super();
-		this.cafe_name = cafe_name;
+		this.pic_path = pic_path;
 		this.cafe_id = cafe_id;
 		this.cafe_pic = cafe_pic;
 	}

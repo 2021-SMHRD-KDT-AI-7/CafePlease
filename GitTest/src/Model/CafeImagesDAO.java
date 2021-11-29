@@ -260,6 +260,34 @@ public class CafeImagesDAO {
 		return i_list;
 	}
 
-	
+	public ArrayList<CafeImagesDTO> TopCafe() {
+		ArrayList<CafeImagesDTO> p_list = new ArrayList<CafeImagesDTO>();
+		Db_conn();
+		try {
+			String sql = "select * from (select A.pic_id, A.pic_path, A.cafe_id, A.cafe_pic, rank() OVER (PARTITION BY cafe_id order by pic_id) AS RankNo from (select T.pic_id, T.pic_path, I.cafe_id, C.cafe_pic from t_cafeimages T, t_cafe_img I, (select rownum, total.* from (select cafe_name, cafe_id, cafe_pic, cafe_ranking*0.0001+cafe_new_yn as total  from t_cafe order by total desc) total where rownum<8) C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id) A) where RankNo =1";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			System.out.println(rs.next());
+			
+			while (rs.next()) {
+				String pic_path = rs.getString("pic_path");
+				String cafe_id = rs.getString("cafe_id");
+				String cafe_pic = rs.getString("cafe_pic");
+
+				dto = new CafeImagesDTO(pic_path, cafe_id, cafe_pic);
+				p_list.add(dto);
+			}
+			
+			for (int i=0; i<p_list.size(); i++) {
+				System.out.println(p_list.get(i).getCafe_id());
+			}
+			System.out.println(p_list.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Db_close();
+		}
+		return p_list;
+	}
 	
 }
