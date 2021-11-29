@@ -91,9 +91,6 @@
 			margin-right: 100px;
 		}
 
-#cate{
-	margin-top: 150px
-}
  .cafe_info{
 	color: #401F00;
 
@@ -144,7 +141,9 @@
 	height: 40px;
 	font-weight: 100px;
 }
-
+#btn_group{
+text-align:center;
+}
 </style>
 </head>
 
@@ -405,23 +404,17 @@
 									
 	
 										<!-- 사진 버튼 (외부,내부,음료...) -->
-										<table id="cate">
+											
+											<div id="btn_group">
 											<button  class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8 current" id = "allbtn">All Photo</button>
 												
 											<button  class="current u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4" id = "outbtn">out side</button>
 												
 											<button  class="current u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7" id = "inbtn" >inside</button>
-											<button  class="current u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5" id = "menubtn" >menu</button>
 												
 											<button  class="current u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6" id = "photozone" >food</button>
-												
-										</table>
-										
+												</div>
 										<script>
-									/* 	 $("#outbtn").on("click", function(){
-										  	 document.getElementById()
-											 
-										 } */
 										 
 										var clicked_btn = 'All photo';
 										 
@@ -451,14 +444,6 @@
 													 <%for(int i = 0; i< list_in.size(); i++){ %>
 													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
 													 	$('#img<%=i%>').attr('src', '<%= list_in.get(i)%>');
-													 <%} %>
-												 }
-												 else if(clicked_btn == 'menu'){
-													 $('.img_div').remove();
-													 console.log(<%= list_menu.size()%>);
-													 <%for(int i = 0; i< list_menu.size(); i++){ %>
-													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
-													 	$('#img<%=i%>').attr('src', '<%= list_menu.get(i)%>');
 													 <%} %>
 												 }
 												 else if(clicked_btn == 'food'){
@@ -497,140 +482,6 @@
 											</div>
 											  <%} %>
 											
-											<!-- <div class="u-effect-fade u-gallery-item u-gallery-item-2">
-												<div class="u-back-slide" data-image-width="594"
-													data-image-height="594">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_01.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-2">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-3">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="823">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_03.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-3">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-4">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="825">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_04.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-4">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-5">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="828">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_09.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-5">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-6">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="828">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_10.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-6">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-7">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="825">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_06.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-7">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-8">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="819">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_02.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-8">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-9">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="828">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_05.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-9">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-10">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="828">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_08.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-10">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-11">
-												<div class="u-back-slide" data-image-width="828"
-													data-image-height="828">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_11.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-11">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-12">
-												<div class="u-back-slide" data-image-width="825"
-													data-image-height="816">
-													<img class="u-back-image u-expanded"
-														src="images/KakaoTalk_20211119_150234575_07.jpg">
-												</div>
-												<div
-													class="u-align-center u-over-slide u-shading u-over-slide-12">
-													<h3 class="u-gallery-heading"></h3>
-													<p class="u-gallery-text"></p>
-												</div>
-											</div>
-										</div> -->
-								
 									</div>
 								</div>
 							</div>
