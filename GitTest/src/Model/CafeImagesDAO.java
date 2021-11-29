@@ -180,7 +180,7 @@ public class CafeImagesDAO {
 		Db_conn();
 		
 		try {
-			String sql = "select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name =? and not pic_type in ('3') ";
+			String sql = "select T.pic_id, T.pic_path, T.pic_type from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name =? and not pic_type in ('3') ";
 			System.out.println(sql);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, search_cafe);
@@ -192,8 +192,9 @@ public class CafeImagesDAO {
 			while(rs.next()) {
 				String pic_id = rs.getString("pic_id");
 				String pic_path = rs.getString("pic_path");
+				int pic_type = rs.getInt("pic_type");
 
-				dto = new CafeImagesDTO(pic_id, pic_path);
+				dto = new CafeImagesDTO(pic_id, pic_path, pic_type);
 				i_list1.add(dto);
 			}}
 			else {

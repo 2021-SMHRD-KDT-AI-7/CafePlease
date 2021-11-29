@@ -164,11 +164,30 @@
 	<% 
 		CafeImagesDAO dao1 = new CafeImagesDAO();
 		ArrayList<CafeImagesDTO> i_list1 = null;
+			ArrayList<String> list_in = new ArrayList<>();
+			ArrayList<String> list_out = new ArrayList<>();
+			ArrayList<String> list_food = new ArrayList<>();
+			ArrayList<String> list_menu = new ArrayList<>();
+			ArrayList<String> list_all = new ArrayList<>();
 	
 		if(request.getParameter("search_cafe") != null){	
 			String search_cafe = URLDecoder.decode(request.getParameter("search_cafe"), "euc-kr") ;
-			System.out.println(search_cafe);
+			System.out.println("검색한 카페 : "+search_cafe);
 			i_list1 = dao1.SearchOneCafe(search_cafe);
+			
+			for(int i=0; i<i_list1.size();i++){
+				list_all.add(i_list1.get(i).getPic_path());
+				if(i_list1.get(i).getPic_type() == 1){
+					list_in.add(i_list1.get(i).getPic_path());
+				}else if(i_list1.get(i).getPic_type() == 2){
+					list_out.add(i_list1.get(i).getPic_path());
+				}else if(i_list1.get(i).getPic_type() == 3){
+					list_menu.add(i_list1.get(i).getPic_path());
+				}else{
+					list_food.add(i_list1.get(i).getPic_path());
+				}
+			}
+			
 			System.out.println(i_list1.size());
 			System.out.println("검색한 카페");
 		}else{
@@ -386,31 +405,89 @@
 									
 	
 										<!-- 사진 버튼 (외부,내부,음료...) -->
-										<div id="cate">
-											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8">All
-												Photo</button>
-											<button class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4">
-												out side</button>
-											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7">inside</button>
-											<button class="u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5">
-												menu</button>
-											<button class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6">photo
-												zone</button>
-										</div>
+										<table id="cate">
+											<button  class="u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-8 current" id = "allbtn">All Photo</button>
+												
+											<button  class="current u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-4" id = "outbtn">out side</button>
+												
+											<button  class="current u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-7" id = "inbtn" >inside</button>
+											<button  class="current u-border-1 u-border-custom-color-2 u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-5" id = "menubtn" >menu</button>
+												
+											<button  class="current u-border-1 u-border-custom-color-2  u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-6" id = "photozone" >food</button>
+												
+										</table>
+										
+										<script>
+									/* 	 $("#outbtn").on("click", function(){
+										  	 document.getElementById()
+											 
+										 } */
+										 
+										var clicked_btn = 'All photo';
+										 
+										 $(document).ready(function(){
+											 $(".current").on("click", function(){
+												 clicked_btn = $(this).text();
+												 console.log(clicked_btn);
+												 if(clicked_btn =='All Photo'){
+												 	$('.img_div').remove();
+													 console.log(<%= list_all.size()%>);
+													 <%for(int i = 0; i< list_all.size(); i++){ %>
+													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
+													 	$('#img<%=i%>').attr('src', '<%= list_all.get(i)%>');
+													 <%} %>
+													 
+												 }else if(clicked_btn == 'out side'){
+													 $('.img_div').remove();
+													 console.log(<%= list_out.size()%>);
+													 <%for(int i = 0; i< list_out.size(); i++){ %>
+													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
+													 	$('#img<%=i%>').attr('src', '<%= list_out.get(i)%>');
+													 <%} %>
+												 }
+												 else if(clicked_btn == 'inside'){
+													 $('.img_div').remove();
+													 console.log(<%= list_in.size()%>);
+													 <%for(int i = 0; i< list_in.size(); i++){ %>
+													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
+													 	$('#img<%=i%>').attr('src', '<%= list_in.get(i)%>');
+													 <%} %>
+												 }
+												 else if(clicked_btn == 'menu'){
+													 $('.img_div').remove();
+													 console.log(<%= list_menu.size()%>);
+													 <%for(int i = 0; i< list_menu.size(); i++){ %>
+													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
+													 	$('#img<%=i%>').attr('src', '<%= list_menu.get(i)%>');
+													 <%} %>
+												 }
+												 else if(clicked_btn == 'food'){
+													 $('.img_div').remove();
+													 console.log(<%= list_food.size()%>);
+													 <%for(int i = 0; i< list_food.size(); i++){ %>
+													 	$('.img_list').prepend('<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div"> <div class="u-back-slide" data-image-width="828" data-image-height="812"><img class="u-back-image u-expanded remove_img" id="img<%=i%>"> </div> <div class="u-align-center u-over-slide u-shading u-over-slide-1"> <h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p></div></div>');
+													 	$('#img<%=i%>').attr('src', '<%= list_food.get(i)%>');
+													 <%} %>
+												 }
+											 })
+										 })
+										 
+										
+										 
+										</script>
 										<!--  사진버튼 끝 -->
 
 
 									<!-- 카페사진들 리스트 -->
 									<div class="u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1" id="carousel-6bb4">
 
-										<div class="u-gallery-inner u-gallery-inner-1" role="listbox">
+										<div class="u-gallery-inner u-gallery-inner-1 img_list" role="listbox">
 										
 										<% for(int i = 0; i<i_list1.size(); i++){ %>
-											<div class="u-effect-fade u-gallery-item u-gallery-item-1">
+											<div class="u-effect-fade u-gallery-item u-gallery-item-1 img_div">
 												<div class="u-back-slide" data-image-width="828"
 													data-image-height="812">
-													<img class="u-back-image u-expanded"
-														src="<%= i_list1.get(i).getPic_path() %>">
+													<img class="u-back-image u-expanded remove_img" id="img_<%= i %>"	src="<%= i_list1.get(i).getPic_path() %>">
 												</div>
 												<div
 													class="u-align-center u-over-slide u-shading u-over-slide-1">
