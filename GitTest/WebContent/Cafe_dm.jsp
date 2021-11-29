@@ -14,9 +14,9 @@
     <meta name="keywords" content="오늘의 인기 카페에요 !">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Cafe Please!</title>
+    <title>Cafe_dm</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Cafe_D.css" media="screen">
+<link rel="stylesheet" href="Cafe_dm.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
   <!--   <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script> -->
     <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
@@ -31,7 +31,7 @@
 		"logo": "images/_.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Cafe_D">
+    <meta property="og:title" content="Cafe_dm">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
     
@@ -118,8 +118,8 @@
 <!-- 새로만든 헤더부분 끝 -->
     <section class="u-clearfix u-section-1" id="sec-e384">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-align-center u-text u-text-custom-color-2 u-text-1">청명한 가을날 가기 좋은<br>
-          <span class="u-text-custom-color-5">동구</span>에 있는 카페에요!
+        <h2 class="u-align-center u-text u-text-custom-color-2 u-text-1">인테리어 맛집이 많은<br>
+          <span class="u-text-custom-color-5">동명동</span>에 있는 카페에요!
         </h2>
         <div class="u-form u-form-1">
           <form action="SearchServiceCon" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 10px" source="custom" name="form">
@@ -137,12 +137,11 @@
         </div>
         <h6 class="u-text u-text-custom-color-2 u-text-2"><a href="Cafe_D.jsp" >#ALL</a></h6>
         <h6 class="u-text u-text-custom-color-2 u-text-3"><a href="Cafe_cj.jsp" >#충장로</a></h6>
-        <h6 class="u-text u-text-custom-color-2 u-text-4"><a href="Cafe_dm.jsp">#동명동</a></h6>
-
+        <h6 class="u-text u-text-custom-color-2 u-text-4"><a href="cafe_dm.jsp">#동명동</a></h6>
         
         <%
             CafeImagesDAO dao = new CafeImagesDAO();
-			ArrayList<CafeImagesDTO> i_list = dao.ViewImages_D();
+			ArrayList<CafeImagesDTO> i_list = dao.ViewImages_DM();
             System.out.println(i_list.size());
 		%>
 
@@ -156,7 +155,7 @@
                 <a href="CafeInfoServiceCon?img=<%= i_list.get(i).getPic_path() %>">
             <div class="u-effect-fade u-gallery-item u-gallery-item-1">
               <div class="u-back-slide" data-image-width="828" data-image-height="823">
-                <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="D<%= i+1 %>.jpg">
+                <img class="u-back-image u-expanded" src="<%= i_list.get(i).getPic_path() %>" alt="D01<%= i+1 %>.jpg">
               </div>
               <div class="u-align-center u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
@@ -167,6 +166,7 @@
             
           </div>
         </div>
+        <a href="" data-page-id="more" class="more">더보기&nbsp; </a>
         
       </div>
     </section>
