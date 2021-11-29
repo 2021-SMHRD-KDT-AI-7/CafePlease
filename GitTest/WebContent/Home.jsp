@@ -69,16 +69,18 @@
 		#login{
 			margin-right: 100px;
 		}
-		.slide1{
+ 		.slide1{
 		
-			height: 500px;
-		}
+			height: 100px;
+		} 
 		
-		.cafe_po{
-			height: 700px;
+		.cafe_po .slide1{
+			height: 400px;
+			
 		}
-		.slide1>img{
-			height: 350px;
+		.slide1 img{
+			height: 450px;
+			
 		}
 		.u-over-slide{
 			display: none;
@@ -182,10 +184,11 @@
           <div class="u-gallery-inner u-gallery-inner-1 cafe_po">
           
            <% for(int i = 0; i<p_list.size(); i++){ %> 
-            <a href="CafeInfoServiceCon?img=<%= p_list.get(i).getPic_path()%>"> 
+            
             <div class="u-effect-fade u-gallery-item ">
+          
               <div class="u-back-slide slide1" data-image-width="828" data-image-height="823">
-                <img class="u-back-image u-expanded" src="<%= p_list.get(i).getCafe_pic() %>">
+               <a href="CafeInfoServiceCon?img=<%= p_list.get(i).getPic_path()%>"> <img class="u-back-image u-expanded" src="<%= p_list.get(i).getCafe_pic() %>">   </a>
               </div>
               <div class="u-over-slide u-shading u-over-slide-1">
                 <h3 class="u-gallery-heading"></h3>
