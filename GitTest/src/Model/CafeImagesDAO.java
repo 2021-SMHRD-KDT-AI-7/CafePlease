@@ -47,7 +47,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (select * from t_cafeimages where pic_id like 'D%'	order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'D%' and not pic_type in ('3') order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -74,7 +74,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (select * from t_cafeimages where pic_id like 'P%' order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'P%' and not pic_type in ('3') order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
@@ -99,7 +99,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (select * from t_cafeimages where pic_id like 'S%'	order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'S%'	and not pic_type in ('3') order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -126,7 +126,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (select * from t_cafeimages where pic_id like 'N%'	order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'N%'	and not pic_type in ('3') order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -153,7 +153,7 @@ public class CafeImagesDAO {
 		Db_conn();
 
 		try {
-			String sql = "select * from (select * from t_cafeimages where pic_id like 'G%' order by dbms_random.value) ";
+			String sql = "select * from (select * from t_cafeimages where pic_id like 'G%' and not pic_type in ('3') order by dbms_random.value) ";
 			psmt = conn.prepareStatement(sql);
 		
 			rs = psmt.executeQuery();
@@ -180,7 +180,7 @@ public class CafeImagesDAO {
 		Db_conn();
 		
 		try {
-			String sql = "select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name =?";
+			String sql = "select T.pic_id, T.pic_path from t_cafeimages T, t_cafe_img I, t_cafe C where T.pic_id = I.pic_id and I.cafe_id = C.cafe_id and C.Cafe_name =? and not pic_type in ('3') ";
 			System.out.println(sql);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, search_cafe);

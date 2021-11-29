@@ -311,6 +311,9 @@
 													<tr>
 														<td align="letf">¸Þ´º</td>
 														<td align="left"></td>
+														<td>
+														<%= inf.getCafe_menu() %>
+														</td>
 													<%-- 	<td><br><%
 															String[] menus = inf.getCafe_menu().split(", ");
 														

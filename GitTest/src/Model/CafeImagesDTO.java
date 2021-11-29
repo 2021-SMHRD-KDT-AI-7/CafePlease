@@ -20,10 +20,11 @@ public class CafeImagesDTO {
 		this.reg_date = reg_date;
 	}
 
-	public CafeImagesDTO(String pic_id, String pic_path) {
+	public CafeImagesDTO(String pic_id, String pic_path, int pic_type) {
 		super();
 		this.pic_id = pic_id;
 		this.pic_path = pic_path;
+		this.pic_type = pic_type;
 	}
 	
 	public CafeImagesDTO(String pic_path, String cafe_id, String cafe_pic) {
