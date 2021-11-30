@@ -169,7 +169,7 @@
               <tr style="height: 75px;">
                 <td class="u-border-1 u-border-grey-5 u-first-column u-grey-5 u-table-cell u-table-cell-6"><%= i+1 %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell">
-                  <a href="View_post.jsp?num=<%= b_list.get(i).getArticle_seq() %>"data-page-id="1476824093" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-6 u-text-black u-text-hover-custom-color-6 u-btn-3"><%= b_list.get(i).getArticle_title() %> ></a>
+                  <a href="View_post.jsp?num=<%= b_list.get(i).getArticle_seq() %>"data-page-id="1476824093" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-active-custom-color-6 u-text-black u-text-hover-custom-color-6 u-btn-3"><%= b_list.get(i).getArticle_title() %></a>
                 </td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getArticle_date() %></td>
                 <td class="u-border-1 u-border-grey-5 u-table-cell"><%= b_list.get(i).getM_id() %></td>
